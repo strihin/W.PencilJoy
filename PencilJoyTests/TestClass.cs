@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using System;
-using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
@@ -8,7 +7,8 @@ using OpenQA.Selenium.Support.UI;
 using PencilJoyTests.ReportCore;
 using PencilJoyTests.Data;
 using PencilJoyTests.Pages;
-using RelevantCodes.ExtentReports;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
 
 namespace PencilJoyTests
 {
@@ -17,7 +17,7 @@ namespace PencilJoyTests
     {
         private IWebDriver _webDriver;
         private WebDriverWait _waitDriver;
-        private ExtentTest _test;
+        private ExtentHtmlReporter _test;
 
         [SetUp]
         public void InitializeBrowser()
@@ -33,7 +33,8 @@ namespace PencilJoyTests
         [Test]
         public void TestUsingPayPal()
         {
-            _test = extent.StartTest("PayPal", "Payment by paypal. Page`s loaded long term");
+          
+            _test = extent.Crea("PayPal", "Payment by paypal. Page`s loaded long term");
             //Data initialization
             CreateBookData createBookData = new CreateBookData("UsernameXX", 4, 1, 1, 2);
             MessageData messageData = new MessageData("testname", "testmail@yahoo.com");
@@ -52,13 +53,13 @@ namespace PencilJoyTests
             try
             {
                  //Methods
-                _test.Log(LogStatus.Pass, objCreateBookPage.LoginIntoBookData());
-                _test.Log(LogStatus.Pass, objPreviewPage.GetPreviewPageTitle());
-                _test.Log(LogStatus.Pass, objMessagePage.LoginCustomerData(messageData));
-                _test.Log(LogStatus.Pass, objBagPage.GetBagPageTitle());
-                _test.Log(LogStatus.Pass, objCheckOutPage.LoginIntoShippingAddress(checkoutAddressData));
-                _test.Log(LogStatus.Pass, objCheckOutPage.PaymentMethodPaypal());
-                _test.Log(LogStatus.Pass, objPaypalPaymentPage.FillFields(paypalPaymentData));
+                _test.Log(Status.Pass, objCreateBookPage.LoginIntoBookData());
+                _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
+                _test.Log(Status.Pass, objMessagePage.LoginCustomerData(messageData));
+                _test.Log(Status.Pass, objBagPage.GetBagPageTitle());
+                _test.Log(Status.Pass, objCheckOutPage.LoginIntoShippingAddress(checkoutAddressData));
+                _test.Log(Status.Pass, objCheckOutPage.PaymentMethodPaypal());
+                _test.Log(Status.Pass, objPaypalPaymentPage.FillFields(paypalPaymentData));
                 Assert.True(true, "Overall steps has been successful");
             }
             catch (Exception e)
@@ -70,7 +71,7 @@ namespace PencilJoyTests
         public void TestUsingPayPal2()
         {
 
-            _test = extent.StartTest("PayPal without username", "No data for username");
+            _test = extent.CreateTest("PayPal without username", "No data for username");
             //Data initialization
             CreateBookData createBookData = new CreateBookData("UsernameXX", 4, 1, 1, 2);
             MessageData messageData = new MessageData("testname", "testmail@yahoo.com");
@@ -89,13 +90,13 @@ namespace PencilJoyTests
             try
             {
                 //Methods
-                _test.Log(LogStatus.Pass, objCreateBookPage.LoginIntoBookData());
-                _test.Log(LogStatus.Pass, objPreviewPage.GetPreviewPageTitle());
-                _test.Log(LogStatus.Pass, objMessagePage.LoginCustomerData(messageData));
-                _test.Log(LogStatus.Pass, objBagPage.GetBagPageTitle());
-                _test.Log(LogStatus.Pass, objCheckOutPage.LoginIntoShippingAddress(checkoutAddressData));
-                _test.Log(LogStatus.Pass, objCheckOutPage.PaymentMethodPaypal());
-                _test.Log(LogStatus.Pass, objPaypalPaymentPage.FillFields(paypalPaymentData));
+                _test.Log(Status.Pass, objCreateBookPage.LoginIntoBookData());
+                _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
+                _test.Log(Status.Pass, objMessagePage.LoginCustomerData(messageData));
+                _test.Log(Status.Pass, objBagPage.GetBagPageTitle());
+                _test.Log(Status.Pass, objCheckOutPage.LoginIntoShippingAddress(checkoutAddressData));
+                _test.Log(Status.Pass, objCheckOutPage.PaymentMethodPaypal());
+                _test.Log(Status.Pass, objPaypalPaymentPage.FillFields(paypalPaymentData));
                 Assert.True(true, "Overall steps has been successful");
             }
             catch (Exception e)
@@ -107,7 +108,7 @@ namespace PencilJoyTests
         public void TestUsingPayPal3()
         {
 
-            _test = extent.StartTest("PayPal without phone number", "Field number phone is empty at checkout page");
+            _test = extent.CreateTest("PayPal without phone number", "Field number phone is empty at checkout page");
             //Data initialization
             CreateBookData createBookData = new CreateBookData("UsernameXX", 4, 1, 1, 2);
             MessageData messageData = new MessageData("testname", "@yahoo.com");
@@ -126,13 +127,13 @@ namespace PencilJoyTests
             try
             {
                 //Methods
-                _test.Log(LogStatus.Pass, objCreateBookPage.LoginIntoBookData());
-                _test.Log(LogStatus.Pass, objPreviewPage.GetPreviewPageTitle());
-                _test.Log(LogStatus.Pass, objMessagePage.LoginCustomerData(messageData));
-                _test.Log(LogStatus.Pass, objBagPage.GetBagPageTitle());
-                _test.Log(LogStatus.Pass, objCheckOutPage.LoginIntoShippingAddress(checkoutAddressData));
-                _test.Log(LogStatus.Pass, objCheckOutPage.PaymentMethodPaypal());
-                _test.Log(LogStatus.Pass, objPaypalPaymentPage.FillFields(paypalPaymentData));
+                _test.Log(Status.Pass, objCreateBookPage.LoginIntoBookData());
+                _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
+                _test.Log(Status.Pass, objMessagePage.LoginCustomerData(messageData));
+                _test.Log(Status.Pass, objBagPage.GetBagPageTitle());
+                _test.Log(Status.Pass, objCheckOutPage.LoginIntoShippingAddress(checkoutAddressData));
+                _test.Log(Status.Pass, objCheckOutPage.PaymentMethodPaypal());
+                _test.Log(Status.Pass, objPaypalPaymentPage.FillFields(paypalPaymentData));
                 Assert.True(true, "Overall steps has been successful");
             }
             catch (Exception e)
@@ -143,31 +144,34 @@ namespace PencilJoyTests
         [Test]
         public void TestUsingAnotherCardPass()
         {
-            _test = extent.StartTest("Correct card", "Case should be positive");
+            DataGeneration dg = new DataGeneration();
+            _test = extent.CreateTest("Correct card", "Case should be positive");
 
             //Data initialization
+            /*
             CreateBookData createBookData = new CreateBookData("Username", 5, 31, 1, 5);
             MessageData messageData = new MessageData("testname2", "testmail@gmail.com");
             CheckoutAddressData checkoutAddressData = new CheckoutAddressData("Username2", "Userlastname2", "Hvardeisky ", "Moscow", "576576", "+3806215451564");
             CheckoutPaymentData checkoutPaymentData = new CheckoutPaymentData("424", "123", "12", "17");
+            */
             //Page Objects initialization
-            CreateBookPage objCreateBookPage = new CreateBookPage(_waitDriver, createBookData);
+            CreateBookPage objCreateBookPage = new CreateBookPage(_waitDriver, dg.createBookData);
             PreviewPage objPreviewPage = new PreviewPage(_waitDriver);
             MessagePage objMessagePage = new MessagePage(_waitDriver);
             BagPage objBagPage = new BagPage(_waitDriver);
-            CheckOutPage objCheckOutPage = new CheckOutPage(_waitDriver, checkoutPaymentData);
+            CheckOutPage objCheckOutPage = new CheckOutPage(_waitDriver, dg.checkoutPaymentData);
             SuccessPage objSuccessPage = new SuccessPage(_waitDriver);
 
             try
             {
                 //Methods
-                _test.Log(LogStatus.Pass, objCreateBookPage.LoginIntoBookData());
-                _test.Log(LogStatus.Pass, objPreviewPage.GetPreviewPageTitle());
-                _test.Log(LogStatus.Pass, objMessagePage.LoginCustomerData(messageData));
-                _test.Log(LogStatus.Pass, objBagPage.GetBagPageTitle());
-                _test.Log(LogStatus.Pass, objCheckOutPage.LoginIntoShippingAddress(checkoutAddressData));
-                _test.Log(LogStatus.Pass, objCheckOutPage.PaymentAddress());
-                _test.Log(LogStatus.Pass, objSuccessPage.CheckSuccessForm());
+                _test.Log(Status.Pass, objCreateBookPage.LoginIntoBookData());
+                _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
+                _test.Log(Status.Pass, objMessagePage.LoginCustomerData(dg.messageData));
+                _test.Log(Status.Pass, objBagPage.GetBagPageTitle());
+                _test.Log(Status.Pass, objCheckOutPage.LoginIntoShippingAddress(dg.checkoutAddressData));
+                _test.Log(Status.Pass, objCheckOutPage.PaymentAddress());
+                _test.Log(Status.Pass, objSuccessPage.CheckSuccessForm());
                 Assert.True(true, "Overall steps has been successful");
             }
             catch (Exception e)
@@ -178,7 +182,7 @@ namespace PencilJoyTests
         [Test]
         public void TestUsingAnotherCard()
         {
-            _test = extent.StartTest("Test without country", "Field country is empty at checkout page");
+            _test = extent.CreateTest("Test without country", "Field country is empty at checkout page");
 
             //Data initialization
             CreateBookData createBookData = new CreateBookData("Username", 5, 31, 1, 5);
@@ -196,13 +200,13 @@ namespace PencilJoyTests
             try
             {
                 //Methods
-                _test.Log(LogStatus.Pass, objCreateBookPage.LoginIntoBookData());
-                _test.Log(LogStatus.Pass, objPreviewPage.GetPreviewPageTitle());
-                _test.Log(LogStatus.Pass, objMessagePage.LoginCustomerData(messageData));
-                _test.Log(LogStatus.Pass, objBagPage.GetBagPageTitle());
-                _test.Log(LogStatus.Pass, objCheckOutPage.LoginIntoShippingAddress(checkoutAddressData));
-                _test.Log(LogStatus.Pass, objCheckOutPage.PaymentAddress());
-                _test.Log(LogStatus.Pass, objSuccessPage.CheckSuccessForm());
+                _test.Log(Status.Pass, objCreateBookPage.LoginIntoBookData());
+                _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
+                _test.Log(Status.Pass, objMessagePage.LoginCustomerData(messageData));
+                _test.Log(Status.Pass, objBagPage.GetBagPageTitle());
+                _test.Log(Status.Pass, objCheckOutPage.LoginIntoShippingAddress(checkoutAddressData));
+                _test.Log(Status.Pass, objCheckOutPage.PaymentAddress());
+                _test.Log(Status.Pass, objSuccessPage.CheckSuccessForm());
                 Assert.True(true, "Overall steps has been successful");
             }
             catch (Exception e)
@@ -213,7 +217,7 @@ namespace PencilJoyTests
         [Test]
         public void TestUsingAnotherCard4()
         {
-            _test = extent.StartTest("Negative test email", "Email field is incorrect at Message page");
+            _test = extent.CreateTest("Negative test email", "Email field is incorrect at Message page");
           
             //Data initialization
             CreateBookData createBookData = new CreateBookData("Username", 5, 31, 1, 5);
@@ -231,13 +235,13 @@ namespace PencilJoyTests
             try
             {
                 //Methods
-                _test.Log(LogStatus.Pass, objCreateBookPage.LoginIntoBookData());
-                _test.Log(LogStatus.Pass, objPreviewPage.GetPreviewPageTitle());
-                _test.Log(LogStatus.Pass, objMessagePage.LoginCustomerData(messageData));
-                _test.Log(LogStatus.Pass, objBagPage.GetBagPageTitle());
-                _test.Log(LogStatus.Pass, objCheckOutPage.LoginIntoShippingAddress(checkoutAddressData));
-                _test.Log(LogStatus.Pass, objCheckOutPage.PaymentAddress());
-                _test.Log(LogStatus.Pass, objSuccessPage.CheckSuccessForm());
+                _test.Log(Status.Pass, objCreateBookPage.LoginIntoBookData());
+                _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
+                _test.Log(Status.Pass, objMessagePage.LoginCustomerData(messageData));
+                _test.Log(Status.Pass, objBagPage.GetBagPageTitle());
+                _test.Log(Status.Pass, objCheckOutPage.LoginIntoShippingAddress(checkoutAddressData));
+                _test.Log(Status.Pass, objCheckOutPage.PaymentAddress());
+                _test.Log(Status.Pass, objSuccessPage.CheckSuccessForm());
                 Assert.True(true, "Overall steps has been successful");
             }
             catch (Exception e)
@@ -248,7 +252,7 @@ namespace PencilJoyTests
         [Test]
         public void TestUsingAnotherCard5()
         {
-            _test = extent.StartTest("Positive test", "All correct");
+            _test = extent.CreateTest("Positive test", "All correct");
 
             //Data initialization
             CreateBookData createBookData = new CreateBookData("Username", 5, 31, 1, 5);
@@ -266,13 +270,13 @@ namespace PencilJoyTests
             try
             {
                 //Methods
-                _test.Log(LogStatus.Pass, objCreateBookPage.LoginIntoBookData());
-                _test.Log(LogStatus.Pass, objPreviewPage.GetPreviewPageTitle());
-                _test.Log(LogStatus.Pass, objMessagePage.LoginCustomerData(messageData));
-                _test.Log(LogStatus.Pass, objBagPage.GetBagPageTitle());
-                _test.Log(LogStatus.Pass, objCheckOutPage.LoginIntoShippingAddress(checkoutAddressData));
-                _test.Log(LogStatus.Pass, objCheckOutPage.PaymentAddress());
-                _test.Log(LogStatus.Pass, objSuccessPage.CheckSuccessForm());
+                _test.Log(Status.Pass, objCreateBookPage.LoginIntoBookData());
+                _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
+                _test.Log(Status.Pass, objMessagePage.LoginCustomerData(messageData));
+                _test.Log(Status.Pass, objBagPage.GetBagPageTitle());
+                _test.Log(Status.Pass, objCheckOutPage.LoginIntoShippingAddress(checkoutAddressData));
+                _test.Log(Status.Pass, objCheckOutPage.PaymentAddress());
+                _test.Log(Status.Pass, objSuccessPage.CheckSuccessForm());
                 Assert.True(true, "Overall steps has been successful");
             }
             catch (Exception e)
@@ -283,7 +287,7 @@ namespace PencilJoyTests
         [Test]
         public void TestUsingAnotherCard2()
         {
-            _test = extent.StartTest("TestUsingAnotherCard2", "desc");
+            _test = extent.CreateTest("TestUsingAnotherCard2", "desc");
 
             //Data initialization
             CreateBookData createBookData = new CreateBookData("pro", 5, 31, 1, 5);
@@ -301,13 +305,13 @@ namespace PencilJoyTests
             try
             {
                 //Methods
-                _test.Log(LogStatus.Pass,  objCreateBookPage.LoginIntoBookData());
-                _test.Log(LogStatus.Pass, objPreviewPage.GetPreviewPageTitle());
-                _test.Log(LogStatus.Pass, objMessagePage.LoginCustomerData(messageData));
-                _test.Log(LogStatus.Pass, objBagPage.GetBagPageTitle());
-                _test.Log(LogStatus.Pass, objCheckOutPage.LoginIntoShippingAddress(checkoutAddressData));
-                _test.Log(LogStatus.Pass, objCheckOutPage.PaymentAddress());
-                _test.Log(LogStatus.Pass, objSuccessPage.CheckSuccessForm());
+                _test.Log(Status.Pass,  objCreateBookPage.LoginIntoBookData());
+                _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
+                _test.Log(Status.Pass, objMessagePage.LoginCustomerData(messageData));
+                _test.Log(Status.Pass, objBagPage.GetBagPageTitle());
+                _test.Log(Status.Pass, objCheckOutPage.LoginIntoShippingAddress(checkoutAddressData));
+                _test.Log(Status.Pass, objCheckOutPage.PaymentAddress());
+                _test.Log(Status.Pass, objSuccessPage.CheckSuccessForm());
                 
                 Assert.True(true, "Overall steps has been successful");
             }
@@ -321,9 +325,8 @@ namespace PencilJoyTests
         [TearDown]
         public void Close()
         {
-            VerifyNegativeLog(_test, _webDriver);
-          
-            extent.EndTest(_test);
+            VerifyNegativeLog(_test, _webDriver);          
+            
             extent.Flush();
             _webDriver.Quit();
         }

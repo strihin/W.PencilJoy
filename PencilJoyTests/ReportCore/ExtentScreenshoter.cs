@@ -1,15 +1,15 @@
 ﻿using System;
 using System.IO;
 using NUnit.Framework;
-using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
-using RelevantCodes.ExtentReports;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
 
 namespace PencilJoyTests.ReportCore
 {
     public class ExtentScreenshoter
     {
-        public ExtentReports extent = ExtentManager.GetInstance();
+        public ExtentHtmlReporter extent = ExtentManager.GetInstance();
         
         public static string TakeScreenShot(IWebDriver webDriver, ExtentTest test)
         {
@@ -23,13 +23,13 @@ namespace PencilJoyTests.ReportCore
       
         public static void VerifyNegativeLog(ExtentTest _test, IWebDriver _webDriver)
         {
-            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
+            if (TestContext.CurrentContext.Result.Status == TestStatus.Failed)
             {
-                var stackTrace = "<pre>" + TestContext.CurrentContext.Result.StackTrace + "</pre>";
-                var errorMessage = TestContext.CurrentContext.Result.Message;
+                var stackTrace = "<pre>" + TestContext.CurrentContext.Result.State + "</pre>";
+               var errorMessage = TestContext.CurrentContext.Result.State;
 
-                _test.Log(LogStatus.Fail, stackTrace + "\nSnapshot below: " + _test.AddScreenCapture(TakeScreenShot(_webDriver, _test)));
-                _test.Log(LogStatus.Info, errorMessage);
+                _test.Log(Status.Fail, stackTrace + "\nSnapshot below: " + _test.AddScreenCaptureFromPath(TakeScreenShot(_webDriver, _test)));
+                _test.Log(Status.Info, "Error");
             }
         }
        

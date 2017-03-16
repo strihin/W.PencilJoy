@@ -1,21 +1,24 @@
 ﻿using System;
 using System.IO;
-using RelevantCodes.ExtentReports;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+
 namespace PencilJoyTests.ReportCore
 {
     class ExtentManager
     {
-        private static ExtentReports extent;
+        private static ExtentHtmlReporter extent;
         private static ExtentTest test;
 
-        public static ExtentReports GetInstance()
+        public static ExtentHtmlReporter GetInstance()
         {
             if (extent == null)
             {
-                extent = new ExtentReports(GetPath() + "\\report" + 
+                extent = new ExtentHtmlReporter
+                    (GetPath() + "\\report" + 
                     DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".html");
-                extent.LoadConfig(Directory.GetCurrentDirectory() + "extent-config.xml");
-                extent.AddSystemInfo("Selenium version", "2.53").AddSystemInfo("Browser", "Prod");
+              
+               
                
             }
             return extent;
