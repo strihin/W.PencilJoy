@@ -7,19 +7,22 @@ namespace PencilJoyTests.ReportCore
 {
     class ExtentManager
     {
-        private static ExtentHtmlReporter extent;
+        private static ExtentReports extent;
         private static ExtentTest test;
 
-        public static ExtentHtmlReporter GetInstance()
-        {
+        public static ExtentReports GetInstance()
+        {           
             if (extent == null)
             {
-                extent = new ExtentHtmlReporter
-                    (GetPath() + "\\report" + 
-                    DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".html");
-              
-               
-               
+                ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".html");
+                htmlReporter.Configuration().
+                 var extentxReporter = new ExtentXReporter();
+                htmlReporter.Configuration().ReportName = "Build123";
+                htmlReporter.Configuration().ProjectName = "MyProject";
+                htmlReporter.Configuration().ServerURL = "http://localhost:1337/";
+
+                htmlReporter.LoadConfig(GetPath() + "\\packages.config");
+                extent.AttachReporter(htmlReporter, extentxReporter);      
             }
             return extent;
         }

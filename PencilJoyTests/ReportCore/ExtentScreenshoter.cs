@@ -9,7 +9,7 @@ namespace PencilJoyTests.ReportCore
 {
     public class ExtentScreenshoter
     {
-        public ExtentHtmlReporter extent = ExtentManager.GetInstance();
+        public ExtentReports extent = ExtentManager.GetInstance();
         
         public static string TakeScreenShot(IWebDriver webDriver, ExtentTest test)
         {

@@ -17,7 +17,7 @@ namespace PencilJoyTests
     {
         private IWebDriver _webDriver;
         private WebDriverWait _waitDriver;
-        private ExtentHtmlReporter _test;
+        private ExtentTest _test;
 
         [SetUp]
         public void InitializeBrowser()
@@ -33,8 +33,8 @@ namespace PencilJoyTests
         [Test]
         public void TestUsingPayPal()
         {
-          
-            _test = extent.Crea("PayPal", "Payment by paypal. Page`s loaded long term");
+
+            _test = extent.CreateTest("PayPal", "Payment by paypal. Page`s loaded long term");
             //Data initialization
             CreateBookData createBookData = new CreateBookData("UsernameXX", 4, 1, 1, 2);
             MessageData messageData = new MessageData("testname", "testmail@yahoo.com");
@@ -52,6 +52,7 @@ namespace PencilJoyTests
 
             try
             {
+                
                  //Methods
                 _test.Log(Status.Pass, objCreateBookPage.LoginIntoBookData());
                 _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
