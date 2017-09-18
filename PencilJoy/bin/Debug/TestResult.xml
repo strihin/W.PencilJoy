@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\Strigin\Desktop\PencilJoy\PencilJoy\bin\Debug\PencilJoy.exe" total="1" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2017-03-02" time="19:45:52">
+  <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.8009" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.2\bin" machine-name="PC" user="Strigin" user-domain="PC" />
+  <culture-info current-culture="ru-RU" current-uiculture="ru-RU" />
+  <test-suite type="Assembly" name="C:\Users\Strigin\Desktop\PencilJoy\PencilJoy\bin\Debug\PencilJoy.exe" executed="True" result="Failure" success="False" time="45.673" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="PencilJoy" executed="True" result="Failure" success="False" time="45.647" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="Program" executed="True" result="Failure" success="False" time="45.643" asserts="0">
+            <results>
+              <test-case name="PencilJoy.Program.TestLoginBookData" executed="True" result="Failure" success="False" time="45.600" asserts="1">
+                <failure>
+                  <message><![CDATA[  Expected string length 52 but was 53. Strings differ at index 45.
+  Expected: "Personalized Books and Gifts from Pencil Joy Success"
+  But was:  "Personalized Books and Gifts from Pencil Joy Checkout"
+  --------------------------------------------------------^
+]]></message>
+                  <stack-trace><![CDATA[в PencilJoy.Program.TestLoginBookData() в c:\Users\Strigin\Desktop\PencilJoy\PencilJoy\Tests\Program.cs:строка 69
+]]></stack-trace>
+                </failure>
+              </test-case>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

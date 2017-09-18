@@ -1,10 +1,23 @@
-c:\users\александр\documents\visual studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\PencilJoy.exe.config
-c:\users\александр\documents\visual studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\PencilJoy.exe
-c:\users\александр\documents\visual studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\PencilJoy.pdb
-c:\users\александр\documents\visual studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\WebDriver.dll
-c:\users\александр\documents\visual studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\WebDriver.Support.dll
-c:\users\александр\documents\visual studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\WebDriver.xml
-c:\users\александр\documents\visual studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\WebDriver.Support.xml
-c:\users\александр\documents\visual studio 2015\Projects\PencilJoy\PencilJoy\obj\Debug\PencilJoy.csprojResolveAssemblyReference.cache
-c:\users\александр\documents\visual studio 2015\Projects\PencilJoy\PencilJoy\obj\Debug\PencilJoy.exe
-c:\users\александр\documents\visual studio 2015\Projects\PencilJoy\PencilJoy\obj\Debug\PencilJoy.pdb
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\PencilJoy.exe.config
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\PencilJoy.exe
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\PencilJoy.pdb
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\nunit.framework.dll
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\WebDriver.dll
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\WebDriver.Support.dll
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\nunit.framework.xml
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\WebDriver.xml
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\PencilJoy\PencilJoy\bin\Debug\WebDriver.Support.xml
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\PencilJoy\PencilJoy\obj\Debug\PencilJoy.exe
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\PencilJoy\PencilJoy\obj\Debug\PencilJoy.pdb
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\PencilJoy\PencilJoy\obj\Debug\PencilJoy.csprojResolveAssemblyReference.cache
+C:\Users\Strigin\Desktop\PencilJoy\PencilJoy\bin\Debug\PencilJoy.exe.config
+C:\Users\Strigin\Desktop\PencilJoy\PencilJoy\bin\Debug\PencilJoy.exe
+C:\Users\Strigin\Desktop\PencilJoy\PencilJoy\bin\Debug\PencilJoy.pdb
+C:\Users\Strigin\Desktop\PencilJoy\PencilJoy\bin\Debug\nunit.framework.dll
+C:\Users\Strigin\Desktop\PencilJoy\PencilJoy\bin\Debug\WebDriver.dll
+C:\Users\Strigin\Desktop\PencilJoy\PencilJoy\bin\Debug\WebDriver.Support.dll
+C:\Users\Strigin\Desktop\PencilJoy\PencilJoy\bin\Debug\nunit.framework.xml
+C:\Users\Strigin\Desktop\PencilJoy\PencilJoy\bin\Debug\WebDriver.xml
+C:\Users\Strigin\Desktop\PencilJoy\PencilJoy\bin\Debug\WebDriver.Support.xml
+C:\Users\Strigin\Desktop\PencilJoy\PencilJoy\obj\Debug\PencilJoy.exe
+C:\Users\Strigin\Desktop\PencilJoy\PencilJoy\obj\Debug\PencilJoy.pdb
