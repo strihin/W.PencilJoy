@@ -17,7 +17,7 @@ namespace PencilJoyTests.ReportCore
                     DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") +".jpeg";
             ITakesScreenshot screenshotDriver = webDriver as ITakesScreenshot;
             Screenshot screenshot = screenshotDriver.GetScreenshot();
-            screenshot.SaveAsFile(fullPathScr, System.Drawing.Imaging.ImageFormat.Jpeg);
+            screenshot.SaveAsFile(fullPathScr, ScreenshotImageFormat.Jpeg);
             return fullPathScr;
         }
       

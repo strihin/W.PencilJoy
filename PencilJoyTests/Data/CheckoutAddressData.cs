@@ -9,7 +9,18 @@ namespace PencilJoyTests.Data
         internal string City { get; set; }
         internal string ZipCode { get; set; }
         internal string Phone { get; set; }
-        
+        internal int NumberCountry { get; set; }
+
+        public CheckoutAddressData()
+        {
+            Username = Faker.Name.First();
+            Lastname = Faker.Name.Last();
+            Street = Faker.Address.StreetAddress();
+            City = Faker.Address.City();
+            ZipCode = Faker.Address.ZipCode();
+            Phone = Faker.Phone.Number();
+            NumberCountry = Faker.RandomNumber.Next(0, 22);
+        }
         public CheckoutAddressData(string username, string lastname, string street, string city, string zipCode, string phone)
         {
             Username = username;
@@ -19,5 +30,7 @@ namespace PencilJoyTests.Data
             ZipCode = zipCode;
             Phone = phone;
         }
+
+       
     }
 }

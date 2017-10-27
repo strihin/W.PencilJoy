@@ -7,8 +7,8 @@ namespace PencilJoyTests.Pages
     class CreateBookPage
     {
         private readonly WebDriverWait _waitDriver;
-
         private CreateBookData _createBookData;
+
         public CreateBookPage() { }
         public CreateBookPage(WebDriverWait waitDriver, CreateBookData createBookData)
         {
@@ -17,13 +17,13 @@ namespace PencilJoyTests.Pages
         }
 
        #region Object
-        private IWebElement FirstNameTextBox
+        private IWebElement FirstNameTextBox 
         {
             get 
             { 
                 return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("name")));
             }
-        }      
+        }
         private IWebElement BirthmonthDropdown
         {
             get
@@ -31,25 +31,11 @@ namespace PencilJoyTests.Pages
                 return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("month")));
             }
         }
-        private IWebElement BirthmonthDropItem
-        {            
-            get
-            {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("#select-month > option:nth-child(" + _createBookData.NumberMonth + ")")));
-            }
-        }
         private IWebElement BirthdayDropdown
         {
             get
             {
                 return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("date")));
-            }
-        }
-        private IWebElement BirthdayDropItem
-        {
-            get
-            {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("#select-date > option:nth-child(" + _createBookData.NumberDay + ")")));
             }
         }
         private IWebElement GenderPersonDropdown
@@ -73,7 +59,6 @@ namespace PencilJoyTests.Pages
                 return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("#create-child > div.cc-block.submit > input[type='submit']")));
             }
         }
-
         private IWebElement CurrencySelect
         {
             get
@@ -83,29 +68,34 @@ namespace PencilJoyTests.Pages
         }
         #endregion
 
-        #region Methods
+       #region Methods
        public void EditCurrency(int indexForCurrency)
         {
-            SelectElement dropdown = new SelectElement(CurrencySelect);
-            dropdown.SelectByIndex(indexForCurrency);
+            SelectElement currencyItem = new SelectElement(CurrencySelect);
+            currencyItem.SelectByIndex(indexForCurrency);
         }
         
-        public string LoginIntoBookData()
+        public virtual string LoginIntoBookData()
         {
-           FirstNameTextBox.SendKeys(_createBookData.Username);
+            var monthSelect = new SelectElement(BirthmonthDropdown);
+            var daySelect = new SelectElement(BirthdayDropdown);
 
+            FirstNameTextBox.Clear();
+            FirstNameTextBox.SendKeys(_createBookData.Username);
             BirthmonthDropdown.Click();
-            BirthmonthDropItem.Click();
-
+            monthSelect.SelectByIndex(_createBookData.NumberMonth - 1);
             BirthdayDropdown.Click();
-            BirthdayDropItem.Click();
-
+            daySelect.SelectByIndex(_createBookData.NumberDay - 1);
             GenderPersonDropdown.Click();
             CharacterPersonDropItem.Click();
 
-            PreviewYourBookButton.Click();
-
             return System.Reflection.MethodBase.GetCurrentMethod().Name ;
+        }
+
+        public virtual string EntryLoginIntoBookData()
+        {
+            PreviewYourBookButton.SendKeys(Keys.Enter);
+            return System.Reflection.MethodBase.GetCurrentMethod().Name;
         }
         #endregion
     }

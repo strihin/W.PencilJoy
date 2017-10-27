@@ -26,7 +26,6 @@ namespace PencilJoyTests.Pages
                 By.ClassName("baslLoginButtonContainer")));
             }
         }
-
         private IWebElement EmailInput
         {
             get
@@ -35,7 +34,6 @@ namespace PencilJoyTests.Pages
                 By.Name("login_email")));
             }
         }
-
         private IWebElement PasswordInput
         {
             get
@@ -44,7 +42,6 @@ namespace PencilJoyTests.Pages
                     By.Name("login_password")));
             }
         }
-
         private IWebElement PostLoginButton
         {
             get
@@ -53,7 +50,6 @@ namespace PencilJoyTests.Pages
                     By.Id("btnLogin")));
             }
         }
-
         private IWebElement PreloaderSpinner
         {
             get
@@ -69,28 +65,22 @@ namespace PencilJoyTests.Pages
         #endregion
 
         #region Methods
-
- 
         public string FillFields(PaypalPaymentData paypalPaymentData)
         {
             try
             {
                 PreLoginButton.Click();
-               
           
-                    webDriver.SwitchTo().Frame(webDriver.FindElement(By.TagName("iframe")));
-              //  webDriver.SwitchTo().Frame(_waitDriver.Until(ExpectedConditions.ElementExists(By.TagName("iframe"))));
+                webDriver.SwitchTo().Frame(webDriver.FindElement(By.TagName("iframe")));
                 EmailInput.SendKeys(paypalPaymentData.EmailPaypal);
                 PasswordInput.SendKeys(paypalPaymentData.PasswordPaypal);
             
                 PostLoginButton.Click();
                 webDriver.SwitchTo().Window(webDriver.WindowHandles.Last());
-
-        
             }
             catch (Exception e)
             {
-                Assert.Fail("spinner crashed test");
+                Assert.Fail("spinner crashed test "+ e.Message+ e.Source);
                 
             }
             return System.Reflection.MethodBase.GetCurrentMethod().Name ;

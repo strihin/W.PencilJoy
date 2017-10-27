@@ -42,5 +42,14 @@
             NumberSex = numberSex;
             NumberCharacter = numberCharacter;
         }
+
+        public CreateBookData()
+        {
+            Username = Faker.Name.First();
+            NumberMonth = Faker.RandomNumber.Next(1,12);
+            NumberDay = NumberMonth == 2 ? Faker.RandomNumber.Next(1, 29) : Faker.RandomNumber.Next(1, 31); ;
+            NumberSex = Faker.RandomNumber.Next(0,1);
+            NumberCharacter = Faker.RandomNumber.Next(1,5);
+        }
     }
 }

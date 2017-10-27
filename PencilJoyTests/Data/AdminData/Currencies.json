@@ -1,0 +1,53 @@
+﻿    [
+        {
+            'currencyName': 'USD',
+            'currencySymbol': '$',
+            'currencyValue': '29.99'
+        },
+        {
+            'currencyName': 'GBP',
+            'currencySymbol': '£',
+            'currencyValue': '19.99'
+        },
+        {
+            'currencyName': 'EUR',
+            'currencySymbol': '€',
+            'currencyValue': '26.99'
+        },
+        {
+            'currencyName': 'JPY',
+            'currencySymbol': '¥',
+            'currencyValue': '3000.00'
+        },
+        {
+            'currencyName': 'AUD',
+            'currencySymbol': '$',
+            'currencyValue': '39.99'
+        },
+        {
+            'currencyName': 'CHF',
+            'currencySymbol': 'CHF',
+            'currencyValue': '29.99'
+        },
+        {
+            'currencyName': 'CAD',
+            'currencySymbol': '$',
+            'currencyValue': '38.99'
+        },
+        {
+            'currencyName': 'SEK',
+            'currencySymbol': 'kr',
+            'currencyValue': '249.99'
+        },
+        {
+            'currencyName': 'NZD',
+            'currencySymbol': '$',
+            'currencyValue': '39.99'
+        },
+        {
+            'currencyName': 'KRW',
+            'currencySymbol': '₩',
+            'currencyValue': '34000.00'
+        }
+    ]
+
