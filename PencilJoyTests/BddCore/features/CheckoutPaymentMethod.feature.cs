@@ -1,0 +1,1 @@
+﻿#error (23:1): Feature file already contains a scenario with name 'The user fills fields for credit card by incorrect data'

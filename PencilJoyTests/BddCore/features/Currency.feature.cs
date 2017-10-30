@@ -1,0 +1,1 @@
+﻿#error (12:1): Feature file already contains a scenario with name 'The user edit currency on preview page'

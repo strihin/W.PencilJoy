@@ -48,6 +48,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
+    <Reference Include="TechTalk.SpecFlow, Version=2.2.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.2.2.1\lib\net45\TechTalk.SpecFlow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebDriver, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.6.0\lib\net45\WebDriver.dll</HintPath>
       <Private>True</Private>
@@ -58,6 +62,56 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BddCore\features\ActionAboveBook.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActionAboveBook.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BddCore\features\Autorization.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Autorization.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BddCore\features\CheckoutAddresses.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckoutAddresses.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BddCore\features\CheckoutPaymentMethod.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckoutPaymentMethod.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BddCore\features\ChildData.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChildData.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BddCore\features\Currency.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Currency.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BddCore\features\DiscountCode.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiscountCode.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BddCore\features\GeneralBookDiscount.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneralBookDiscount.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BddCore\features\Maths.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Maths.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BddCore\features\MessageData.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessageData.feature</DependentUpon>
+    </Compile>
     <Compile Include="Data\AdminData\Currency.cs" />
     <Compile Include="Data\AdminData\DiscountCode.cs" />
     <Compile Include="Data\AdminData\FullAdminData.cs" />
@@ -89,6 +143,47 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="BddCore\features\ActionAboveBook.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ActionAboveBook.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BddCore\features\Autorization.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Autorization.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BddCore\features\CheckoutAddresses.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CheckoutAddresses.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BddCore\features\CheckoutPaymentMethod.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CheckoutPaymentMethod.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BddCore\features\ChildData.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ChildData.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BddCore\features\Currency.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Currency.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BddCore\features\DiscountCode.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>DiscountCode.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BddCore\features\GeneralBookDiscount.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GeneralBookDiscount.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BddCore\features\Maths.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Maths.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BddCore\features\MessageData.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MessageData.feature.cs</LastGenOutput>
+    </None>
     <None Include="Data\AdminData\Currencies.json" />
     <None Include="Data\AdminData\DiscountCode.json" />
     <None Include="packages.config" />
@@ -104,6 +199,8 @@
     <Content Include="extent-config.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="BddCore\hooks\" />
+    <Folder Include="BddCore\steps\" />
     <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>

@@ -14,3 +14,6 @@ C:\Users\Strigin\Desktop\PencilJoyTests\PencilJoyTests\bin\Debug\WebDriver.Suppo
 C:\Users\Strigin\Desktop\PencilJoyTests\PencilJoyTests\bin\Debug\de-DE\Faker.NET4.resources.dll
 C:\Users\Strigin\Desktop\PencilJoyTests\PencilJoyTests\obj\Debug\PencilJoyTests.dll
 C:\Users\Strigin\Desktop\PencilJoyTests\PencilJoyTests\obj\Debug\PencilJoyTests.pdb
+D:\github\PencilJoyTests\PencilJoyTests\obj\Debug\PencilJoyTests.csprojResolveAssemblyReference.cache
+D:\github\PencilJoyTests\PencilJoyTests\obj\Debug\PencilJoyTests.dll
+D:\github\PencilJoyTests\PencilJoyTests\obj\Debug\PencilJoyTests.pdb
