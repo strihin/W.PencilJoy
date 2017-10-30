@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PencilJoyTests.Maths
 {
-    class PreviewMath : Converter
+    class PreviewMaths : Converter
     {
         #region Objects
         internal string PreviewPriceBook { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using PencilJoyTests.Data;
-using PencilJoyTests.Math;
+using PencilJoyTests.Maths;
 
 namespace PencilJoyTests.Pages
 {
@@ -16,9 +16,9 @@ namespace PencilJoyTests.Pages
 
         private WebDriverWait _waitDriver;
         private CheckoutPaymentData checkoutPaymentData;
-        private CheckoutMath _checkoutMath;
+        private CheckoutMaths _checkoutMath;
 
-        public CheckoutPaymentPage(WebDriverWait waitDriver, CheckoutPaymentData checkoutPaymentData, CheckoutMath checkoutMath)
+        public CheckoutPaymentPage(WebDriverWait waitDriver, CheckoutPaymentData checkoutPaymentData, CheckoutMaths checkoutMath)
         {
             this._waitDriver = waitDriver;
             this.checkoutPaymentData = checkoutPaymentData;

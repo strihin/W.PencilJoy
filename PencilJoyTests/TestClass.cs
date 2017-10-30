@@ -35,9 +35,9 @@ namespace PencilJoyTests
          [Test]
         public void RemindMeLater()
         {
-             PreviewMath previewMath = new PreviewMath();
-             BagMath bagMath = new BagMath();
-             CheckoutMath checkoutMath = new CheckoutMath(bagMath);
+             PreviewMaths previewMath = new PreviewMaths();
+             BagMaths bagMath = new BagMaths();
+             CheckoutMaths checkoutMath = new CheckoutMaths(bagMath);
             _test = extent.StartTest("PayPal", "Payment by paypal. Page`s loaded long term");
 
             //Data initialization

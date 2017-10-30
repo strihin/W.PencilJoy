@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using PencilJoyTests.Data;
 
 namespace PencilJoyTests.Maths
 {
-    class CheckoutMath: Converter
+    class CheckoutMaths: Converter
     {
         #region Objects
          internal Order ExpectedOrder { get; set; }
@@ -18,13 +13,13 @@ namespace PencilJoyTests.Maths
          internal string CheckoutDiscountCode { get; set; }
          internal string CheckoutGrandPrice { get; set; }
          internal string CheckoutCurrency { get; set; }
-         private BagMath bagMathData { get; set; }
+         private BagMaths bagMathData { get; set; }
 
         #endregion
         #region Ctors
-        public CheckoutMath() { }
+        public CheckoutMaths() { }
 
-        public CheckoutMath(BagMath bagMathData)
+        public CheckoutMaths(BagMaths bagMathData)
         {
             this.bagMathData = bagMathData;
     

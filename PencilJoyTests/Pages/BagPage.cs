@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using PencilJoyTests.Data;
-using PencilJoyTests.Math;
+using PencilJoyTests.Maths;
 using RazorEngine.Compilation.ImpromptuInterface;
 
 namespace PencilJoyTests.Pages
@@ -13,14 +13,14 @@ namespace PencilJoyTests.Pages
    class BagPage
     {
         private WebDriverWait _waitDriver;
-        private BagMath _bagMath { get; set; }
+        private BagMaths _bagMath { get; set; }
         private  BagPageData _bagPageData {get; set; }
         private string randomCurrency { get; set; }
         private int numberEditBook { get; set; }
         private int numberRemoveBook { get; set; }
         private string discountCode { get; set; }
         public BagPage() { }
-        public BagPage(WebDriverWait waitDriver, BagMath bagMath, BagPageData bagPageData)
+        public BagPage(WebDriverWait waitDriver, BagMaths bagMath, BagPageData bagPageData)
         {
             _waitDriver = waitDriver;
             _bagMath = bagMath;

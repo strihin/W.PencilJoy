@@ -7,7 +7,7 @@ using PencilJoyTests.Data;
 
 namespace PencilJoyTests.Maths
 {
-    class BagMath:Converter
+    class BagMaths:Converter
     {
         #region Objects
         internal Order ExpectedOrder { get; set; }
@@ -15,7 +15,7 @@ namespace PencilJoyTests.Maths
         #endregion
         
         #region ctor
-        public BagMath()
+        public BagMaths()
         {
             this.ActualOrder = new Order();
             this.ExpectedOrder = new Order();

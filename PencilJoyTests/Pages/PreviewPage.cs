@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using PencilJoyTests.Math;
+using PencilJoyTests.Maths;
 
 namespace PencilJoyTests.Pages
 {
@@ -8,10 +8,10 @@ namespace PencilJoyTests.Pages
     {
         private readonly WebDriverWait _waitDriver;
 
-        private PreviewMath previewMath { get; set; }
+        private PreviewMaths previewMath { get; set; }
 
         private string randomCurrency { get; set; }
-        public PreviewPage(WebDriverWait waitDriver, PreviewMath previewMath)
+        public PreviewPage(WebDriverWait waitDriver, PreviewMaths previewMath)
         {
            _waitDriver = waitDriver;
            this.previewMath = previewMath;
