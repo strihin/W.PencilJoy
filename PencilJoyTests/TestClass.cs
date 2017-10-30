@@ -7,7 +7,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using PencilJoyTests.ReportCore;
 using PencilJoyTests.Data;
-using PencilJoyTests.Math;
+using PencilJoyTests.Maths;
 using PencilJoyTests.Pages;
 using RelevantCodes.ExtentReports;
 

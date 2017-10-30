@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PencilJoyTests.Data;
 
-namespace PencilJoyTests.Math
+namespace PencilJoyTests.Maths
 {
     class BagMath:Converter
     {

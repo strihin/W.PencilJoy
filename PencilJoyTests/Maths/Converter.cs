@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using PencilJoyTests.Data;
-using PencilJoyTests.Math;
+using PencilJoyTests.Maths;
 
 
 namespace PencilJoyTests

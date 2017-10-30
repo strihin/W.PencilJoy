@@ -62,10 +62,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BddCore\features\ActionAboveBook.feature.cs">
+    <Compile Include="BddCore\features\ShoppingBasket.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ActionAboveBook.feature</DependentUpon>
+      <DependentUpon>ShoppingBasket.feature</DependentUpon>
     </Compile>
     <Compile Include="BddCore\features\Autorization.feature.cs">
       <AutoGen>True</AutoGen>
@@ -112,16 +112,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MessageData.feature</DependentUpon>
     </Compile>
+    <Compile Include="BddCore\Hooks.cs" />
     <Compile Include="Data\AdminData\Currency.cs" />
     <Compile Include="Data\AdminData\DiscountCode.cs" />
     <Compile Include="Data\AdminData\FullAdminData.cs" />
     <Compile Include="Data\BagPageData.cs" />
-    <Compile Include="Math\MathResults.cs" />
-    <Compile Include="Math\BagMath.cs" />
-    <Compile Include="Math\CheckoutMath.cs" />
-    <Compile Include="Math\Order.cs" />
-    <Compile Include="Math\PreviewMath.cs" />
-    <Compile Include="Math\Converter.cs" />
+    <Compile Include="Maths\MathResults.cs" />
+    <Compile Include="Maths\BagMaths.cs" />
+    <Compile Include="Maths\CheckoutMaths.cs" />
+    <Compile Include="Maths\Order.cs" />
+    <Compile Include="Maths\PreviewMaths.cs" />
+    <Compile Include="Maths\Converter.cs" />
     <Compile Include="Pages\CheckoutBillingAddressPage.cs" />
     <Compile Include="Pages\CheckoutPaymentPage.cs" />
     <Compile Include="Pages\CheckoutShippingAddressPage.cs" />
@@ -144,9 +145,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="BddCore\features\ActionAboveBook.feature">
+    <None Include="BddCore\features\ShoppingBasket.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ActionAboveBook.feature.cs</LastGenOutput>
+      <LastGenOutput>ShoppingBasket.feature.cs</LastGenOutput>
     </None>
     <None Include="BddCore\features\Autorization.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -199,7 +200,6 @@
     <Content Include="extent-config.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BddCore\hooks\" />
     <Folder Include="BddCore\steps\" />
     <Folder Include="Reports\" />
   </ItemGroup>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PencilJoyTests.Math
+namespace PencilJoyTests.Maths
 {
     class Order
     {

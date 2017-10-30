@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using PencilJoyTests.Data;
 
-namespace PencilJoyTests.Math
+namespace PencilJoyTests.Maths
 {
     class CheckoutMath: Converter
     {
