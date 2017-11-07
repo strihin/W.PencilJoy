@@ -1,2 +1,0 @@
-﻿#error (22:1): Feature file already contains a scenario with name 'The user fills fields for shipping address, the billing address is equal shipping address'
-#error (44:1): Feature file already contains a scenario with name 'The user fills fields for billing address, the shipping address is equal billing address'

@@ -1,0 +1,1 @@
+﻿#error (132:1): Feature file already contains a scenario with name 'The user fills fields for billing address, the shipping address is equal billing address'

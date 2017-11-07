@@ -1,1 +1,0 @@
-﻿#error (14:1): Feature file already contains a scenario with name 'Fields for new autorization data are filled by correct data'

@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using PencilJoyTests.Data;
+using PencilJoyTests.ReportCore;
 using RelevantCodes.ExtentReports;
 using TechTalk.SpecFlow;
-using RelevantCodes.ExtentReports;
 
-namespace PencilJoyTests.BddCore : ExtentScreenshoter
+namespace PencilJoyTests.BddCore 
 {
     [Binding]
-    public sealed class Hooks
+    public sealed class Hooks : ExtentScreenshoter
     {
         private IWebDriver _webDriver;
         private WebDriverWait _waitDriver;
@@ -27,6 +24,7 @@ namespace PencilJoyTests.BddCore : ExtentScreenshoter
             //  _webDriver.Manage().Window.Maximize();
             _waitDriver = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(11));
             _webDriver.Navigate().GoToUrl("http://penciljoy.altsolution.ua/");
+            FullAdminData.LoadJson();
         }
 
         [AfterScenario]
@@ -38,11 +36,6 @@ namespace PencilJoyTests.BddCore : ExtentScreenshoter
             extent.Flush();
             _webDriver.Quit();
         }
-
-        [BeforeTestRun]
-        public void BeforeTestRun()
-        {
-            FullAdminData.LoadJson();
-        }
+       
     }
 }
