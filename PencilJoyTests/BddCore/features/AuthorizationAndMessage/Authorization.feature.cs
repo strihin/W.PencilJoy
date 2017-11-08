@@ -1,0 +1,1 @@
+﻿#error (16:1): Feature file already contains a scenario with name 'The user fills data for new authorization with correct data'

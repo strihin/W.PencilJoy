@@ -31,8 +31,8 @@ namespace PencilJoyTests.BddCore.Features.Bag
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Actions with books in the shopping bag", "\tIn order to  add, remove and edit books in the bag\r\n\tAs a customer\r\n\tThe user wa" +
-                    "nts to be able to remove, add and edit books to the order", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Actions with books in the shopping bag", "\tIn order to add, remove and edit books in the bag\r\n\tAs a customer\r\n\tThe user wan" +
+                    "ts to be able to remove, add and edit books in the bag", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,40 +65,67 @@ namespace PencilJoyTests.BddCore.Features.Bag
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("A new basket no contents")]
-        [NUnit.Framework.CategoryAttribute("emptybasket")]
-        public virtual void ANewBasketNoContents()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A new basket no contents", new string[] {
-                        "emptybasket"});
-#line 7
-this.ScenarioSetup(scenarioInfo);
-#line 8
-    testRunner.Given("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
-    testRunner.When("The user hasn`t add any product to bag", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
-    testRunner.Then("The basket has no contents", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("The user adds an item to the bag")]
         [NUnit.Framework.CategoryAttribute("addbook")]
         public virtual void TheUserAddsAnItemToTheBag()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user adds an item to the bag", new string[] {
                         "addbook"});
-#line 13
+#line 7
 this.ScenarioSetup(scenarioInfo);
-#line 14
+#line 8
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 15
+#line 9
     testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 16
+#line 10
     testRunner.When("The user clicks the button \"Shop more books\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 11
+    testRunner.Then("The user is redirected on the create book page for adding a new book", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("The user adds an item to the bag as a new customer")]
+        [NUnit.Framework.CategoryAttribute("addbook")]
+        [NUnit.Framework.CategoryAttribute("newcustomer")]
+        public virtual void TheUserAddsAnItemToTheBagAsANewCustomer()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user adds an item to the bag as a new customer", new string[] {
+                        "addbook",
+                        "newcustomer"});
+#line 14
+ this.ScenarioSetup(scenarioInfo);
+#line 15
+    testRunner.Given("The user is a new customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 16
+    testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
+    testRunner.When("The user clicks the button \"Shop more books\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 18
+    testRunner.Then("The user is redirected on the create book page for adding a new book", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("The user adds an item to the bag as a returning customer")]
+        [NUnit.Framework.CategoryAttribute("addbook")]
+        [NUnit.Framework.CategoryAttribute("returningcustomer")]
+        public virtual void TheUserAddsAnItemToTheBagAsAReturningCustomer()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user adds an item to the bag as a returning customer", new string[] {
+                        "addbook",
+                        "returningcustomer"});
+#line 21
+ this.ScenarioSetup(scenarioInfo);
+#line 22
+    testRunner.Given("The user is a returning customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 23
+    testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+    testRunner.When("The user clicks the button \"Shop more books\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
     testRunner.Then("The user is redirected on the create book page for adding a new book", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -111,19 +138,19 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user removes an item from the bag", new string[] {
                         "removebook"});
-#line 20
+#line 28
 this.ScenarioSetup(scenarioInfo);
-#line 21
+#line 29
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 22
+#line 30
     testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 23
+#line 31
  testRunner.And("The basket contains any items", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 24
+#line 32
     testRunner.When("The user clicks the button \"X\" at the book with number \"2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 25
+#line 33
     testRunner.And("The user clicks button \"Ok\" on the popup notification for removing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 26
+#line 34
     testRunner.Then("The basket does not contain the item with number \"2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -138,17 +165,17 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Popup notification for removing a book is shown", new string[] {
                         "removebook",
                         "popup"});
-#line 29
+#line 37
 this.ScenarioSetup(scenarioInfo);
-#line 30
+#line 38
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 31
+#line 39
     testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 32
+#line 40
  testRunner.And("The basket contains any items", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 33
+#line 41
     testRunner.When("The user clicks the button \"X\" at the book with number \"2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 34
+#line 42
     testRunner.Then("The popup notification for removing is shown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -161,17 +188,17 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Checking price for order after removing a book", new string[] {
                         "priceorder"});
-#line 37
+#line 45
 this.ScenarioSetup(scenarioInfo);
-#line 38
+#line 46
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 39
+#line 47
     testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 40
+#line 48
     testRunner.And("The user clicks the button \"X\" at the book", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 41
+#line 49
     testRunner.When("The user clicks thr button \"Ok\" on the popup notification for removing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 42
+#line 50
     testRunner.Then("The price for the order should be subtracted price for removing book.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -186,29 +213,6 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user removes all books from the order", new string[] {
                         "removebook",
                         "emptybag"});
-#line 45
-this.ScenarioSetup(scenarioInfo);
-#line 46
-    testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 47
-    testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 48
-    testRunner.When("The user clicks the button \"X\" at all books in the order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 49
-    testRunner.And("The user clicks the buttons \"Ok\" on popup notification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 50
-    testRunner.Then("The user gets empty cart with the button \"Continue shopping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user should be redirected on the create book page after removing all books")]
-        [NUnit.Framework.CategoryAttribute("redirect")]
-        public virtual void TheUserShouldBeRedirectedOnTheCreateBookPageAfterRemovingAllBooks()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user should be redirected on the create book page after removing all books", new string[] {
-                        "redirect"});
 #line 53
 this.ScenarioSetup(scenarioInfo);
 #line 54
@@ -216,15 +220,82 @@ this.ScenarioSetup(scenarioInfo);
 #line 55
     testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 56
-    testRunner.And("The user clicks the button \"X\" into all books in the order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("The user clicks the button \"X\" at all books in the order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 57
-    testRunner.And("The user clicks the button \"Ok\" into popups notification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("The user clicks the buttons \"Ok\" on popup notification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 58
+    testRunner.Then("The user gets empty cart with the button \"Continue shopping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("A new basket no contents")]
+        [NUnit.Framework.CategoryAttribute("emptybasket")]
+        public virtual void ANewBasketNoContents()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A new basket no contents", new string[] {
+                        "emptybasket"});
+#line 61
+this.ScenarioSetup(scenarioInfo);
+#line 62
+    testRunner.Given("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 63
+    testRunner.When("The user hasn`t add any product to bag", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 64
+    testRunner.Then("The basket has no contents", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("The user should be redirected on the create book page after removing all books")]
+        [NUnit.Framework.CategoryAttribute("redirect")]
+        [NUnit.Framework.CategoryAttribute("emptybasket")]
+        public virtual void TheUserShouldBeRedirectedOnTheCreateBookPageAfterRemovingAllBooks()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user should be redirected on the create book page after removing all books", new string[] {
+                        "redirect",
+                        "emptybasket"});
+#line 67
+this.ScenarioSetup(scenarioInfo);
+#line 68
+    testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 69
+    testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 70
+    testRunner.And("The user clicks the button \"X\" into all books in the order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 71
+    testRunner.And("The user clicks the button \"Ok\" into popups notification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 72
  testRunner.And("The user gets empty cart with the button \"Continue shopping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 59
+#line 73
     testRunner.When("The user clicks the button \"Continue shopping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 60
+#line 74
  testRunner.Then("The user is redirected to create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("The user is redirected to the edit page from the bag")]
+        [NUnit.Framework.CategoryAttribute("editbook")]
+        [NUnit.Framework.CategoryAttribute("redirect")]
+        public virtual void TheUserIsRedirectedToTheEditPageFromTheBag()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user is redirected to the edit page from the bag", new string[] {
+                        "editbook",
+                        "redirect"});
+#line 77
+ this.ScenarioSetup(scenarioInfo);
+#line 78
+    testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 79
+    testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 80
+    testRunner.When("The user clicks the link \"Edit\" for a book", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 81
+    testRunner.Then("The user is redirected on the edit book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
