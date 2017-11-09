@@ -18,8 +18,8 @@ namespace PencilJoyTests.BddCore.Features.Book
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Fill the fields about child data")]
-    public partial class FillTheFieldsAboutChildDataFeature
+    [NUnit.Framework.DescriptionAttribute("Filling about child\'s data for a book")]
+    public partial class FillingAboutChildsDataForABookFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -31,8 +31,8 @@ namespace PencilJoyTests.BddCore.Features.Book
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Fill the fields about child data", "\tIn order to fill book data\r\n\tAs a customer\r\n\tThe user wantss the system applies " +
-                    "filled data for book", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Filling about child\'s data for a book", "\tIn order to fill about child\'s data \r\n\tAs a customer\r\n\tThe user wants the system" +
+                    " applies filled child\'s data for a book", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,150 +65,140 @@ namespace PencilJoyTests.BddCore.Features.Book
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The fields for child\'s data are filled by correct data")]
-        public virtual void TheFieldsForChildsDataAreFilledByCorrectData()
+        [NUnit.Framework.DescriptionAttribute("The user fills fields about child\'s data with correct data")]
+        [NUnit.Framework.CategoryAttribute("positive")]
+        public virtual void TheUserFillsFieldsAboutChildsDataWithCorrectData()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The fields for child\'s data are filled by correct data", ((string[])(null)));
-#line 6
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields about child\'s data with correct data", new string[] {
+                        "positive"});
 #line 7
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 8
- testRunner.And("The user is on create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.When("The user fill correct data to field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
- testRunner.Then("The user is redirected to preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("The user fills correct data to fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 11
+ testRunner.Then("The user is redirected to the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Fields for child\'s data are filled by correct data")]
-        public virtual void FieldsForChildsDataAreFilledByCorrectData()
+        [NUnit.Framework.DescriptionAttribute("The user fills fields about child\'s data without fields for birthday")]
+        [NUnit.Framework.CategoryAttribute("positive")]
+        public virtual void TheUserFillsFieldsAboutChildsDataWithoutFieldsForBirthday()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Fields for child\'s data are filled by correct data", ((string[])(null)));
-#line 12
-this.ScenarioSetup(scenarioInfo);
-#line 13
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields about child\'s data without fields for birthday", new string[] {
+                        "positive"});
 #line 14
- testRunner.And("The user is on create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 15
- testRunner.When("The user fills incorrect data to field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 16
- testRunner.Then("The user stays on create book page and incorrect data get red border.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Redirect to edit page")]
-        public virtual void RedirectToEditPage()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Redirect to edit page", ((string[])(null)));
+ testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 17
+ testRunner.When("The user fills correct data to all fields besides fields for birthday as month an" +
+                    "d day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 18
-this.ScenarioSetup(scenarioInfo);
-#line 19
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 20
- testRunner.And("The user is on preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("The user is redirected to the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("The user fills fields about child\'s data with incorrect data")]
+        [NUnit.Framework.CategoryAttribute("negative")]
+        public virtual void TheUserFillsFieldsAboutChildsDataWithIncorrectData()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields about child\'s data with incorrect data", new string[] {
+                        "negative"});
 #line 21
- testRunner.When("The user clicks to the button \"Edit book\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
 #line 22
- testRunner.Then("The user is redirected to edit page.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Edit book by correct data on edit book page")]
-        public virtual void EditBookByCorrectDataOnEditBookPage()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit book by correct data on edit book page", ((string[])(null)));
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 23
+ testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 24
-this.ScenarioSetup(scenarioInfo);
+ testRunner.When("The user fills incorrect data to fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 25
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Then("The user doesn`t redirected to the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 26
- testRunner.And("The user is on edit book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 27
- testRunner.When("The user edits fields by correct data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 28
- testRunner.And("clicks the button \"Update Changes\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The fields with incorrect data gets a red border.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("The user fills fields about child\'s data without the field \"First name\"")]
+        [NUnit.Framework.CategoryAttribute("negative")]
+        public virtual void TheUserFillsFieldsAboutChildsDataWithoutTheFieldFirstName()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields about child\'s data without the field \"First name\"", new string[] {
+                        "negative"});
 #line 29
- testRunner.Then("The user is redirected to preview page with changing data.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Edit book by incorrect data on edit book page")]
-        public virtual void EditBookByIncorrectDataOnEditBookPage()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit book by incorrect data on edit book page", ((string[])(null)));
-#line 31
 this.ScenarioSetup(scenarioInfo);
-#line 32
+#line 30
  testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 31
+ testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 32
+ testRunner.When("The user fills correct data to fields besides the field \"First name\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 33
- testRunner.And("The user is on edit book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user leaves the field \"First name\" empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 34
- testRunner.When("The user edits fields by incorrect data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("The user doesn`t redirected to the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 35
- testRunner.And("clicks the button \"Update Changes\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 36
- testRunner.Then("The user is redirected to preview page with changing data.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("The field \"First name\" gets a red border.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Edit book by incorrect data on bag page")]
-        public virtual void EditBookByIncorrectDataOnBagPage()
+        [NUnit.Framework.DescriptionAttribute("The user fills fields about child\'s data without the field \"Gender\"")]
+        [NUnit.Framework.CategoryAttribute("negative")]
+        public virtual void TheUserFillsFieldsAboutChildsDataWithoutTheFieldGender()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit book by incorrect data on bag page", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields about child\'s data without the field \"Gender\"", new string[] {
+                        "negative"});
 #line 38
 this.ScenarioSetup(scenarioInfo);
 #line 39
  testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 40
- testRunner.And("The user is registered user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 41
- testRunner.And("The user is on bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("The user fills correct data to fields without choosing the button \"Gender\" as \"Bo" +
+                    "y\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 42
- testRunner.And("The user clicks to link \"Edit\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("The user doesn`t redirected to the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 43
- testRunner.When("The user edits fields by incorrect data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 44
- testRunner.And("clicks the button  \"Update Changes\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 45
- testRunner.Then("The user is stayed on edit book page and incorrect data get red border.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("The buttons \"Boy\", \"Girl\" get a red border.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Edit book by correct data on bag page")]
-        public virtual void EditBookByCorrectDataOnBagPage()
+        [NUnit.Framework.DescriptionAttribute("The user fills fields about child\'s data without the option \"Character option\"")]
+        [NUnit.Framework.CategoryAttribute("negative")]
+        public virtual void TheUserFillsFieldsAboutChildsDataWithoutTheOptionCharacterOption()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit book by correct data on bag page", ((string[])(null)));
-#line 47
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields about child\'s data without the option \"Character option\"", new string[] {
+                        "negative"});
+#line 46
 this.ScenarioSetup(scenarioInfo);
-#line 48
+#line 47
  testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 48
+ testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 49
- testRunner.And("The user is new user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("The user fills correct data to fields without choosing the option \"Character opti" +
+                    "on\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 50
- testRunner.And("The user is on bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("The user doesn`t redirected to the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 51
- testRunner.And("The user clicks to the link \"Edit\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 52
- testRunner.When("The user edits fields by incorrect data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 53
- testRunner.And("click the button \"Update Changes\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 54
- testRunner.Then("The user is stayed on edit book page and incorrect data get red border", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("The buttons \"Boy\", \"Girl\" get a red border.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

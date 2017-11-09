@@ -1,11 +1,36 @@
-﻿Feature: EditChildData
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+﻿Feature: Editing about child's data for a book
+	In order to edit about child's data 
+	As a customer
+	The user wants the system applies edited child's data for a book
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+@positive @redirectEditpage
+Scenario: The user is redirected to the edit page
+	Given The user is a customer
+	And The user is on the preview page
+	When The user clicks to the button "Edit book"
+	Then The user is redirected to edit page.
+
+@positive @editData
+Scenario: The user edits child's data with correct data
+	Given The user is a customer
+	And The user is on the edit book page
+	When The user edits fields with correct data
+	And The user clicks the button "Update Changes"
+	Then The user is redirected to preview page with changing data.
+
+
+@positive @editdata
+Scenario: The user doesn`t edit child's data
+	Given The user is a customer
+	And The user is on the edit book page
+	When The user doesn`t edit fields
+	And The user clicks the button "Update Changes"
+	Then The user is redirected to preview page without changing data.
+
+@negative @editData
+Scenario:  The user edits child's data with incorrect data
+	Given The user is a customer
+	And The user is on the edit book page
+	When The user edits fields with incorrect data
+	And clicks the button "Update Changes"
+	Then The user doesn`t redirected to preview page with changing data.

@@ -12,8 +12,8 @@ Scenario: Equal currency and price value on preview and bag page
 	Then get price for the first book on the bag page
 	And get currency on the bag page
 
-Scenario: Equal discount code on bag and checkout page
-Scenario: Equal full price on bag and checkout page
+Scenario: Equal discount code on bag and checkout page (перерасчет цен)
+Scenario: Equal full price on bag and checkout page (вс
 Scenario: Equal currency on bag and checkout page 
 Scenario: Check discount code`s value with name
 Scenario: Check price for 1st book with different currency

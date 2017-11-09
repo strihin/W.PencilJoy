@@ -90,10 +90,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Equal discount code on bag and checkout page")]
-        public virtual void EqualDiscountCodeOnBagAndCheckoutPage()
+        [NUnit.Framework.DescriptionAttribute("Equal discount code on bag and checkout page (перерасчет цен)")]
+        public virtual void EqualDiscountCodeOnBagAndCheckoutPageПерерасчетЦен()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Equal discount code on bag and checkout page", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Equal discount code on bag and checkout page (перерасчет цен)", ((string[])(null)));
 #line 15
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -101,10 +101,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Equal full price on bag and checkout page")]
-        public virtual void EqualFullPriceOnBagAndCheckoutPage()
+        [NUnit.Framework.DescriptionAttribute("Equal full price on bag and checkout page (вс")]
+        public virtual void EqualFullPriceOnBagAndCheckoutPageВс()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Equal full price on bag and checkout page", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Equal full price on bag and checkout page (вс", ((string[])(null)));
 #line 16
 this.ScenarioSetup(scenarioInfo);
 #line hidden

@@ -18,8 +18,8 @@ namespace PencilJoyTests.BddCore.Features.Book
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("EditChildData")]
-    public partial class EditChildDataFeature
+    [NUnit.Framework.DescriptionAttribute("Editing about child\'s data for a book")]
+    public partial class EditingAboutChildsDataForABookFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -31,8 +31,8 @@ namespace PencilJoyTests.BddCore.Features.Book
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "EditChildData", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Editing about child\'s data for a book", "\tIn order to edit about child\'s data \r\n\tAs a customer\r\n\tThe user wants the system" +
+                    " applies edited child\'s data for a book", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,35 +65,122 @@ namespace PencilJoyTests.BddCore.Features.Book
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user edits book with a book in the bag")]
-        [NUnit.Framework.CategoryAttribute("editbook")]
-        public virtual void TheUserEditsBookWithABookInTheBag()
+        [NUnit.Framework.DescriptionAttribute("The user is redirected to the edit page from the preview page")]
+        [NUnit.Framework.CategoryAttribute("positive")]
+        [NUnit.Framework.CategoryAttribute("redirectFromPreviewPage")]
+        public virtual void TheUserIsRedirectedToTheEditPageFromThePreviewPage()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user edits book with a book in the bag", new string[] {
-                        "editbook"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user is redirected to the edit page from the preview page", new string[] {
+                        "positive",
+                        "redirectFromPreviewPage"});
 #line 7
- this.ScenarioSetup(scenarioInfo);
+this.ScenarioSetup(scenarioInfo);
 #line 8
-    testRunner.Given("The user is a returning customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
-    testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user is on the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
-    testRunner.When("The user clicks the button \"Shop more books\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("The user clicks to the button \"Edit book\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
-    testRunner.Then("The user is redirected on the create book page for adding a new book", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The user is redirected to edit page.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user edits book with few books in the bag")]
-        [NUnit.Framework.CategoryAttribute("editbook")]
-        public virtual void TheUserEditsBookWithFewBooksInTheBag()
+        [NUnit.Framework.DescriptionAttribute("The user is redirected to the edit page from the bag page")]
+        [NUnit.Framework.CategoryAttribute("positive")]
+        [NUnit.Framework.CategoryAttribute("redirectFromBagPage")]
+        public virtual void TheUserIsRedirectedToTheEditPageFromTheBagPage()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user edits book with few books in the bag", new string[] {
-                        "editbook"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user is redirected to the edit page from the bag page", new string[] {
+                        "positive",
+                        "redirectFromBagPage"});
 #line 14
- this.ScenarioSetup(scenarioInfo);
+this.ScenarioSetup(scenarioInfo);
+#line 15
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 16
+ testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 17
+ testRunner.When("The user clicks to the button \"Edit book\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 18
+ testRunner.Then("The user is redirected to edit page.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("The user edits child\'s data with correct data")]
+        [NUnit.Framework.CategoryAttribute("positive")]
+        [NUnit.Framework.CategoryAttribute("editData")]
+        public virtual void TheUserEditsChildsDataWithCorrectData()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user edits child\'s data with correct data", new string[] {
+                        "positive",
+                        "editData"});
+#line 21
+this.ScenarioSetup(scenarioInfo);
+#line 22
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 23
+ testRunner.And("The user is on the edit book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+ testRunner.When("The user edits fields with correct data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
+ testRunner.And("The user clicks the button \"Update Changes\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+ testRunner.Then("The user is redirected to preview page with changing data.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("The user doesn`t edit child\'s data")]
+        [NUnit.Framework.CategoryAttribute("positive")]
+        [NUnit.Framework.CategoryAttribute("editdata")]
+        public virtual void TheUserDoesnTEditChildsData()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user doesn`t edit child\'s data", new string[] {
+                        "positive",
+                        "editdata"});
+#line 30
+this.ScenarioSetup(scenarioInfo);
+#line 31
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 32
+ testRunner.And("The user is on the edit book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 33
+ testRunner.When("The user doesn`t edit fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 34
+ testRunner.And("The user clicks the button \"Update Changes\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+ testRunner.Then("The user is redirected to preview page without changing data.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("The user edits child\'s data with incorrect data")]
+        [NUnit.Framework.CategoryAttribute("negative")]
+        [NUnit.Framework.CategoryAttribute("editData")]
+        public virtual void TheUserEditsChildsDataWithIncorrectData()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user edits child\'s data with incorrect data", new string[] {
+                        "negative",
+                        "editData"});
+#line 38
+this.ScenarioSetup(scenarioInfo);
+#line 39
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 40
+ testRunner.And("The user is on the edit book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 41
+ testRunner.When("The user edits fields with incorrect data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 42
+ testRunner.And("clicks the button \"Update Changes\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 43
+ testRunner.Then("The user doesn`t redirected to preview page with changing data.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

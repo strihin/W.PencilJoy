@@ -1,54 +1,52 @@
-﻿Feature: Fill the fields about child data
-	In order to fill book data
+﻿Feature: Filling about child's data for a book
+	In order to fill about child's data 
 	As a customer
-	The user wantss the system applies filled data for book
+	The user wants the system applies filled child's data for a book
 
-Scenario: The fields for child's data are filled by correct data
+@positive
+Scenario: The user fills fields about child's data with correct data
 	Given The user is a customer
-	And The user is on create book page
-	When The user fill correct data to field
-	Then The user is redirected to preview page
+	And The user is on the create book page
+	When The user fills correct data to fields
+	Then The user is redirected to the preview page
 
-Scenario: Fields for child's data are filled by correct data
+@positive
+Scenario: The user fills fields about child's data without fields for birthday
 	Given The user is a customer
-	And The user is on create book page
-	When The user fills incorrect data to field
-	Then The user stays on create book page and incorrect data get red border.
+	And The user is on the create book page
+	When The user fills correct data to all fields besides fields for birthday as month and day
+	Then The user is redirected to the preview page
 
-Scenario: Redirect to edit page
+@negative
+Scenario: The user fills fields about child's data with incorrect data
 	Given The user is a customer
-	And The user is on preview page
-	When The user clicks to the button "Edit book"
-	Then The user is redirected to edit page.
+	And The user is on the create book page
+	When The user fills incorrect data to fields
+	Then The user doesn`t redirected to the preview page
+	And The fields with incorrect data gets a red border.
 
-Scenario: Edit book by correct data on edit book page
+@negative
+Scenario: The user fills fields about child's data without the field "First name"
 	Given The user is a customer
-	And The user is on edit book page
-	When The user edits fields by correct data
-	And clicks the button "Update Changes"
-	Then The user is redirected to preview page with changing data.
+	And The user is on the create book page
+	When The user fills correct data to fields besides the field "First name"
+	And The user leaves the field "First name" empty
+	Then The user doesn`t redirected to the preview page
+	And The field "First name" gets a red border.
 
-Scenario: Edit book by incorrect data on edit book page
+@negative
+Scenario: The user fills fields about child's data without the field "Gender"
 	Given The user is a customer
-	And The user is on edit book page
-	When The user edits fields by incorrect data
-	And clicks the button "Update Changes"
-	Then The user is redirected to preview page with changing data.
+	And The user is on the create book page
+	When The user fills correct data to fields without choosing the button "Gender" as "Boy"
+	Then The user doesn`t redirected to the preview page
+	And The buttons "Boy", "Girl" get a red border.
 
-Scenario: Edit book by incorrect data on bag page
+@negative
+Scenario: The user fills fields about child's data without the option "Character option"
 	Given The user is a customer
-	And The user is registered user
-	And The user is on bag page
-	And The user clicks to link "Edit"
-	When The user edits fields by incorrect data
-	And clicks the button  "Update Changes"
-	Then The user is stayed on edit book page and incorrect data get red border.
+	And The user is on the create book page
+	When The user fills correct data to fields without choosing the option "Character option"
+	Then The user doesn`t redirected to the preview page
+	And The buttons "Boy", "Girl" get a red border.
 
-Scenario: Edit book by correct data on bag page
-	Given The user is a customer
-	And The user is new user
-	And The user is on bag page
-	And The user clicks to the link "Edit"
-	When The user edits fields by incorrect data
-	And click the button "Update Changes"
-	Then The user is stayed on edit book page and incorrect data get red border
