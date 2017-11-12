@@ -4,13 +4,15 @@
 	The user wants to be able to fill payment data to the payment method 
 
 @payment @positive
-Scenario: The user fills fields for credit card with correct data
+Scenario Outline: The user fills fields for credit card with correct data
     Given The user is a customer
     And The user is on checkout page
     And The user correct fills the fields for Billing and Shipping Addresses
-    And The user fills the fields for "Credit Card" tab with correct data  such as
+    And The user fills the fields for "Credit Card" tab with correct data  such as <CreditCardInput>	<CardVerifacationValue> <SelectMonth>	<SelectYear>
     When The user clicks the button "Place your order"
     Then Page is redirected to successful page
+@source:CheckoutPaymentData.xlsx
+| CreditCardInput |	CardVerifacationValue |	SelectMonth	| SelectYear | 
 
 @payment @negative @emptyForm
 Scenario: The user does not fill fields for credit card

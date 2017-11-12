@@ -3,10 +3,17 @@
 	As a customer
 	The user wants the system applies edited child's data for a book
 
-@positive @redirectEditpage
-Scenario: The user is redirected to the edit page
+@positive @redirectFromPreviewPage
+Scenario: The user is redirected to the edit page from the preview page
 	Given The user is a customer
 	And The user is on the preview page
+	When The user clicks to the button "Edit book"
+	Then The user is redirected to edit page.
+
+@positive @redirectFromBagPage
+Scenario: The user is redirected to the edit page from the bag page
+	Given The user is a customer
+	And The user is on the bag page
 	When The user clicks to the button "Edit book"
 	Then The user is redirected to edit page.
 

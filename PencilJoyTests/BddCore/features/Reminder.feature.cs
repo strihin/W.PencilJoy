@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace PencilJoyTests.BddCore.Features.Reminder
+namespace PencilJoyTests.BddCore.Features
 {
     using TechTalk.SpecFlow;
     

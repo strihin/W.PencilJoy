@@ -1,4 +1,4 @@
-﻿Feature: Equal price value on different steps of order
+﻿Feature: Equal price and discount value on different steps of order
 	In order to compare value on different steps of order
 	As a customer
 	The user wants to be able to edit currency for order
@@ -42,41 +42,46 @@ Scenario: The user compares totalprice and currency for order with discount code
 	Then The price and currency for the totalprice on the bag page and on the checkout page should be equal 
 
 @compareDiscountPercent @bagPage @checkoutPage
-Scenario: The user compares discount percent for order on the bag page and on the checkout page
+Scenario: The user compares discount percent and name for order on the bag page and on the checkout page
 	Given The user is a customer
 	And The user is on the bag page
 	And The user enters correct discount code
-	And The user gets discount percent for order on the bag page
+	And The user gets discount percent and name for order on the bag page
 	And The user clicks the button "Next"
-	When The user gets discount percent for order on the checkout page
-	Then The discount percent for order should be equal on the bag page and on the checkout page 
+	When The user gets discount percent and name for order on the checkout page
+	Then The discount percent and name for order should be equal on the bag page and on the checkout page 
 
-@totalPrice @discount 
-Scenario: Equal currency and price value on preview and bag page 
+@verifyPriceBookList @bagPage
+Scenario: The user verifies price for booklist on the bag page
 	Given The user is a customer
-	And The user is on preview page
-	And Get currency and price for a book from the button "Order for .." on preview page
-	And The user clicks the button "Order for .."
-	And The user clicks the button "Next" on the message page
-	Then get price for the first book on the bag page
-	And get currency on the bag page
+	And The user is on the bag page
+	When The user adds few books in the bag
+	Then The price for every book should be equal counted values
 
-	CompareListBook actual expected
-	ComparePrices actual expected
-	Verify price for a 1st book
-Scenario: Equal discount code on bag and checkout page (перерасчет цен)
-Scenario: Equal full price on bag and checkout page (вс
-Scenario: Equal currency on bag and checkout page 
-Scenario: Check discount code`s value with name
-Scenario: Check price for 1st book with different currency
+@comparePriceBookList @bagPage @checkoutPage
+Scenario: The user compares price for booklist on the bag page and on the checkout page
+	Given The user is a customer
+	And The user is on the bag page
+	And The user adds few books in the bag
+	And The user clicks the button "Next"
+	When The user gets price for booklist on the checkout page
+	Then The price for booklist should be equal on the bag page and on the checkout page 
 
-@positive @discountpercent
-Scenario: Check discount percent for order
-    Given The user is a customer
-    And The user is on the bag page
-    When The user fill field for discount code with correct data
-	And The user clicks the button "Check"
-    Then The user gets right discount percent for his order
+@compareCurrency @bagPage @checkoutPage @totalPrice
+Scenario: The user compares currency for totalprice on the bag page and on the checkout page
+	Given The user is a customer
+	And The user is on the bag page
+	And The user adds few books in the bag
+	And The user gets currency from totalprice
+	And The user clicks the button "Next"
+	When The user gets currency for totalprice on the checkout page
+	Then The currency for totalprice should be equal on the bag page and on the checkout page 
 
-11***************Remind me later***************
-12*****************Profile page. Order list. Change password*************
+@comparePriceWithDifferentCurrency @bagPage 
+Scenario: The user compares price for the first book using different currency
+	Given The user is a customer
+	And The user is on the bag page
+	And The user adds few books in the bag
+	When The user changes currency for order
+	And The user gets price for the first book
+	Then The price for the first book with another currency should be as price from json file Currencies.json

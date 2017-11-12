@@ -73,21 +73,21 @@ namespace PencilJoyTests.BddCore.Features.AuthorizationAndMessage
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills empty message field with correct data", new string[] {
                         "positive",
                         "emptyMessage"});
-#line 8
+#line 7
 this.ScenarioSetup(scenarioInfo);
-#line 9
+#line 8
  testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 10
+#line 9
  testRunner.And("The user is on the message page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 11
+#line 10
  testRunner.And("The user fills authorization fields with correct data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 12
+#line 11
  testRunner.When("The user clears existing message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 13
+#line 12
  testRunner.And("The user fills text for it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 14
+#line 13
  testRunner.And("The user click the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 15
+#line 14
  testRunner.Then("The user is redirected to the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -97,24 +97,29 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("The user adds to existing message correct text to the end of the message")]
         [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.CategoryAttribute("endMessage")]
-        public virtual void TheUserAddsToExistingMessageCorrectTextToTheEndOfTheMessage()
+        public virtual void TheUserAddsToExistingMessageCorrectTextToTheEndOfTheMessage(string message, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user adds to existing message correct text to the end of the message", new string[] {
-                        "positive",
-                        "endMessage"});
-#line 18
+            string[] @__tags = new string[] {
+                    "positive",
+                    "endMessage"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user adds to existing message correct text to the end of the message", @__tags);
+#line 17
 this.ScenarioSetup(scenarioInfo);
-#line 19
+#line 18
  testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 20
+#line 19
  testRunner.And("The user is on the message page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 21
+#line 20
  testRunner.And("The user fills authorization fields with correct data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
+ testRunner.When(string.Format("The user adds to existing message correct text to the end of the message as {0}", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 22
- testRunner.When("The user adds to existing message correct text to the end of the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 23
  testRunner.And("The user click the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 24
+#line 23
  testRunner.Then("The user is redirected to the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -129,19 +134,19 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user adds to existing message correct text to the start of the message", new string[] {
                         "positive",
                         "startMessage"});
-#line 27
-this.ScenarioSetup(scenarioInfo);
-#line 28
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 29
- testRunner.And("The user is on the message page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 30
- testRunner.And("The user fills authorization fields with correct data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 31
- testRunner.When("The user adds to existing message correct text to the start of the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 32
- testRunner.And("The user click the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user is on the message page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 33
+ testRunner.And("The user fills authorization fields with correct data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+ testRunner.When("The user adds to existing message correct text to the start of the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 35
+ testRunner.And("The user click the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 36
  testRunner.Then("The user is redirected to the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -156,19 +161,19 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user adds to existing message correct text to the middle of the message", new string[] {
                         "positive",
                         "middleMessage"});
-#line 36
-this.ScenarioSetup(scenarioInfo);
-#line 37
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 38
- testRunner.And("The user is on the message page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 39
- testRunner.And("The user fills authorization fields with correct data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 40
- testRunner.When("The user adds to existing message correct text to the middle of the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 41
- testRunner.And("The user click the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user is on the message page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 42
+ testRunner.And("The user fills authorization fields with correct data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 43
+ testRunner.When("The user adds to existing message correct text to the middle of the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 44
+ testRunner.And("The user click the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 45
  testRunner.Then("The user is redirected to the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -183,19 +188,19 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user doesn`t change existing message", new string[] {
                         "positive",
                         "defaultMessage"});
-#line 45
-this.ScenarioSetup(scenarioInfo);
-#line 46
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 47
- testRunner.And("The user is on the message page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 48
- testRunner.And("The user fills authorization fields with correct data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 49
- testRunner.When("The user doesn`t change existing message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 50
- testRunner.And("The user click the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user is on the message page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 51
+ testRunner.And("The user fills authorization fields with correct data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 52
+ testRunner.When("The user doesn`t change existing message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 53
+ testRunner.And("The user click the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 54
  testRunner.Then("The user is redirected to the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

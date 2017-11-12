@@ -45,7 +45,7 @@ Scenario: Check discount percent for order
 	And The user clicks the button "Check"
     Then The user gets right discount percent for his order
 
-@negative @expiredcode
+	@negative @expiredcode
 Scenario: Expired discount code for order 
     Given The user is a customer
     And The user is on the bag page

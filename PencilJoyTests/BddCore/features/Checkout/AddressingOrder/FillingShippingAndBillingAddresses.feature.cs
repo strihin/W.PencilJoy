@@ -1,1 +1,2 @@
-﻿#error (132:1): Feature file already contains a scenario with name 'The user fills fields for billing address, the shipping address is equal billing address'
+﻿#error (16:1): expected: #TagLine, #ScenarioLine, #ScenarioOutlineLine, #Comment, #Empty, got '| Username | Lastname |	Street | City |	ZipCode	| Phone	| NumberCountry | Region |'
+#error (18:1): expected: #TagLine, #ScenarioLine, #ScenarioOutlineLine, #Comment, #Empty, got '| Username | Lastname |	Street | City |	ZipCode	| Phone	| NumberCountry | Region |'

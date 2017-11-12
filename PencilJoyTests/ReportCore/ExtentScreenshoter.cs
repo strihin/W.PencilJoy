@@ -1,9 +1,10 @@
 ﻿using System;
 using System.IO;
+using AventStack.ExtentReports;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
-using RelevantCodes.ExtentReports;
+//using RelevantCodes.ExtentReports;
 
 namespace PencilJoyTests.ReportCore
 {
@@ -28,8 +29,8 @@ namespace PencilJoyTests.ReportCore
                 var stackTrace = "<pre>" + TestContext.CurrentContext.Result.StackTrace + "</pre>";
                 var errorMessage = TestContext.CurrentContext.Result.Message;
 
-                _test.Log(LogStatus.Fail, stackTrace + "\nSnapshot below: " + _test.AddScreenCapture(TakeScreenShot(_webDriver, _test)));
-                _test.Log(LogStatus.Info, errorMessage);
+                _test.Log(Status.Fail,  stackTrace + "\nSnapshot below: " + _test.AddScreenCaptureFromPath(TakeScreenShot(_webDriver, _test)));
+                _test.Log(Status.Info, errorMessage);
             }
         }
        

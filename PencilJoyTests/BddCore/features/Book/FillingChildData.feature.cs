@@ -67,10 +67,15 @@ namespace PencilJoyTests.BddCore.Features.Book
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("The user fills fields about child\'s data with correct data")]
         [NUnit.Framework.CategoryAttribute("positive")]
-        public virtual void TheUserFillsFieldsAboutChildsDataWithCorrectData()
+        public virtual void TheUserFillsFieldsAboutChildsDataWithCorrectData(string username, string numberMonth, string numberDay, string numberSex, string numberCharacter, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields about child\'s data with correct data", new string[] {
-                        "positive"});
+            string[] @__tags = new string[] {
+                    "positive"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields about child\'s data with correct data", @__tags);
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
@@ -78,7 +83,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 9
  testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
- testRunner.When("The user fills correct data to fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("The user fills correct data to fields as {0} , {1} , {2} {3} , {4}", username, numberMonth, numberDay, numberSex, numberCharacter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
  testRunner.Then("The user is redirected to the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -92,16 +97,16 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields about child\'s data without fields for birthday", new string[] {
                         "positive"});
-#line 14
-this.ScenarioSetup(scenarioInfo);
-#line 15
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 16
- testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
+this.ScenarioSetup(scenarioInfo);
+#line 18
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 19
+ testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 20
  testRunner.When("The user fills correct data to all fields besides fields for birthday as month an" +
                     "d day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 18
+#line 21
  testRunner.Then("The user is redirected to the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -114,17 +119,17 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields about child\'s data with incorrect data", new string[] {
                         "negative"});
-#line 21
-this.ScenarioSetup(scenarioInfo);
-#line 22
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 23
- testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 24
- testRunner.When("The user fills incorrect data to fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
 #line 25
- testRunner.Then("The user doesn`t redirected to the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 26
+ testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+ testRunner.When("The user fills incorrect data to fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 28
+ testRunner.Then("The user doesn`t redirected to the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 29
  testRunner.And("The fields with incorrect data gets a red border.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -137,19 +142,19 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields about child\'s data without the field \"First name\"", new string[] {
                         "negative"});
-#line 29
-this.ScenarioSetup(scenarioInfo);
-#line 30
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 31
- testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 32
- testRunner.When("The user fills correct data to fields besides the field \"First name\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
 #line 33
- testRunner.And("The user leaves the field \"First name\" empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 34
- testRunner.Then("The user doesn`t redirected to the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 35
+ testRunner.When("The user fills correct data to fields besides the field \"First name\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 36
+ testRunner.And("The user leaves the field \"First name\" empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 37
+ testRunner.Then("The user doesn`t redirected to the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 38
  testRunner.And("The field \"First name\" gets a red border.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -162,18 +167,18 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields about child\'s data without the field \"Gender\"", new string[] {
                         "negative"});
-#line 38
-this.ScenarioSetup(scenarioInfo);
-#line 39
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 40
- testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 41
+this.ScenarioSetup(scenarioInfo);
+#line 42
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 43
+ testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 44
  testRunner.When("The user fills correct data to fields without choosing the button \"Gender\" as \"Bo" +
                     "y\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 42
+#line 45
  testRunner.Then("The user doesn`t redirected to the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 43
+#line 46
  testRunner.And("The buttons \"Boy\", \"Girl\" get a red border.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -186,18 +191,18 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields about child\'s data without the option \"Character option\"", new string[] {
                         "negative"});
-#line 46
-this.ScenarioSetup(scenarioInfo);
-#line 47
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 48
- testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 49
+this.ScenarioSetup(scenarioInfo);
+#line 50
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 51
+ testRunner.And("The user is on the create book page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 52
  testRunner.When("The user fills correct data to fields without choosing the option \"Character opti" +
                     "on\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 50
+#line 53
  testRunner.Then("The user doesn`t redirected to the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 51
+#line 54
  testRunner.And("The buttons \"Boy\", \"Girl\" get a red border.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

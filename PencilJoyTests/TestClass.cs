@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using AventStack.ExtentReports;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
@@ -9,7 +10,7 @@ using PencilJoyTests.ReportCore;
 using PencilJoyTests.Data;
 using PencilJoyTests.Maths;
 using PencilJoyTests.Pages;
-using RelevantCodes.ExtentReports;
+//using RelevantCodes.ExtentReports;
 
 namespace PencilJoyTests
 {
@@ -38,7 +39,7 @@ namespace PencilJoyTests
              PreviewMaths previewMath = new PreviewMaths();
              BagMaths bagMath = new BagMaths();
              CheckoutMaths checkoutMath = new CheckoutMaths(bagMath);
-            _test = extent.StartTest("PayPal", "Payment by paypal. Page`s loaded long term");
+            _test = extent.CreateTest("PayPal", "Payment by paypal. Page`s loaded long term");
 
             //Data initialization
             CreateBookData createBookData = new CreateBookData();
@@ -66,41 +67,41 @@ namespace PencilJoyTests
             try
             {
                 //Methods
-                _test.Log(LogStatus.Pass, objCreateBookPage.LoginIntoBookData());
-                _test.Log(LogStatus.Pass, objCreateBookPage.EntryLoginIntoBookData());
-                _test.Log(LogStatus.Pass, objPreviewPage.EditCurrency());
-                _test.Log(LogStatus.Pass, objPreviewPage.GetPreviewPageTitle());
+                _test.Log(Status.Pass, objCreateBookPage.LoginIntoBookData());
+                _test.Log(Status.Pass, objCreateBookPage.EntryLoginIntoBookData());
+                _test.Log(Status.Pass, objPreviewPage.EditCurrency());
+                _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
 
-                _test.Log(LogStatus.Pass, objMessagePage.EditMessage());
-                _test.Log(LogStatus.Pass, objMessagePage.LoginNewCustomer());
-                _test.Log(LogStatus.Pass, objMessagePage.NextStepToBag());
+                _test.Log(Status.Pass, objMessagePage.EditMessage());
+                _test.Log(Status.Pass, objMessagePage.LoginNewCustomer());
+                _test.Log(Status.Pass, objMessagePage.NextStepToBag());
 
-                _test.Log(LogStatus.Pass, objBagPage.ShopMoreBooks());
-                _test.Log(LogStatus.Pass, objCreateBookPage.LoginIntoBookData());
-                _test.Log(LogStatus.Pass, objCreateBookPage.EntryLoginIntoBookData());
-                _test.Log(LogStatus.Pass, objPreviewPage.GetPreviewPageTitle());
-                _test.Log(LogStatus.Pass, objMessagePage.NextStepToBag());
+                _test.Log(Status.Pass, objBagPage.ShopMoreBooks());
+                _test.Log(Status.Pass, objCreateBookPage.LoginIntoBookData());
+                _test.Log(Status.Pass, objCreateBookPage.EntryLoginIntoBookData());
+                _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
+                _test.Log(Status.Pass, objMessagePage.NextStepToBag());
 
                 objBagPage.CheckDiscount();
 
-                _test.Log(LogStatus.Pass, objBagPage.ShopMoreBooks());
-                _test.Log(LogStatus.Pass, objCreateBookPage.LoginIntoBookData());
-                _test.Log(LogStatus.Pass, objCreateBookPage.EntryLoginIntoBookData());
-                _test.Log(LogStatus.Pass, objPreviewPage.GetPreviewPageTitle());
-                _test.Log(LogStatus.Pass, objMessagePage.NextStepToBag());
+                _test.Log(Status.Pass, objBagPage.ShopMoreBooks());
+                _test.Log(Status.Pass, objCreateBookPage.LoginIntoBookData());
+                _test.Log(Status.Pass, objCreateBookPage.EntryLoginIntoBookData());
+                _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
+                _test.Log(Status.Pass, objMessagePage.NextStepToBag());
             
-                _test.Log(LogStatus.Pass, objBagPage.RemoveBook(_webDriver));
-                _test.Log(LogStatus.Pass, objBagPage.GetCheckoutPage());
+                _test.Log(Status.Pass, objBagPage.RemoveBook(_webDriver));
+                _test.Log(Status.Pass, objBagPage.GetCheckoutPage());
                 objCheckoutPaymentPage.GetMathPriceForCheckoutMath();
 
                 objCheckoutPaymentPage.GetMathPriceForCheckoutMath();
-                _test.Log(LogStatus.Pass, objCheckoutShippingAddressPage.LoginIntoShippingAddress());
-                _test.Log(LogStatus.Pass, objCheckoutShippingAddressPage.BillToThisAddress());
-                _test.Log(LogStatus.Pass, objCheckoutBillingAddressPage.LoginIntoBillingAddress());
+                _test.Log(Status.Pass, objCheckoutShippingAddressPage.LoginIntoShippingAddress());
+                _test.Log(Status.Pass, objCheckoutShippingAddressPage.BillToThisAddress());
+                _test.Log(Status.Pass, objCheckoutBillingAddressPage.LoginIntoBillingAddress());
              //   objCheckoutPaymentPage.GetPriceAndDiscountCode();
                 objCheckoutPaymentPage.PaymentAddress();
-            //    _test.Log(LogStatus.Pass, objPaypalPaymentPage.FillFields(paypalPaymentData));
-                _test.Log(LogStatus.Pass, successfulOrderPage.GetOrderNumber());
+            //    _test.Log(Status.Pass, objPaypalPaymentPage.FillFields(paypalPaymentData));
+                _test.Log(Status.Pass, successfulOrderPage.GetOrderNumber());
                 
                 Assert.True(true, "Overall steps has been successful");
             }
@@ -114,7 +115,7 @@ namespace PencilJoyTests
         {
             VerifyNegativeLog(_test, _webDriver);
           
-            extent.EndTest(_test);
+            extent.RemoveTest(_test);
             extent.Flush();
             _webDriver.Quit();
         }

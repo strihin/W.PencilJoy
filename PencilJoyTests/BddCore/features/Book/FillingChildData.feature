@@ -4,11 +4,14 @@
 	The user wants the system applies filled child's data for a book
 
 @positive
-Scenario: The user fills fields about child's data with correct data
+Scenario Outline: The user fills fields about child's data with correct data
 	Given The user is a customer
 	And The user is on the create book page
-	When The user fills correct data to fields
+	When The user fills correct data to fields as <Username> , <NumberMonth> , <NumberDay> <numberSex> , <NumberCharacter>
 	Then The user is redirected to the preview page
+@source:ChildData.xlsx
+Examples: 
+| Username | NumberMonth | NumberDay | numberSex | NumberCharacter |
 
 @positive
 Scenario: The user fills fields about child's data without fields for birthday

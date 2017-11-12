@@ -4,14 +4,19 @@
 	The user wants to be able to billing and shipping addresses to the checkout
 
 @positive @fillingBothBlocks
-Scenario: The user fills fields for shipping and billing address 
+Scenario Outline: The user fills fields for shipping and billing address 
     Given The user is a customer
     And The user is on checkout page
-    And The user fills fields for shipping address with correct data 
+    And The user fills fields for shipping address with correct data as <Username>	<Lastname>	<Street>	<City>	<ZipCode>	<Phone>	<NumberCountry>	<Region>
     And The user clicks the checkbox "Bill to this address"
-	And The user fills fields for billing address with correct data 
+	And The user fills fields for billing address with correct data as <Username>	<Lastname>	<Street>	<City>	<ZipCode>	<Phone>	<NumberCountry>	<Region>
     When All fields in the Billing ahd Shipping are filled
 	Then The values in Blocks should be difference
+@source:CheckoutShippingAddressData.xlsx
+| Username | Lastname |	Street | City |	ZipCode	| Phone	| NumberCountry | Region |
+@source:CheckoutBillingAddressData.xlsx
+| Username | Lastname |	Street | City |	ZipCode	| Phone	| NumberCountry | Region |
+
 
 @ShippingAddressGeneral @positive @filling
 Scenario: The user fills fields for shipping address, the billing address is equal shipping address
@@ -119,18 +124,20 @@ Scenario Outline: The user fills fields for shipping address with incorrect data
     And The user fills fields for shipping address by incorrect data 
     And clicks the checkbox "Bill to this address" 
     When The user clicks the button "Place your order"
-    Then Page isn`t redirected to successful page and shipping`s fields, which haven`t passed, get a red border.
+    Then Page doesn`t redirected to successful page and shipping`s fields, which haven`t passed, get a red border.
 
-Scenario: The user fills fields for billing address by incorrect data, the shipping address is equal billing address
+@negative @incorrectData
+Scenario: The user fills fields for billing address with incorrect data, the shipping address is equal billing address
     Given The user is a customer
     And The user is on checkout page
     And The user fills fields for billing address by incorrect data 
-    And clicks the checkbox "Ship to this address" 
+    And The user clicks the checkbox "Ship to this address" 
     When The user clicks the button "Place your order"
-    Then Page isn`t redirected to successful page and billing address` fields, which haven`t passed, get a red border.
+    Then Page doesn`t redirected to successful page and billing address` fields, which haven`t passed, get a red border.
 
-Scenario: The user fills fields for billing address, the shipping address is equal billing address
+@negative @blockedControllers
+Scenario: The user should blocked to click any fields and checkbox in the block "Shipping address"
     Given The user is a customer
     And The user is on checkout page
     When The user clicks the checkbox "Ship to this address" 
-    Then The fields and checkbox in block "Shipping address" aren`t available.
+    Then The fields and checkbox in block "Shipping address" doesn`t available.
