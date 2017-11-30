@@ -70,12 +70,18 @@ namespace PencilJoyTests.BddCore.Features.Checkout.AddressingOrder
         [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.CategoryAttribute("editValue")]
         [NUnit.Framework.CategoryAttribute("shipping")]
-        public virtual void TheUserChangesValueForFieldsInTheBlockShippingAddress()
+        [NUnit.Framework.TestCaseAttribute("Anica", "Wilcocke", "041 Rusk Parkway", "Baozi", "51727-0631", "+86 (606) 824-0816", "20", "Hudong", null)]
+        public virtual void TheUserChangesValueForFieldsInTheBlockShippingAddress(string usernameS, string lastnameS, string streetS, string cityS, string zipCodeS, string phoneS, string numberCountryS, string regionS, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user changes value for fields in the block \"Shipping Address\"", new string[] {
-                        "positive",
-                        "editValue",
-                        "shipping"});
+            string[] @__tags = new string[] {
+                    "positive",
+                    "editValue",
+                    "shipping"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user changes value for fields in the block \"Shipping Address\"", @__tags);
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
@@ -83,11 +89,17 @@ this.ScenarioSetup(scenarioInfo);
 #line 9
     testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
-    testRunner.And("The user fills fields for shipping address with data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And(string.Format("The user fills fields for shipping address with data  as {0} {1} {2} {3}\t{4} {5} " +
+                        "{6} {7}", usernameS, lastnameS, streetS, cityS, zipCodeS, phoneS, numberCountryS, regionS), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "LastName"});
+            table1.AddRow(new string[] {
+                        "Cortes"});
 #line 11
-    testRunner.When("The user edits the field \"Last name\" in the block \"Shipping address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 12
-    testRunner.Then("The field \"Last name\" should be edited", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.When("The user edits the field \"Last name\" in the block \"Shipping address\"", ((string)(null)), table1, "When ");
+#line 14
+ testRunner.Then("The field \"Last name\" should be edited", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -97,27 +109,39 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.CategoryAttribute("editValue")]
         [NUnit.Framework.CategoryAttribute("shipping")]
-        public virtual void TheUserChangesValueForFieldsInTheBlockBillingAddress()
+        [NUnit.Framework.TestCaseAttribute("Jemimah", "Winston", "142 Lunder Junction", "Asen", "55154-6980", "+359 (948) 603-7618", "4", "Salinggara", null)]
+        public virtual void TheUserChangesValueForFieldsInTheBlockBillingAddress(string usernameS, string lastnameS, string streetS, string cityS, string zipCodeS, string phoneS, string numberCountryS, string regionS, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user changes value for fields in the block \"Billing Address\"", new string[] {
-                        "positive",
-                        "editValue",
-                        "shipping"});
-#line 15
+            string[] @__tags = new string[] {
+                    "positive",
+                    "editValue",
+                    "shipping"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user changes value for fields in the block \"Billing Address\"", @__tags);
+#line 20
 this.ScenarioSetup(scenarioInfo);
-#line 16
+#line 21
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 17
+#line 22
     testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 18
+#line 23
  testRunner.And("The user clicks the checkbox \"Billing to this address\" in the block \"Shipping add" +
                     "ress\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 19
-    testRunner.And("The user fills fields for shipping address with data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 20
-    testRunner.When("The user edits the field \"City\" in the block \"Billing address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 21
-    testRunner.Then("The field \"City\" should be edited", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 24
+    testRunner.And(string.Format("The user fills fields for shipping address with data  as {0} {1} {2} {3}\t{4} {5} " +
+                        "{6} {7}", usernameS, lastnameS, streetS, cityS, zipCodeS, phoneS, numberCountryS, regionS), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "CityB"});
+            table2.AddRow(new string[] {
+                        "Kirove"});
+#line 25
+    testRunner.When("The user edits the field \"City\" in the block \"Billing address\"", ((string)(null)), table2, "When ");
+#line 28
+ testRunner.Then("The field \"City\" should be edited", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

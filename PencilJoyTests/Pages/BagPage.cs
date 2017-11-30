@@ -19,13 +19,18 @@ namespace PencilJoyTests.Pages
         private int numberEditBook { get; set; }
         private int numberRemoveBook { get; set; }
         private string discountCode { get; set; }
-        public BagPage() { }
+     //   public BagPage() { }
         public BagPage(WebDriverWait waitDriver, BagMaths bagMath, BagPageData bagPageData)
         {
             _waitDriver = waitDriver;
             _bagMath = bagMath;
             _bagPageData = bagPageData;
         }
+
+       public BagPage()
+       {
+         //  PageFactory.InitElements(Browser.Current, this);
+       }
 
         #region Objects
         private IWebElement EditBookLink

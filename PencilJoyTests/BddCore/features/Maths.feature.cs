@@ -203,13 +203,20 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.CategoryAttribute("compareDiscountPercent")]
         [NUnit.Framework.CategoryAttribute("bagPage")]
         [NUnit.Framework.CategoryAttribute("checkoutPage")]
-        public virtual void TheUserComparesDiscountPercentAndNameForOrderOnTheBagPageAndOnTheCheckoutPage()
+        [NUnit.Framework.TestCaseAttribute("kendra35", "35", null)]
+        [NUnit.Framework.TestCaseAttribute("vip25", "25", null)]
+        public virtual void TheUserComparesDiscountPercentAndNameForOrderOnTheBagPageAndOnTheCheckoutPage(string discountCode, string discountPercent, string[] exampleTags)
         {
+            string[] @__tags = new string[] {
+                    "compareDiscountPercent",
+                    "bagPage",
+                    "checkoutPage"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user compares discount percent and name for order on the bag page and on the " +
-                    "checkout page", new string[] {
-                        "compareDiscountPercent",
-                        "bagPage",
-                        "checkoutPage"});
+                    "checkout page", @__tags);
 #line 45
 this.ScenarioSetup(scenarioInfo);
 #line 46
@@ -219,11 +226,12 @@ this.ScenarioSetup(scenarioInfo);
 #line 48
  testRunner.And("The user enters correct discount code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 49
- testRunner.And("The user gets discount percent and name for order on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("The user gets discount percent and name for order on the bag page as {0}  {0}", discountPercent), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 50
  testRunner.And("The user clicks the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 51
- testRunner.When("The user gets discount percent and name for order on the checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("The user gets discount percent and name for order on the checkout page as {0}  {0" +
+                        "}", discountPercent), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 52
  testRunner.Then("The discount percent and name for order should be equal on the bag page and on th" +
                     "e checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -240,15 +248,15 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user verifies price for booklist on the bag page", new string[] {
                         "verifyPriceBookList",
                         "bagPage"});
-#line 55
-this.ScenarioSetup(scenarioInfo);
-#line 56
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 57
- testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 58
- testRunner.When("The user adds few books in the bag", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 59
+this.ScenarioSetup(scenarioInfo);
+#line 60
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 61
+ testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 62
+ testRunner.When("The user adds few books in the bag", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 63
  testRunner.Then("The price for every book should be equal counted values", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -265,19 +273,19 @@ this.ScenarioSetup(scenarioInfo);
                         "comparePriceBookList",
                         "bagPage",
                         "checkoutPage"});
-#line 62
-this.ScenarioSetup(scenarioInfo);
-#line 63
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 64
- testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 65
- testRunner.And("The user adds few books in the bag", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 66
- testRunner.And("The user clicks the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 67
- testRunner.When("The user gets price for booklist on the checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 68
+ testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 69
+ testRunner.And("The user adds few books in the bag", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 70
+ testRunner.And("The user clicks the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 71
+ testRunner.When("The user gets price for booklist on the checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 72
  testRunner.Then("The price for booklist should be equal on the bag page and on the checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -298,21 +306,21 @@ this.ScenarioSetup(scenarioInfo);
                         "bagPage",
                         "checkoutPage",
                         "totalPrice"});
-#line 71
-this.ScenarioSetup(scenarioInfo);
-#line 72
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 73
- testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 74
- testRunner.And("The user adds few books in the bag", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 75
- testRunner.And("The user gets currency from totalprice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 76
- testRunner.And("The user clicks the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 77
- testRunner.When("The user gets currency for totalprice on the checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 78
+ testRunner.And("The user adds few books in the bag", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 79
+ testRunner.And("The user gets currency from totalprice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 80
+ testRunner.And("The user clicks the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 81
+ testRunner.When("The user gets currency for totalprice on the checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 82
  testRunner.Then("The currency for totalprice should be equal on the bag page and on the checkout p" +
                     "age", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -323,26 +331,39 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("The user compares price for the first book using different currency")]
         [NUnit.Framework.CategoryAttribute("comparePriceWithDifferentCurrency")]
         [NUnit.Framework.CategoryAttribute("bagPage")]
-        public virtual void TheUserComparesPriceForTheFirstBookUsingDifferentCurrency()
+        [NUnit.Framework.TestCaseAttribute("USD", "29.99", null)]
+        [NUnit.Framework.TestCaseAttribute("GBP", "19.99", null)]
+        [NUnit.Framework.TestCaseAttribute("EUR", "26.99", null)]
+        [NUnit.Framework.TestCaseAttribute("JPY", "3000.00", null)]
+        [NUnit.Framework.TestCaseAttribute("AUD", "39.99", null)]
+        [NUnit.Framework.TestCaseAttribute("CHF", "29.99", null)]
+        [NUnit.Framework.TestCaseAttribute("CAD", "38.99", null)]
+        [NUnit.Framework.TestCaseAttribute("SEK", "249.99", null)]
+        [NUnit.Framework.TestCaseAttribute("NZD", "39.99", null)]
+        public virtual void TheUserComparesPriceForTheFirstBookUsingDifferentCurrency(string currency, string currencyValue, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user compares price for the first book using different currency", new string[] {
-                        "comparePriceWithDifferentCurrency",
-                        "bagPage"});
-#line 81
-this.ScenarioSetup(scenarioInfo);
-#line 82
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 83
- testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 84
- testRunner.And("The user adds few books in the bag", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+            string[] @__tags = new string[] {
+                    "comparePriceWithDifferentCurrency",
+                    "bagPage"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user compares price for the first book using different currency", @__tags);
 #line 85
- testRunner.When("The user changes currency for order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
 #line 86
- testRunner.And("The user gets price for the first book", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 87
- testRunner.Then("The price for the first book with another currency should be as price from json f" +
-                    "ile Currencies.json", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 88
+ testRunner.And("The user adds few books in the bag", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 89
+ testRunner.When(string.Format("The user changes currency for order as {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 90
+ testRunner.And("The user gets price for the first book", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 91
+ testRunner.Then(string.Format("The price for the first book with  should be equal as {0}", currencyValue), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -3,45 +3,55 @@
 	As a customer
 	The user wants to be able to remove, add and edit books in the bag
 
-@addbook
+@positive @addbook
 Scenario: The user adds an item to the bag
     Given The user is a customer
     And The user is on the bag page
     When The user clicks the button "Shop more books" 
     Then The user is redirected on the create book page for adding a new book
 
-@addbook @newcustomer
+@positive @addbook @newcustomer
  Scenario: The user adds an item to the bag as a new customer  
     Given The user is a new customer
     And The user is on the bag page
     When The user clicks the button "Shop more books" 
     Then The user is redirected on the create book page for adding a new book
 
-@addbook @returningcustomer
+@positive @addbook @returningcustomer
  Scenario: The user adds an item to the bag as a returning customer  
     Given The user is a returning customer
     And The user is on the bag page
     When The user clicks the button "Shop more books" 
     Then The user is redirected on the create book page for adding a new book
 
-@removebook
-Scenario: The user removes an item from the bag
+@positive @removebook
+Scenario Outline: The user removes an item from the bag
     Given The user is a customer
     And The user is on the bag page
 	And The basket contains any items
-    When The user clicks the button "X" at the book with number "2"
+    When The user clicks the button "X" at the book with number <BookNumber>
     And The user clicks button "Ok" on the popup notification for removing
-    Then The basket does not contain the item with number "2"
+    Then The basket does not contain the item with number <BookNumber>
+Examples:
+| BookNumber |
+| 1          |
+| 3          |
+| 2          |
 
-@removebook @popup
-Scenario: Popup notification for removing a book is shown
+@positive @removebook @popup
+Scenario Outline: Popup notification for removing a book is shown
     Given The user is a customer
     And The user is on the bag page
 	And The basket contains any items
-    When The user clicks the button "X" at the book with number "2"
+    When The user clicks the button "X" at the book with number <BookNumber>
     Then  The popup notification for removing is shown
+Examples:
+| BookNumber |
+| 1          |
+| 3          |
+| 2          |
 
-@priceorder
+@positive @priceorder
 Scenario: Checking price for order after removing a book
     Given The user is a customer
     And The user is on the bag page
@@ -57,13 +67,13 @@ Scenario: The user removes all books from the order
     And The user clicks the buttons "Ok" on popup notification
     Then The user gets empty cart with the button "Continue shopping"
 
-@emptybasket
+@negative @emptybasket
 Scenario: A new basket no contents
     Given The user is on the bag page
-    When The user hasn`t add any product to bag
+    When The user hasn`t add any product in bag
     Then The basket has no contents
 
-@redirect @emptybasket
+@positive @redirect @emptybasket
 Scenario: The user should be redirected on the create book page after removing all books
     Given The user is a customer
     And The user is on the bag page
@@ -73,7 +83,7 @@ Scenario: The user should be redirected on the create book page after removing a
     When The user clicks the button "Continue shopping"
 	Then The user is redirected to create book page
 
-@editbook @redirect
+@positive  @editbook @redirect
  Scenario: The user is redirected to the edit page from the bag 
     Given The user is a customer
     And The user is on the bag page

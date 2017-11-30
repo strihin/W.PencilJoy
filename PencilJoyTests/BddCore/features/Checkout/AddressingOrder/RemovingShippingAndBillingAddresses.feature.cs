@@ -70,12 +70,18 @@ namespace PencilJoyTests.BddCore.Features.Checkout.AddressingOrder
         [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.CategoryAttribute("removeValue")]
         [NUnit.Framework.CategoryAttribute("shipping")]
-        public virtual void TheUserRemovesValueForTheFieldLastNameInTheBlockShippingAddress()
+        [NUnit.Framework.TestCaseAttribute("Natty", "Davescu", "549 Dawn Parkway", "Talisay", "0409-7938", "+63 (655) 490-8096", "22", "Libertad", null)]
+        public virtual void TheUserRemovesValueForTheFieldLastNameInTheBlockShippingAddress(string usernameS, string lastnameS, string streetS, string cityS, string zipCodeS, string phoneS, string numberCountryS, string regionS, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user removes value for the field \"Last name\" in the block \"Shipping Address\"", new string[] {
-                        "positive",
-                        "removeValue",
-                        "shipping"});
+            string[] @__tags = new string[] {
+                    "positive",
+                    "removeValue",
+                    "shipping"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user removes value for the field \"Last name\" in the block \"Shipping Address\"", @__tags);
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
@@ -83,7 +89,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 9
     testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
-    testRunner.And("The user fills fields for shipping address with data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And(string.Format("The user fills fields for shipping address with data  as {0} {1} {2} {3}\t{4} {5} " +
+                        "{6} {7}", usernameS, lastnameS, streetS, cityS, zipCodeS, phoneS, numberCountryS, regionS), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
     testRunner.When("The user removes  values for the field \"Last name\" in the block \"Shipping address" +
                     "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -98,26 +105,39 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.CategoryAttribute("removeValue")]
         [NUnit.Framework.CategoryAttribute("shipping")]
-        public virtual void TheUserRemovesValueForTheFieldCityInTheBlockBillingAddress()
+        [NUnit.Framework.TestCaseAttribute("Olenolin", "Lighter", "61 Evergreen Crossing", "Paris 06", "0268-0639", "+33 (860) 710-6683", "20", "Huallanca", null)]
+        [NUnit.Framework.TestCaseAttribute("Herb", "Cohen", "115 Golf View Road", "Yao’an", "49260-615", "+86 (267) 782-8010", "13", "Chornoliztsi", null)]
+        [NUnit.Framework.TestCaseAttribute("Margalit", "Cochern", "672 Utah Plaza", "Brylivka", "0362-9010", "+380 (667) 550-6654", "19", "Krugersdorp", null)]
+        [NUnit.Framework.TestCaseAttribute("Ximenes", "Traut", "3 Crowley Terrace", "Xugu", "52584-704", "+86 (192) 784-2660", "18", "Omīdcheh", null)]
+        [NUnit.Framework.TestCaseAttribute("Barbi", "D\'orsay", "3108 Northwestern", "Panyambungan", "43063-445", "+62 (563) 802-6203", "14", "Malasin", null)]
+        [NUnit.Framework.TestCaseAttribute("August", "Accomb", "8 Grasskamp Trail", "Kuroiso", "0093-7206", "+81 (504) 678-7207", "3", "Cucutilla", null)]
+        [NUnit.Framework.TestCaseAttribute("Grace", "Chictto", "115 Arizona Parkway", "Langtang", "36800-647", "+234 (683) 231-9702", "20", "Gongju", null)]
+        public virtual void TheUserRemovesValueForTheFieldCityInTheBlockBillingAddress(string usernameB, string lastnameB, string streetB, string cityB, string zipCodeB, string phoneB, string numberCountryB, string regionB, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user removes value for the field \"City\" in the block \"Billing Address\"", new string[] {
-                        "positive",
-                        "removeValue",
-                        "shipping"});
-#line 15
-this.ScenarioSetup(scenarioInfo);
-#line 16
-    testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 17
-    testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+            string[] @__tags = new string[] {
+                    "positive",
+                    "removeValue",
+                    "shipping"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user removes value for the field \"City\" in the block \"Billing Address\"", @__tags);
 #line 18
+this.ScenarioSetup(scenarioInfo);
+#line 19
+    testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 20
+    testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
  testRunner.And("The user clicks the checkbox \"Billing to this address\" in the block \"Shipping add" +
                     "ress\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 19
-    testRunner.And("The user fills fields for billing address with data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 20
+#line 22
+    testRunner.And(string.Format("The user fills fields for billing address with data  as {0} {1} {2} {3}\t{4} {5} {" +
+                        "6} {7}", usernameB, lastnameB, streetB, cityB, zipCodeB, phoneB, numberCountryB, regionB), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 23
     testRunner.When("The user removes the field \"City\" in the block \"Billing address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 21
+#line 24
     testRunner.Then("The field \"City\" should be empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

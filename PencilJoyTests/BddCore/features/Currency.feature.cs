@@ -67,12 +67,28 @@ namespace PencilJoyTests.BddCore.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("The user edits currency for checking currency and price in the button on the prev" +
             "iew page")]
+        [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.CategoryAttribute("previewPage")]
-        public virtual void TheUserEditsCurrencyForCheckingCurrencyAndPriceInTheButtonOnThePreviewPage()
+        [NUnit.Framework.TestCaseAttribute("USD", null)]
+        [NUnit.Framework.TestCaseAttribute("GBP", null)]
+        [NUnit.Framework.TestCaseAttribute("EUR", null)]
+        [NUnit.Framework.TestCaseAttribute("JPY", null)]
+        [NUnit.Framework.TestCaseAttribute("AUD", null)]
+        [NUnit.Framework.TestCaseAttribute("CHF", null)]
+        [NUnit.Framework.TestCaseAttribute("CAD", null)]
+        [NUnit.Framework.TestCaseAttribute("SEK", null)]
+        [NUnit.Framework.TestCaseAttribute("NZD", null)]
+        public virtual void TheUserEditsCurrencyForCheckingCurrencyAndPriceInTheButtonOnThePreviewPage(string currency, string[] exampleTags)
         {
+            string[] @__tags = new string[] {
+                    "positive",
+                    "previewPage"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user edits currency for checking currency and price in the button on the prev" +
-                    "iew page", new string[] {
-                        "previewPage"});
+                    "iew page", @__tags);
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
@@ -80,9 +96,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 9
     testRunner.And("The user is on preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
-    testRunner.When("The user clicks the dropdown with currency and chooses currency item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When(string.Format("The user clicks the dropdown with currency and chooses currency item as {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
-    testRunner.Then("The currency is changed in the button \"Order for\" as a currency item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then(string.Format("The currency is changed in the button \"Order for\" as {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 12
  testRunner.And("The price for a book in the button \"Order for...\" is edited.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -92,92 +108,134 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("The user edits currency on the message page for checking currency on the bag page" +
             "")]
+        [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.CategoryAttribute("messagePage")]
-        public virtual void TheUserEditsCurrencyOnTheMessagePageForCheckingCurrencyOnTheBagPage()
+        [NUnit.Framework.TestCaseAttribute("USD", null)]
+        [NUnit.Framework.TestCaseAttribute("GBP", null)]
+        [NUnit.Framework.TestCaseAttribute("EUR", null)]
+        [NUnit.Framework.TestCaseAttribute("JPY", null)]
+        [NUnit.Framework.TestCaseAttribute("AUD", null)]
+        [NUnit.Framework.TestCaseAttribute("CHF", null)]
+        [NUnit.Framework.TestCaseAttribute("CAD", null)]
+        [NUnit.Framework.TestCaseAttribute("SEK", null)]
+        [NUnit.Framework.TestCaseAttribute("NZD", null)]
+        public virtual void TheUserEditsCurrencyOnTheMessagePageForCheckingCurrencyOnTheBagPage(string currency, string[] exampleTags)
         {
+            string[] @__tags = new string[] {
+                    "positive",
+                    "messagePage"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user edits currency on the message page for checking currency on the bag page" +
-                    "", new string[] {
-                        "messagePage"});
-#line 15
+                    "", @__tags);
+#line 26
 this.ScenarioSetup(scenarioInfo);
-#line 16
+#line 27
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 17
+#line 28
     testRunner.And("The user is on the message page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 18
-    testRunner.When("The user clicks the dropdown with currency and chooses currency item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 19
+#line 29
+    testRunner.When(string.Format("The user clicks the dropdown with currency and chooses currency item as {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 30
  testRunner.And("The user clicks \"Next\" for redirecting to the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 20
-    testRunner.Then("The currency in the field \"Subtotal\" on the bag page is should be equal selected " +
-                    "currency item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 21
- testRunner.And("The currency in the field \"Grand Total\" on the bag page is should be equal select" +
-                    "ed currency item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 22
- testRunner.And("The active currency in the dropdown with currencies on the bag page should be equ" +
-                    "al  selected currency item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 31
+    testRunner.Then(string.Format("The currency in the field \"Subtotal\" on the bag page is {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 32
+ testRunner.And(string.Format("The currency in the field \"Grand Total\" on the bag page is {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 33
+ testRunner.And(string.Format("The active currency in the dropdown with currencies on the bag page should be equ" +
+                        "al {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("The user edits currency using dropdown in the footer on the bag page")]
+        [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.CategoryAttribute("bagPage")]
         [NUnit.Framework.CategoryAttribute("dropdownFooter")]
-        public virtual void TheUserEditsCurrencyUsingDropdownInTheFooterOnTheBagPage()
+        [NUnit.Framework.TestCaseAttribute("USD", null)]
+        [NUnit.Framework.TestCaseAttribute("GBP", null)]
+        [NUnit.Framework.TestCaseAttribute("EUR", null)]
+        [NUnit.Framework.TestCaseAttribute("JPY", null)]
+        [NUnit.Framework.TestCaseAttribute("AUD", null)]
+        [NUnit.Framework.TestCaseAttribute("CHF", null)]
+        [NUnit.Framework.TestCaseAttribute("CAD", null)]
+        [NUnit.Framework.TestCaseAttribute("SEK", null)]
+        [NUnit.Framework.TestCaseAttribute("NZD", null)]
+        public virtual void TheUserEditsCurrencyUsingDropdownInTheFooterOnTheBagPage(string currency, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user edits currency using dropdown in the footer on the bag page", new string[] {
-                        "bagPage",
-                        "dropdownFooter"});
-#line 25
+            string[] @__tags = new string[] {
+                    "positive",
+                    "bagPage",
+                    "dropdownFooter"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user edits currency using dropdown in the footer on the bag page", @__tags);
+#line 47
 this.ScenarioSetup(scenarioInfo);
-#line 26
+#line 48
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 27
+#line 49
     testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 28
-    testRunner.When("The user clicks the dropdown with currencies in the footer and chooses currency i" +
-                    "tem", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 29
-    testRunner.Then("The currency in the field \"Subtotal\" on the bag page is  should be equal selected" +
-                    " currency item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 30
- testRunner.And("The currency in the field \"Grand Total\" on the bag page is  should be equal selec" +
-                    "ted currency item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 31
- testRunner.And("The active currency in the dropdown with currencies on the bag page should be equ" +
-                    "al  selected currency item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 50
+    testRunner.When(string.Format("The user clicks the dropdown with currencies in the footer and chooses currency i" +
+                        "tem as {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 51
+    testRunner.Then(string.Format("The currency in the field \"Subtotal\" on the bag page is  should be equal {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 52
+ testRunner.And(string.Format("The currency in the field \"Grand Total\" on the bag page is  should be equal {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 53
+ testRunner.And(string.Format("The active currency in the dropdown with currencies on the bag page should be equ" +
+                        "al  {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("The user edits currency using dropdown on the bag page")]
+        [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.CategoryAttribute("bagPage")]
         [NUnit.Framework.CategoryAttribute("dropdown")]
-        public virtual void TheUserEditsCurrencyUsingDropdownOnTheBagPage()
+        [NUnit.Framework.TestCaseAttribute("USD", null)]
+        [NUnit.Framework.TestCaseAttribute("GBP", null)]
+        [NUnit.Framework.TestCaseAttribute("EUR", null)]
+        [NUnit.Framework.TestCaseAttribute("JPY", null)]
+        [NUnit.Framework.TestCaseAttribute("AUD", null)]
+        [NUnit.Framework.TestCaseAttribute("CHF", null)]
+        [NUnit.Framework.TestCaseAttribute("CAD", null)]
+        [NUnit.Framework.TestCaseAttribute("SEK", null)]
+        [NUnit.Framework.TestCaseAttribute("NZD", null)]
+        public virtual void TheUserEditsCurrencyUsingDropdownOnTheBagPage(string currency, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user edits currency using dropdown on the bag page", new string[] {
-                        "bagPage",
-                        "dropdown"});
-#line 34
+            string[] @__tags = new string[] {
+                    "positive",
+                    "bagPage",
+                    "dropdown"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user edits currency using dropdown on the bag page", @__tags);
+#line 67
 this.ScenarioSetup(scenarioInfo);
-#line 35
+#line 68
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 36
+#line 69
     testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 37
-    testRunner.When("The user clicks the dropdown with currencies and chooses currency item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 38
-    testRunner.Then("The currency in the field \"Subtotal\" on the bag page should be equal selected cur" +
-                    "rency item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 39
- testRunner.And("The currency in the field \"Grand Total\" on the bag page should be equal selected " +
-                    "currency item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 40
- testRunner.And("The active currency in the dropdown with currencies ib the footer should be equal" +
-                    " selected currency item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 70
+    testRunner.When(string.Format("The user clicks the dropdown with currencies and chooses currency item as {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 71
+    testRunner.Then(string.Format("The currency in the field \"Subtotal\" on the bag page should be equal {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 72
+ testRunner.And(string.Format("The currency in the field \"Grand Total\" on the bag page should be equal {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 73
+ testRunner.And(string.Format("The active currency in the dropdown with currencies ib the footer should be equal" +
+                        " {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -27,16 +27,17 @@ namespace PencilJoyTests.BddCore.steps
             Assert.AreEqual(currentDriver.Title, "Personalized Books and Gifts from Pencil Joy");
         }
 
-        [When(@"The user fills correct data to fields")]
-        public void WhenTheUserFillsCorrectDataToFields()
+        [When(@"The user fills correct data to fields as (.*) , (.*) , (.*) (.*) , (.*)")]
+        public void WhenTheUserFillsCorrectDataToFieldsAs(string p0, string p1, string p2, string p3, string p4)
         {
             createBookPage.EntryLoginIntoBookData();
+           
         }
 
         [Then(@"The user is redirected to the preview page")]
         public void ThenTheUserIsRedirectedToThePreviewPage()
         {
-            ScenarioContext.Current.Pending();
+            ScenarioContext.Current.Pending();  
         }
 
         [When(@"The user fills correct data to all fields besides fields for birthday as month and day")]

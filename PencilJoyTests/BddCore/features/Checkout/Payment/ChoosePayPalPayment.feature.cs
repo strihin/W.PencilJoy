@@ -75,11 +75,53 @@ this.ScenarioSetup(scenarioInfo);
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
     testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UsernameB",
+                        "LastnameB",
+                        "StreetB",
+                        "CityB",
+                        "ZipCodeB",
+                        "PhoneB",
+                        "NumberCountryB",
+                        "RegionB"});
+            table1.AddRow(new string[] {
+                        "Barbi",
+                        "D\'orsay",
+                        "3108 Northwestern",
+                        "Panyambungan",
+                        "43063-445",
+                        "+62 (563) 802-6203",
+                        "14",
+                        "Malasin"});
 #line 9
-    testRunner.And("The user correct fills the fields for Billing and Shipping Address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
+    testRunner.And("The user correct fills the fields for Billing Address  as <UsernameB> <LastnameB>" +
+                    " <StreetB> <CityB>\t<ZipCodeB> <PhoneB> <NumberCountryB> <RegionB>", ((string)(null)), table1, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UsernameS",
+                        "LastnameS",
+                        "StreetS",
+                        "CityS",
+                        "ZipCodeS",
+                        "PhoneS",
+                        "NumberCountryS",
+                        "RegionS"});
+            table2.AddRow(new string[] {
+                        "Gerty",
+                        "Eagles",
+                        "13911 Everett Pass",
+                        "Eslāmāb",
+                        "0924-5701",
+                        "+98 (540) 526-5197",
+                        "12",
+                        "Lumsden"});
+#line 12
+ testRunner.And("The user correct fills the fields for Shipping Address as <UsernameS> <LastnameS>" +
+                    " <StreetS> <CityS>\t<ZipCodeS> <PhoneS> <NumberCountryS> <RegionS>", ((string)(null)), table2, "And ");
+#line 15
  testRunner.When("The user clicks the tab \"PayPal\" in the Payment Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 11
+#line 16
     testRunner.Then("The tab should be seen the button \"Check out with PayPal\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -90,19 +132,61 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void TheUserChoosesPayPalPayment()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user chooses PayPal payment", ((string[])(null)));
-#line 13
-this.ScenarioSetup(scenarioInfo);
-#line 14
-    testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 15
-    testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 16
-    testRunner.And("The user correct fills the fields for Billing and Shipping Address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 17
- testRunner.And("The user clicks the tab \"PayPal\" in the Payment Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
-    testRunner.When("The user clicks the button \"Check out with PayPal\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
 #line 19
+    testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 20
+    testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UsernameB",
+                        "LastnameB",
+                        "StreetB",
+                        "CityB",
+                        "ZipCodeB",
+                        "PhoneB",
+                        "NumberCountryB",
+                        "RegionB"});
+            table3.AddRow(new string[] {
+                        "August",
+                        "Accomb",
+                        "8 Grasskamp Trail",
+                        "Kuroiso",
+                        "0093-7206",
+                        "+81 (504) 678-7207",
+                        "3",
+                        "Cucutilla"});
+#line 21
+    testRunner.And("The user correct fills the fields for Billing Address  as <UsernameB> <LastnameB>" +
+                    " <StreetB> <CityB>\t<ZipCodeB> <PhoneB> <NumberCountryB> <RegionB>", ((string)(null)), table3, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UsernameS",
+                        "LastnameS",
+                        "StreetS",
+                        "CityS",
+                        "ZipCodeS",
+                        "PhoneS",
+                        "NumberCountryS",
+                        "RegionS"});
+            table4.AddRow(new string[] {
+                        "Grace",
+                        "Chictto",
+                        "115 Arizona Parkway",
+                        "Langtang",
+                        "36800-647",
+                        "+234 (683) 231-9702",
+                        "20",
+                        "Gongju"});
+#line 24
+ testRunner.And("The user correct fills the fields for Shipping Address as <UsernameS> <LastnameS>" +
+                    " <StreetS> <CityS>\t<ZipCodeS> <PhoneS> <NumberCountryS> <RegionS>", ((string)(null)), table4, "And ");
+#line 27
+ testRunner.And("The user clicks the tab \"PayPal\" in the Payment Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+    testRunner.When("The user clicks the button \"Check out with PayPal\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 29
     testRunner.Then("Page is redirected to PayPal service", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

@@ -148,7 +148,14 @@
       <DependentUpon>MessageData.feature</DependentUpon>
     </Compile>
     <Compile Include="BddCore\Hooks.cs" />
+    <Compile Include="BddCore\Steps\AuthorizationSteps.cs" />
+    <Compile Include="BddCore\Steps\FillingAddressingOrderSteps.cs" />
     <Compile Include="BddCore\Steps\FillingChildDataSteps.cs" />
+    <Compile Include="BddCore\Steps\FillingCreditCardSteps.cs" />
+    <Compile Include="BddCore\Steps\MessageSteps.cs" />
+    <Compile Include="C:\Users\Strigin\Desktop\pics airplanes\FillingCustomerSDataForAuthorizationSteps.cs">
+      <Link>FillingCustomerSDataForAuthorizationSteps.cs</Link>
+    </Compile>
     <Compile Include="Data\AdminData\Currency.cs" />
     <Compile Include="Data\AdminData\DiscountCode.cs" />
     <Compile Include="Data\AdminData\FullAdminData.cs" />
@@ -251,6 +258,11 @@
     </None>
     <None Include="Data\AdminData\Currencies.json" />
     <None Include="Data\AdminData\DiscountCode.json" />
+    <None Include="Data\RandomData\CheckoutAddressData.xlsx" />
+    <None Include="Data\RandomData\CheckoutAddressData2.xlsx" />
+    <None Include="Data\RandomData\CheckoutPaymentData.xlsx" />
+    <None Include="Data\RandomData\ChildData.xlsx" />
+    <None Include="Data\RandomData\MessageAndIdentificationData.xlsx" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

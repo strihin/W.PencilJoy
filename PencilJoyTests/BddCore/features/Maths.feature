@@ -42,14 +42,18 @@ Scenario: The user compares totalprice and currency for order with discount code
 	Then The price and currency for the totalprice on the bag page and on the checkout page should be equal 
 
 @compareDiscountPercent @bagPage @checkoutPage
-Scenario: The user compares discount percent and name for order on the bag page and on the checkout page
+Scenario Outline: The user compares discount percent and name for order on the bag page and on the checkout page
 	Given The user is a customer
 	And The user is on the bag page
 	And The user enters correct discount code
-	And The user gets discount percent and name for order on the bag page
+	And The user gets discount percent and name for order on the bag page as <DiscountPercent>  <DiscountPercent>
 	And The user clicks the button "Next"
-	When The user gets discount percent and name for order on the checkout page
+	When The user gets discount percent and name for order on the checkout page as <DiscountPercent>  <DiscountPercent>
 	Then The discount percent and name for order should be equal on the bag page and on the checkout page 
+Examples: 
+| DiscountCode  | DiscountPercent	|
+| kendra35		| 35				|
+| vip25			| 25				|
 
 @verifyPriceBookList @bagPage
 Scenario: The user verifies price for booklist on the bag page
@@ -78,10 +82,22 @@ Scenario: The user compares currency for totalprice on the bag page and on the c
 	Then The currency for totalprice should be equal on the bag page and on the checkout page 
 
 @comparePriceWithDifferentCurrency @bagPage 
-Scenario: The user compares price for the first book using different currency
+Scenario Outline: The user compares price for the first book using different currency
 	Given The user is a customer
 	And The user is on the bag page
 	And The user adds few books in the bag
-	When The user changes currency for order
+	When The user changes currency for order as <Currency>
 	And The user gets price for the first book
-	Then The price for the first book with another currency should be as price from json file Currencies.json
+	Then The price for the first book with  should be equal as <CurrencyValue>
+Examples: 
+| Currency | CurrencyValue |  
+| USD      | 29.99         |
+| GBP      | 19.99         |
+| EUR      | 26.99         |
+| JPY      | 3000.00       |
+| AUD      | 39.99         |
+| CHF      | 29.99         |
+| CAD      | 38.99         |
+| SEK      | 249.99        |
+| NZD      | 39.99         |
+						   
