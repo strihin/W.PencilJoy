@@ -67,31 +67,31 @@ namespace PencilJoyTests
             try
             {
                 //Methods
-                _test.Log(Status.Pass, objCreateBookPage.LoginIntoBookData());
-                _test.Log(Status.Pass, objCreateBookPage.EntryLoginIntoBookData());
+                _test.Log(Status.Pass, objCreateBookPage.LoginNameAndDate());
+                _test.Log(Status.Pass, objCreateBookPage.ConfirmForm());
                 _test.Log(Status.Pass, objPreviewPage.EditCurrency());
                 _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
 
                 _test.Log(Status.Pass, objMessagePage.EditMessage());
                 _test.Log(Status.Pass, objMessagePage.LoginNewCustomer());
-                _test.Log(Status.Pass, objMessagePage.NextStepToBag());
+                _test.Log(Status.Pass, objMessagePage.ComfirmForm());
 
                 _test.Log(Status.Pass, objBagPage.ShopMoreBooks());
-                _test.Log(Status.Pass, objCreateBookPage.LoginIntoBookData());
-                _test.Log(Status.Pass, objCreateBookPage.EntryLoginIntoBookData());
+                _test.Log(Status.Pass, objCreateBookPage.LoginNameAndDate());
+                _test.Log(Status.Pass, objCreateBookPage.ConfirmForm());
                 _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
-                _test.Log(Status.Pass, objMessagePage.NextStepToBag());
+                _test.Log(Status.Pass, objMessagePage.ComfirmForm());
 
                 objBagPage.CheckDiscount();
 
                 _test.Log(Status.Pass, objBagPage.ShopMoreBooks());
-                _test.Log(Status.Pass, objCreateBookPage.LoginIntoBookData());
-                _test.Log(Status.Pass, objCreateBookPage.EntryLoginIntoBookData());
+                _test.Log(Status.Pass, objCreateBookPage.LoginNameAndDate());
+                _test.Log(Status.Pass, objCreateBookPage.ConfirmForm());
                 _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
-                _test.Log(Status.Pass, objMessagePage.NextStepToBag());
+                _test.Log(Status.Pass, objMessagePage.ComfirmForm());
             
                 _test.Log(Status.Pass, objBagPage.RemoveBook(_webDriver));
-                _test.Log(Status.Pass, objBagPage.GetCheckoutPage());
+                _test.Log(Status.Pass, objBagPage.ConfirmForm());
                 objCheckoutPaymentPage.GetMathPriceForCheckoutMath();
 
                 objCheckoutPaymentPage.GetMathPriceForCheckoutMath();

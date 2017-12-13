@@ -19,6 +19,8 @@ namespace PencilJoyTests.Pages
         private int numberEditBook { get; set; }
         private int numberRemoveBook { get; set; }
         private string discountCode { get; set; }
+        private int bookAmountBeforeRemoving { get; set; }
+        
      //   public BagPage() { }
         public BagPage(WebDriverWait waitDriver, BagMaths bagMath, BagPageData bagPageData)
         {
@@ -123,10 +125,24 @@ namespace PencilJoyTests.Pages
        {
            get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.XPath(".//*[text()='Subtotal']/../following-sibling::td[1]"))); }
        }
+
+       private IWebElement TitleEmptyBag
+       {
+           get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.TagName("h2"))); }
+       }
+       private IWebElement ButtonContinueShopping
+       {
+           get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("emp-cart"))); }
+       }
+
+       private IWebElement LinkBasket
+       {
+           get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("active"))); }
+       }
         #endregion
 
         #region Methods
-        public string GetCheckoutPage()
+        public string ConfirmForm()
         {
             GetBagPriceBagMath();
             NextButton.SendKeys(Keys.Enter);
@@ -164,20 +180,33 @@ namespace PencilJoyTests.Pages
                return false;
            }
        }
-       public string EditBook()
+       public string EditBook(int number)
        {
-           numberEditBook = Faker.RandomNumber.Next(1,Products.Count);
+           numberEditBook = number; // Faker.RandomNumber.Next(1,Products.Count);
            EditBookLink.Click();
            return System.Reflection.MethodBase.GetCurrentMethod().Name;
        }
-       public string RemoveBook(IWebDriver _webDriver)
+       public string RemoveBook(int numberBook)
        {
-           numberRemoveBook = Faker.RandomNumber.Next(1, Products.Count);
+           bookAmountBeforeRemoving = Products.Count;
+           numberRemoveBook = numberBook; //Faker.RandomNumber.Next(1, Products.Count);
            RemoveBookLink.Click();
+           return System.Reflection.MethodBase.GetCurrentMethod().Name;
+       }
+       public string AcceptRemovingBook(IWebDriver _webDriver)
+       {
            _webDriver.SwitchTo().Alert().Accept();
            return System.Reflection.MethodBase.GetCurrentMethod().Name;
        }
 
+       public string RemoveAllBooks(IWebDriver _webDriver)
+       {
+           for(int i = 0; i < Products.Count; i++)
+           {
+               RemoveBook(i + 1);
+               AcceptRemovingBook(_webDriver);
+           }
+       }
        public void GetBagPriceBagMath()
        {
            GetActualPriceBook();
@@ -226,11 +255,44 @@ namespace PencilJoyTests.Pages
            _bagMath.ExpectedOrder.PriceBook = priceArr;
        }
         #endregion
-       public string test()
+       public bool CheckBasketAsEmpty()
        {
-        //   var q = GetDiscountPercent();
-           
-           return System.Reflection.MethodBase.GetCurrentMethod().Name;
+           return (Products.Count != 0) ? true : false;
+       }
+
+       public bool CheckTheButtonIsVisible()
+       {
+           return TitleEmptyBag.Displayed ? true : false;
+       }
+
+       public void ContinueShopping()
+       {
+           ButtonContinueShopping.Click();
+       }
+
+       public bool VerifyCountBooks()
+       {
+           return (bookAmountBeforeRemoving - Products.Count == 1);
+       }
+
+       public bool IsAlertExists(IWebDriver _webDriver)
+       {
+
+           try
+           {
+               _webDriver.SwitchTo().Alert();
+               return true;
+           }   
+           catch (NoAlertPresentException Ex)
+           {
+               return false;
+           }  
+       }
+
+       public bool IsBasketEmpty()
+       {
+           return (LinkBasket.Text=="Bag ")?
+               true : false;
        }
         #endregion
     }

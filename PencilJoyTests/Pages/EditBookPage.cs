@@ -16,7 +16,8 @@ namespace PencilJoyTests.Pages
         private CreateBookData _createBookData;
 
         public EditBookPage(WebDriverWait waitDriver, CreateBookData createBookData) : base(waitDriver, createBookData) { }
-       
+        public EditBookPage() { }
+
         #region Objects
         private IWebElement UpdateChangeButton
         {
@@ -28,7 +29,7 @@ namespace PencilJoyTests.Pages
         #endregion
 
         #region Methods
-        public  string EditBookData()
+        public  string ConfirmForm()
         {
             UpdateChangeButton.Click();
 

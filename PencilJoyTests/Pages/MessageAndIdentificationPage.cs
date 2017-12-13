@@ -79,6 +79,20 @@ namespace PencilJoyTests.Pages
         {
             get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.TagName("h6"))); }
         }
+        private IWebElement TabNewCustomer
+        {
+            get
+            {
+                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("personal-msg-form")));
+            }
+        }
+        private IWebElement TabReturningCustomer
+        {
+            get
+            {
+                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("checkout-returning")));
+            }
+        }
         #endregion
 
         #region Methods
@@ -105,7 +119,7 @@ namespace PencilJoyTests.Pages
             PasswordReturningCustomerTextbox.SendKeys(_messageAndIdentificationData.CustomerPassword);
             return System.Reflection.MethodBase.GetCurrentMethod().Name;
         }
-        public string NextStepToBag()
+        public string ComfirmForm()
         {
             NextButton.SendKeys(Keys.Enter);
             return System.Reflection.MethodBase.GetCurrentMethod().Name;
@@ -114,6 +128,16 @@ namespace PencilJoyTests.Pages
         public bool CheckingEmail()
         {
             return (BlockedNotification.Displayed) ? true : false;
+        }
+
+        public string ClickTabReturningCustomer()
+        {
+            TabReturningCustomer.Click();
+            return System.Reflection.MethodBase.GetCurrentMethod().Name;
+        }
+        public bool CheckActiveTab()
+        {
+            return (TabNewCustomer.GetAttribute("class").Contains("active")) ? true : false;
         }
         #endregion
     }

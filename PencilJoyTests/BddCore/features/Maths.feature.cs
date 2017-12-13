@@ -367,6 +367,29 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Checking price for order after removing a book")]
+        [NUnit.Framework.CategoryAttribute("positive")]
+        [NUnit.Framework.CategoryAttribute("priceorder")]
+        public virtual void CheckingPriceForOrderAfterRemovingABook()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Checking price for order after removing a book", new string[] {
+                        "positive",
+                        "priceorder"});
+#line 105
+this.ScenarioSetup(scenarioInfo);
+#line 106
+    testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 107
+    testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 108
+    testRunner.When("The user clicks button Ok on the popup notification for removing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 109
+    testRunner.Then("The price for the order should be subtracted price for removing book.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

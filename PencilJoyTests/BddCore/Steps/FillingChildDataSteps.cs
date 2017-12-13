@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using PencilJoyTests.Data;
 using PencilJoyTests.Pages;
 using TechTalk.SpecFlow;
 
@@ -14,90 +16,102 @@ namespace PencilJoyTests.BddCore.steps
     {
         private IWebDriver currentDriver = null;
         CreateBookPage createBookPage = new CreateBookPage();
+        private CreateBookData createBookData;
+        private const string nextPageTitle = Helper.StartPage + "/preview";
 
         [Given(@"The user is a customer")]
         public void GivenTheUserIsACustomer()
         {
-            Assert.AreEqual(currentDriver.Title, "Personalized Books and Gifts from Pencil Joy");
+            Assert.AreEqual(currentDriver.Url, Helper.StartPage);
         }
 
         [Given(@"The user is on the create book page")]
         public void GivenTheUserIsOnTheCreateBookPage()
         {
-            Assert.AreEqual(currentDriver.Title, "Personalized Books and Gifts from Pencil Joy");
+            Assert.AreEqual(currentDriver.Url, Helper.StartPage);
         }
 
         [When(@"The user fills correct data to fields as (.*) , (.*) , (.*) (.*) , (.*)")]
-        public void WhenTheUserFillsCorrectDataToFieldsAs(string p0, string p1, string p2, string p3, string p4)
+        public void WhenTheUserFillsCorrectDataToFieldsAs(string username, int numberMonth, int numberDay, int numberSex, int numberCharacter)
         {
-            createBookPage.EntryLoginIntoBookData();
-           
+           // createBookData = new CreateBookData(username, Convert.ToInt32(numberMonth), Convert.ToInt32(numberDay), Convert.ToInt32(numberSex), Convert.ToInt32(numberCharacter));
+            createBookPage.LoginNameAndDate(username, numberMonth, numberDay);
+            createBookPage.LoginPersonCharacter(numberSex, numberCharacter);
+
         }
 
         [Then(@"The user is redirected to the preview page")]
         public void ThenTheUserIsRedirectedToThePreviewPage()
         {
-            ScenarioContext.Current.Pending();  
-        }
-
-        [When(@"The user fills correct data to all fields besides fields for birthday as month and day")]
-        public void WhenTheUserFillsCorrectDataToAllFieldsBesidesFieldsForBirthdayAsMonthAndDay()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [When(@"The user fills incorrect data to fields")]
-        public void WhenTheUserFillsIncorrectDataToFields()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [Then(@"The user doesn`t redirected to the preview page")]
-        public void ThenTheUserDoesnTRedirectedToThePreviewPage()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [Then(@"The fields with incorrect data gets a red border\.")]
-        public void ThenTheFieldsWithIncorrectDataGetsARedBorder_()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [When(@"The user fills correct data to fields besides the field ""(.*)""")]
-        public void WhenTheUserFillsCorrectDataToFieldsBesidesTheField(string p0)
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [When(@"The user leaves the field ""(.*)"" empty")]
-        public void WhenTheUserLeavesTheFieldEmpty(string p0)
-        {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(currentDriver.Url, nextPageTitle); 
         }
 
         [Then(@"The field ""(.*)"" gets a red border\.")]
-        public void ThenTheFieldGetsARedBorder_(string p0)
+        public void ThenTheFieldGetsARedBorder_(string fieldName)
         {
-            ScenarioContext.Current.Pending();
+            createBookPage.VerifyErrorField(fieldName);
         }
 
-        [When(@"The user fills correct data to fields without choosing the button ""(.*)"" as ""(.*)""")]
-        public void WhenTheUserFillsCorrectDataToFieldsWithoutChoosingTheButtonAs(string p0, string p1)
+        [When(@"The user fills correct data to fields without choosing the button Gender")]
+        public void WhenTheUserFillsCorrectDataToFieldsWithoutChoosingTheButtonAs(string gender)
         {
-            ScenarioContext.Current.Pending();
+            createBookPage.VerifyErrorField(gender);
+        }
+        
+        [When(@"The user fills incorrect data to field Name and correct data for another fields as (.*) , (.*) , (.*) (.*) , (.*)")]
+        public void WhenTheUserFillsIncorrectDataToFieldNameAndCorrectDataForAnotherFieldsAs(string username, int numberMonth, int numberDay, int numberSex, int numberCharacter)
+        {
+            createBookPage.LoginNameAndDate(username, numberMonth, numberDay);
+            createBookPage.LoginPersonCharacter(numberSex, numberCharacter);
         }
 
-        [Then(@"The buttons ""(.*)"", ""(.*)"" get a red border\.")]
-        public void ThenTheButtonsGetARedBorder_(string p0, string p1)
+        [Then(@"The field for (.*) with incorrect data get a red border\.")]
+        public void ThenTheFieldForWithIncorrectDataGetARedBorder_(string fieldName)
         {
-            ScenarioContext.Current.Pending();
+            createBookPage.VerifyErrorField(fieldName);
+        }
+        
+        [Then(@"The user  isn`t redirected to the preview page")]
+        public void ThenTheUserIsnTRedirectedToThePreviewPage()
+        {
+            Assert.AreNotEqual(currentDriver.Url, nextPageTitle);
         }
 
-        [When(@"The user fills correct data to fields without choosing the option ""(.*)""")]
-        public void WhenTheUserFillsCorrectDataToFieldsWithoutChoosingTheOption(string p0)
+        [Then(@"The field (.*) gets a red border\.")]
+        public void ThenTheFieldFirstNameGetsARedBorder_(string fieldName)
         {
-            ScenarioContext.Current.Pending();
+            createBookPage.VerifyErrorField(fieldName);
+        }
+
+        [When(@"The user fills correct data to fields name and date as (.*) , (.*) , (.*)")]
+        public void WhenTheUserFillsCorrectDataToFieldsNameAndDateAsQuill(string username, int numberMonth, int numberDay)
+        {
+            createBookPage.LoginNameAndDate(username, numberMonth, numberDay);
+        }
+
+        [When(@"The user fills correct data to field Gender as (.*) , (.*)")]
+        public void WhenTheUserFillsCorrectDataToFieldGenderAs(int numberSex, int numberCharacter)
+        {
+            createBookPage.LoginPersonCharacter(numberSex, numberCharacter);
+        }
+
+        [When(@"The user fills correct data to fields and the field First name is empty: (.*) , (.*) , (.*)")]
+        public void WhenTheUserFillsCorrectDataToFieldsAndTheFieldFirstNameIsEmpty(string username, int numberMonth, int numberDay)
+        {
+            createBookPage.LoginNameAndDate(username, numberMonth, numberDay);
+        }
+
+        [When(@"The user fills correct data to fields without choosing the button ""(.*)"" : (.*) , (.*) , (.*)")]
+        public void WhenTheUserFillsCorrectDataToFieldsWithoutChoosingTheButton(string fieldName, string username, int numberMonth, int numberDay)
+        {
+            createBookPage.LoginNameAndDate(username, numberMonth, numberDay);
+            createBookPage.VerifyErrorField(fieldName);
+        }
+        
+        [Then(@"The button ""(.*)"" gets a red border\.")]
+        public void ThenTheButtonGetsARedBorder_(string fieldName)
+        {
+            createBookPage.VerifyErrorField(fieldName);
         }
     }
 }

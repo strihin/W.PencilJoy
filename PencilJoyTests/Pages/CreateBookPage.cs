@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using PencilJoyTests.Data;
 
@@ -74,28 +76,62 @@ namespace PencilJoyTests.Pages
             SelectElement currencyItem = new SelectElement(CurrencySelect);
             currencyItem.SelectByIndex(indexForCurrency);
         }
-        
-        public virtual string LoginIntoBookData()
+
+       public virtual string LoginNameAndDate(string username, int numberMonth, int numberDay)
+       {
+           var monthSelect = new SelectElement(BirthmonthDropdown);
+           var daySelect = new SelectElement(BirthdayDropdown);
+
+           FirstNameTextBox.Clear();
+           FirstNameTextBox.SendKeys(username);
+           BirthmonthDropdown.Click();
+           monthSelect.SelectByIndex(numberMonth - 1);
+           BirthdayDropdown.Click();
+           daySelect.SelectByIndex(numberDay - 1);
+
+            return System.Reflection.MethodBase.GetCurrentMethod().Name ;
+        }
+
+        public virtual string LoginPersonCharacter(int numberSex, int numberCharacter)
+        {
+            _createBookData.NumberSex = numberSex;
+            _createBookData.NumberCharacter = numberCharacter;
+            GenderPersonDropdown.Click();
+            CharacterPersonDropItem.Click();
+
+            return System.Reflection.MethodBase.GetCurrentMethod().Name;
+        }
+        // comment
+        public virtual string LoginIntoBookData(string username, int numberMonth, int numberDay, int numberSex, int numberCharacter)
         {
             var monthSelect = new SelectElement(BirthmonthDropdown);
             var daySelect = new SelectElement(BirthdayDropdown);
 
             FirstNameTextBox.Clear();
-            FirstNameTextBox.SendKeys(_createBookData.Username);
+            FirstNameTextBox.SendKeys(username);
             BirthmonthDropdown.Click();
-            monthSelect.SelectByIndex(_createBookData.NumberMonth - 1);
+            monthSelect.SelectByIndex(numberMonth - 1);
             BirthdayDropdown.Click();
-            daySelect.SelectByIndex(_createBookData.NumberDay - 1);
+            daySelect.SelectByIndex(numberDay - 1);
             GenderPersonDropdown.Click();
             CharacterPersonDropItem.Click();
-
-            return System.Reflection.MethodBase.GetCurrentMethod().Name ;
+           
+            return System.Reflection.MethodBase.GetCurrentMethod().Name;
         }
-
-        public virtual string EntryLoginIntoBookData()
+        
+     /// <summary>
+     /// 
+     /// </summary>
+     /// <returns></returns>
+        public  string ConfirmForm()
         {
             PreviewYourBookButton.SendKeys(Keys.Enter);
             return System.Reflection.MethodBase.GetCurrentMethod().Name;
+        }
+        public bool VerifyErrorField(string fieldName)
+        {
+            IWebElement parentElement = Helper.SearchFieldByName(_waitDriver, fieldName);
+            return Helper.SearchErrorField(parentElement);
         }
         #endregion
     }
