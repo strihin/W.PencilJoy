@@ -7,9 +7,9 @@
 Scenario Outline: The user buys a book without general discount
     Given The user is a customer
     And The user is on the bag page
-    When The user has a book in the bag 
+    When The user has 1 book in the bag 
     Then The user has correct discount percent for each book as <NumberBook>, <Percent>
-Example:
+Examples:
 | NumberBook | Percent |
 | 1          | 0       |
 
@@ -19,7 +19,7 @@ Scenario Outline: The user buys 2 books with general discount
     And The user is on the bag page
     When The user has 2 books in the bag 
     Then The user has correct discount percent for each book as <NumberBook>, <Percent>
-Example:
+Examples:
 | NumberBook | Percent |
 | 1          | 0       |
 | 2          | 10      |
@@ -30,7 +30,7 @@ Scenario Outline: The user buys 3 books with general discount
     And The user is on the bag page
     When The user has 3 books in the bag 
     Then The user has correct discount percent for each book as <NumberBook>, <Percent>
-Example:
+Examples:
 | NumberBook | Percent |
 | 1          | 0       |
 | 2          | 10      |
@@ -40,12 +40,14 @@ Example:
 Scenario Outline: The user buys 4 books with general discount
     Given The user is a customer
     And The user is on the bag page
-    When The user has 2 books in the bag 
+    When The user has 4 books in the bag 
     Then The user has correct discount percent for each book as <NumberBook>, <Percent>
-Example:
+Examples:
 | NumberBook | Percent |
 | 1          | 0       |
 | 2          | 10      |
+| 3          | 15      |
+| 4          | 20      |
 
 @positive @generaldiscount
 Scenario Outline: The user buys 5 books with general discount
@@ -53,7 +55,7 @@ Scenario Outline: The user buys 5 books with general discount
     And The user is on the bag page
     When The user has 5 books in the bag 
     Then The user has correct discount percent for each book as <NumberBook>, <Percent>
-Example:
+Examples: 
 | NumberBook | Percent |
 | 1          | 0       |
 | 2          | 10      |
@@ -65,9 +67,9 @@ Example:
 Scenario Outline: The user buys 6 books with general discount
     Given The user is a customer
     And The user is on the bag page
-    When The user has 6 books in bag 
+    When The user has 6 books in the bag 
     Then The user has correct discount percent for each book as <NumberBook>, <Percent>
-Example:
+Examples:
 | NumberBook | Percent |
 | 1          | 0       |
 | 2          | 10      |
@@ -80,9 +82,9 @@ Example:
 Scenario Outline: The user buys 12 books with general discount
     Given The user is a customer
     And The user is on the bag page
-    When The user has 12 books in bag 
+    When The user has 12 books in the bag 
     Then The user has correct discount percent for each book as <NumberBook>, <Percent>
-Example:
+Examples:
 | NumberBook | Percent |
 | 1          | 0       |
 | 2          | 10      |
@@ -101,6 +103,5 @@ Example:
 Scenario: Compare price books on bag page and checkout page
 	Given The user is a customer
     And The user saves price book on the bag page
-    And The user is on the checkout page
-    When The user compares price books on bag page and checkout page 
-    Then The should be equals
+    When The user is on the checkout page
+    Then The user compares price books on the bag page and the checkout page, they should be equal

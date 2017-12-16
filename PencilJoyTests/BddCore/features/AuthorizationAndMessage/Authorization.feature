@@ -7,9 +7,9 @@
 Scenario Outline: The user fills data for new authorization with correct data
 	Given The user is a new user
 	And The user is on the message page
-	And The active tab is "New customer"
+	And The active tab is the New customer
 	When The user fills correct data for fields  as <FullName> , <Email>
-	And The user clicks the button "Next"
+	And The user clicks the button Next
 	Then The user is redirected to the bag page
 Examples: 
 | FullName          | Email						|
@@ -28,10 +28,10 @@ Examples:
 Scenario Outline: The user fills data for new authorization with existing data in DB
 	Given The user is a new user
 	And The user is on the message page
-	And The active tab is "New customer"
+	And The active tab is the New customer
 	When The user fills data for fields, which exists in DB  as <FullName> , <Email>
-	And The user clicks the button "Next"
-	Then The user doesn`t redirected to the bag page
+	And The user clicks the button Next
+	Then The user isn`t redirected to the bag page
 Examples: 
 | FullName				| Email						|
 |	Auroora Dauncey		|	qaengineer6@yahoo.com	|
@@ -43,10 +43,10 @@ Examples:
 Scenario Outline: The user fills data for new authorization with invalid mail
 	Given The user is a new user
 	And The user is on the message page
-	And The active tab is "New customer"
+	And The active tab is the New customer
 	When The user fills correct name and invalid email as <FullName> , <Email>
-	And The user clicks the button "Next"
-	Then The user doesn`t redirected to the bag page
+	And The user clicks the button Next
+	Then The user isn`t redirected to the bag page
 Examples: 
 | FullName           | Email                       |
 | Rivy Vasishchev    | .rvasishchevf@amazonaws.com |
@@ -59,13 +59,13 @@ Examples:
 | Ivan Marienko      | иван@марья.рф               |
 
 @negative @newcustomer
-Scenario Outline: The user doesn`t fill data for new authorization
+Scenario Outline: The user isn`t fill data for new authorization
 	Given The user is a new user
 	And The user is on the message page
-	And The active tab is "New customer"
-	When The user doesn`t fill data for fields
-	And The user clicks the button "Next"
-	Then The user doesn`t redirected to the bag page
+	And The active tab is the New customer
+	When The user isn`t fill data for fields
+	And The user clicks the button Next
+	Then The user isn`t redirected to the bag page
 Examples: 
 | FullName | Email         |
 |          |               |
@@ -76,9 +76,9 @@ Examples:
 Scenario Outline: The user fills data for registrated account before with correct data
 	Given The user is a registrated user
 	And The user is on the message page
-	And The user clicks the tab "Returning customer"
+	And The user clicks the tab Returning customer
 	When The user fills data for fields, which exists in DB as <Email>, <Password>
-	And The user clicks the button "Next"
+	And The user clicks the button Next
 	Then The user is redirected to the bag page
 Examples: 
 | Email                 | Password |
@@ -91,10 +91,10 @@ Examples:
 Scenario Outline: The user fills data for registrated account before with expitrd data
 	Given The user is a registrated user
 	And The user is on the message page
-	And The user clicks the tab "Returning customer"
+	And The user clicks the tab Returning customer
 	When The user fills data for fields for expired account as <Email>, <Password>
-	And The user clicks the button "Next"
-	Then The user doesn`t redirected to the bag page
+	And The user clicks the button Next
+	Then The user isn`t redirected to the bag page
 Examples: 
 | Email               | Password |
 | qaengineer9@ukr.net | 1q1q1q   |
@@ -103,10 +103,10 @@ Examples:
 Scenario Outline: The user fills data for registrated account before with no existing data
 	Given The user is a registrated user
 	And The user is on the message page
-	And The user clicks the tab "Returning customer"
+	And The user clicks the tab Returning customer
 	When The user fills data for fields, which no exists in DB as  <Email>, <Password>
-	And The user clicks the button "Next"
-	Then The user doesn`t redirected to the bag page
+	And The user clicks the button Next
+	Then The user isn`t redirected to the bag page
 Examples: 
 | Email                   | Password      |
 | lgillisq@soundcloud.com | pass10383     |
@@ -116,10 +116,10 @@ Examples:
 Scenario Outline: The user fills data for registrated account before with invalid password
 	Given The user is a registrated user
 	And The user is on the message page
-	And The user clicks the tab "Returning customer"
+	And The user clicks the tab Returning customer
 	When The user fills data for fields, which exists in DB  with incorrect password  as  <Email>, <Password>
-	And The user clicks the button "Next"
-	Then The user doesn`t redirected to the bag page
+	And The user clicks the button Next
+	Then The user isn`t redirected to the bag page
 Examples: 
 | Email						| Password	|
 | qaengineer6@yahoo.com		| 1q1q		|
@@ -130,10 +130,10 @@ Examples:
 Scenario Outline: The user fills data for registrated account before with invalid email
 	Given The user is a registrated user
 	And The user is on the message page
-	And The user clicks the tab "Returning customer"
+	And The user clicks the tab Returning customer
 	When The user fills data for fields, which exists in DB  with incorrect email  as  <Email>, <Password>
-	And The user clicks the button "Next"
-	Then The user doesn`t redirected to the bag page
+	And The user clicks the button Next
+	Then The user isn`t redirected to the bag page
 | Email                   | Password |
 | qaengineer678@yahoo.com | 1q1q1q   |
 | qaengineer7@yahoocom    | 1q1q1q   |

@@ -101,3 +101,9 @@ Examples:
 | SEK      | 249.99        |
 | NZD      | 39.99         |
 						   
+@positive @priceorder
+Scenario: Checking price for order after removing a book
+    Given The user is a customer
+    And The user is on the bag page
+    When The user clicks button Ok on the popup notification for removing
+    Then The price for the order should be subtracted price for removing book.

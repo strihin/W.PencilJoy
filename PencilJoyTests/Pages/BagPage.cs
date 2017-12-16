@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -139,6 +140,17 @@ namespace PencilJoyTests.Pages
        {
            get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("active"))); }
        }
+
+       private IWebElement DiscountIsAvailable
+       {
+           get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.XPath(".//*[text()='%']"))); }
+       }
+
+       private IWebElement DiscountRow
+       {
+            get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("discount-row"))); }
+       }
+
         #endregion
 
         #region Methods
@@ -154,13 +166,21 @@ namespace PencilJoyTests.Pages
            return System.Reflection.MethodBase.GetCurrentMethod().Name;
        }
 
+       public void EnterDiscountCode(string DiscountCode)
+       {
+           DiscountCodeInput.SendKeys(DiscountCode);
+       }
+
+       public void ConfirmDiscountCode()
+       {
+           DiscountCodeButton.SendKeys(Keys.Enter);
+       }
+
        public bool CheckDiscount()
        {
-           DiscountCodeInput.SendKeys(_bagPageData.DiscountCode);
-           DiscountCodeButton.SendKeys(Keys.Enter);
-
            return GetDiscountPercent();
        }
+       
        public bool GetDiscountPercent()
        {
            if (DisountPercent.Enabled)
@@ -277,7 +297,6 @@ namespace PencilJoyTests.Pages
 
        public bool IsAlertExists(IWebDriver _webDriver)
        {
-
            try
            {
                _webDriver.SwitchTo().Alert();
@@ -293,6 +312,22 @@ namespace PencilJoyTests.Pages
        {
            return (LinkBasket.Text=="Bag ")?
                true : false;
+       }
+
+       public bool IsCodeValid(int expectedPercent)
+       {
+           int actualPercent = 0;
+           if (DiscountIsAvailable.Enabled)
+           {
+               actualPercent = Convert.ToInt32(Regex.Match(DiscountIsAvailable.Text, @"\d+").Value);
+           }
+
+           return (actualPercent == expectedPercent);
+       }
+
+       public bool IsCodeUnchecked()
+       {
+           return Helper.SearchErrorField(DiscountRow);
        }
         #endregion
     }

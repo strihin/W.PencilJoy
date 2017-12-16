@@ -92,7 +92,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 12
  testRunner.And(string.Format("The user fills text for it as {0}", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
- testRunner.And("The user click the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
  testRunner.Then("The user is redirected to the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -125,7 +125,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 24
  testRunner.When(string.Format("The user adds to existing message correct text to the end of the message as {0}", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 25
- testRunner.And("The user click the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 26
  testRunner.Then("The user is redirected to the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -159,7 +159,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When(string.Format("The user adds to existing message correct text to the start of the message as {0}" +
                         "", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 37
- testRunner.And("The user click the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 38
  testRunner.Then("The user is redirected to the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -193,7 +193,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When(string.Format("The user adds to existing message correct text to the middle of the message as {0" +
                         "}", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 49
- testRunner.And("The user click the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 50
  testRunner.Then("The user is redirected to the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -220,7 +220,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 60
  testRunner.When("The user doesn`t change existing message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 61
- testRunner.And("The user click the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 62
  testRunner.Then("The user is redirected to the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

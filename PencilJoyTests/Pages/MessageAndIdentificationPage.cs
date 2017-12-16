@@ -96,6 +96,11 @@ namespace PencilJoyTests.Pages
         #endregion
 
         #region Methods
+
+        public void ClearMessageField()
+        {
+            MessageTextarea.Clear();
+        }
         public string EditMessage()
         {
             MessageTextarea.Clear();
@@ -104,6 +109,15 @@ namespace PencilJoyTests.Pages
                 MessageTextarea.SendKeys(paragraph);
             }
              
+            return System.Reflection.MethodBase.GetCurrentMethod().Name;
+        }
+
+        public string AddTextToMessage(string textToMessage, string key)
+        {
+         //   MessageTextarea.Click();
+            MessageTextarea.SendKeys(key);
+            MessageTextarea.SendKeys(textToMessage);
+
             return System.Reflection.MethodBase.GetCurrentMethod().Name;
         }
         public string LoginNewCustomer()
