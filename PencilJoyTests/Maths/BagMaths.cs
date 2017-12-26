@@ -53,7 +53,6 @@ namespace PencilJoyTests.Maths
             MathResults.checkSubtotalPrice = MathResults.ComparePrices(System.Math.Round(ActualOrder.SubtotalPrice, 2), System.Math.Round(ExpectedOrder.SubtotalPrice, 2));
             MathResults.checkGrandPrice = MathResults.ComparePrices(System.Math.Round(ActualOrder.GrandPrice, 2), System.Math.Round(ExpectedOrder.GrandPrice, 2));
         }
-        
           public void VerifyActionForListBook()
           {
               double discountPercent = 0.1;

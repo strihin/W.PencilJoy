@@ -82,9 +82,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 9
     testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
-    testRunner.When("The user clicks the checkbox \"Bill to this address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("The user clicks the checkbox Bill to this address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
-    testRunner.Then("The fields and checkbox in block \"Billing address\" aren`t available.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("The fields and checkbox in the block \"Billing address\" are disabled.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -107,9 +107,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 16
     testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
-    testRunner.When("The user clicks the checkbox \"Ship to this address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("The user clicks the checkbox Ship to this address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 18
-    testRunner.Then("The fields and checkbox in block \"Shipping address\" aren`t available.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("The fields and checkbox in the block \"Shipping address\" are disabled.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

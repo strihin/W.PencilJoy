@@ -144,9 +144,9 @@ this.ScenarioSetup(scenarioInfo);
                         "22",
                         "Libertad"});
 #line 10
-    testRunner.And("The user fills fields for shipping address with correct data:", ((string)(null)), table1, "And ");
+    testRunner.When("The user fills fields for shipping address with correct data:", ((string)(null)), table1, "When ");
 #line 18
- testRunner.And("The user clicks the checkbox \"Bill to this address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the checkbox Bill to this address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "UsernameB",
@@ -195,7 +195,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Omīdcheh"});
             table2.AddRow(new string[] {
                         "Barbi",
-                        "D\'orsay",
+                        "Dorsay",
                         "3108 Northwestern",
                         "Panyambungan",
                         "43063-445",
@@ -223,9 +223,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 19
  testRunner.And("The user fills fields for billing address with correct data:", ((string)(null)), table2, "And ");
 #line 28
- testRunner.When("All fields in the Billing ahd Shipping are filled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 29
- testRunner.Then("The values in Blocks should be difference", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("All fields in the Billing ahd Shipping are filled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -249,20 +247,20 @@ this.ScenarioSetup(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields for shipping address, the billing address is equal shipping" +
                     " address", @__tags);
-#line 32
+#line 31
 this.ScenarioSetup(scenarioInfo);
-#line 33
+#line 32
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 34
+#line 33
     testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 35
+#line 34
     testRunner.And(string.Format("The user fills fields for shipping address with correct data as {0} {1} {2} {3}\t{" +
                         "4} {5} {6} {7}", usernameS, lastnameS, streetS, cityS, zipCodeS, phoneS, numberCountryS, regionS), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+ testRunner.And("The user clicks the checkbox Bill to this address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 36
- testRunner.And("The user clicks the checkbox \'Bill to this address\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("The user clicks the button Place your order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 37
-    testRunner.When("The user clicks the button \'Place your order\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 38
     testRunner.Then("The page is redirected to successful page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -287,21 +285,21 @@ this.ScenarioSetup(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields for billing address, the shipping address is equal billing " +
                     "address", @__tags);
-#line 44
+#line 43
 this.ScenarioSetup(scenarioInfo);
-#line 45
+#line 44
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 46
+#line 45
     testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 47
+#line 46
     testRunner.And("The user fills fields for billing address with correct data as <UsernameB> <Lastn" +
                     "ameB> <StreetB> <CityB>\t<ZipCodeB> <PhoneB> <NumberCountryB> <RegionB>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 47
+ testRunner.And("The user clicks the checkbox Ship to this address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 48
- testRunner.And("The user clicks the checkbox \"Ship to this address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("The user clicks the button Place your order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 49
-    testRunner.When("The user clicks the button \"Place your order\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 50
-    testRunner.Then("Page is redirected to successful page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("The page is redirected to successful page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -328,18 +326,16 @@ this.ScenarioSetup(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Specifying State/Region name manually for country with defined State/Region for s" +
                     "hipping address", @__tags);
-#line 56
+#line 55
 this.ScenarioSetup(scenarioInfo);
-#line 57
+#line 56
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 58
+#line 57
     testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 58
+    testRunner.When(string.Format("The user clicks the field Country in the block Shipping address with {0}", country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 59
-    testRunner.And("The user fills fields for shipping address with correct data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 60
-    testRunner.When(string.Format("The user clicks the field \"Country\" in the block \"Shipping address\" with {0}", country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 61
-    testRunner.Then("The field  \"State/Region\" should be dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("The field  State/Region should be dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -383,16 +379,16 @@ this.ScenarioSetup(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Specifying State/Region name manually for country without State/Region defined fo" +
                     "r shipping address", @__tags);
-#line 68
+#line 66
 this.ScenarioSetup(scenarioInfo);
-#line 69
+#line 67
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 70
+#line 68
     testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 71
-    testRunner.When(string.Format("The user clicks the field \"Country\" in the block \"Shipping address\" with {0}", country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 72
-    testRunner.Then("The field  \"State/Region\" should be textbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 69
+    testRunner.When(string.Format("The user clicks the field Country in the block Shipping address with {0}", country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 70
+    testRunner.Then("The field  State/Region should be textbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -419,19 +415,19 @@ this.ScenarioSetup(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Specifying State/Region name manually for country with defined State/Region for b" +
                     "illing address", @__tags);
-#line 96
+#line 94
 this.ScenarioSetup(scenarioInfo);
-#line 97
+#line 95
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 98
+#line 96
     testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 97
+ testRunner.And("The user clicks the checkbox Billing to this address in the block Shipping addres" +
+                    "s", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 98
+    testRunner.When(string.Format("The user clicks the field Country in the block Billing address with {0}", country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 99
- testRunner.And("The user clicks the checkbox \"Billing to this address\" in the block \"Shipping add" +
-                    "ress\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 100
-    testRunner.When(string.Format("The user clicks the field \"Country\" in the block \"Billing address\" with {0}", country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 101
-    testRunner.Then("The field  \"State/Region\" should be dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("The field  State/Region should be dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -475,19 +471,19 @@ this.ScenarioSetup(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Specifying State/Region name manually for country without State/Region defined fo" +
                     "r billing address", @__tags);
-#line 108
+#line 106
 this.ScenarioSetup(scenarioInfo);
-#line 109
+#line 107
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 110
+#line 108
     testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 109
+ testRunner.And("The user clicks the checkbox Billing to this address in the block Shipping addres" +
+                    "s", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 110
+    testRunner.When(string.Format("The user clicks the field Country in the block Billing address with {0}", country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 111
- testRunner.And("The user clicks the checkbox \"Billing to this address\" in the block \"Shipping add" +
-                    "ress\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 112
-    testRunner.When(string.Format("The user clicks the field \"Country\" in the block \"Billing address\" with {0}", country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 113
-    testRunner.Then("The field  \"State/Region\" should be textbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("The field  State/Region should be textbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -517,22 +513,23 @@ this.ScenarioSetup(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields for shipping address with incorrect data, the billing addre" +
                     "ss is equal shipping address", @__tags);
-#line 137
+#line 135
 this.ScenarioSetup(scenarioInfo);
-#line 138
+#line 136
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 139
+#line 137
     testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 140
+#line 138
     testRunner.And(string.Format("The user fills fields for shipping address with incorrect data as {0} {1} {2} {3}" +
                         "\t{4} {5} {6} {7}", usernameS, lastnameS, streetS, cityS, zipCodeS, phoneS, numberCountryS, regionS), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 139
+    testRunner.And("The user clicks the checkbox Bill to this address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 140
+    testRunner.When("The user clicks the button Place your order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 141
-    testRunner.And("clicks the checkbox \"Bill to this address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Then("The page doesn`t redirected to the successful page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 142
-    testRunner.When("The user clicks the button \"Place your order\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 143
-    testRunner.Then("Page doesn`t redirected to successful page and shipping`s fields, which haven`t p" +
-                    "assed, get a red border.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("The shipping`s fields, which haven`t passed, get a red border.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -546,7 +543,7 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestCaseAttribute("1216+502", "Cohen", "115 Golf View Road", "Yao’an", "49260-615", "+86 (267) 782-8010", "13", "Chornoliztsi", null)]
         [NUnit.Framework.TestCaseAttribute("Margalit", "132466", "672 Utah Plaza", "Brylivka", "0362-9010", "+380 (667) 550-6654", "19", "Krugersdorp", null)]
         [NUnit.Framework.TestCaseAttribute("Ximenes", "Traut", "3 Crowley Terrace", "456465", "52584-704", "+86 (192) 784-2660", "18", "Omīdcheh", null)]
-        [NUnit.Framework.TestCaseAttribute("Barbi", "D\'orsay", "3108 Northwestern", "Panyambu", "Hudong", "+62 (563) 802-6203", "14", "Malasin", null)]
+        [NUnit.Framework.TestCaseAttribute("Barbi", "Dorsay", "3108 Northwestern", "Panyambu", "Hudong", "+62 (563) 802-6203", "14", "Malasin", null)]
         [NUnit.Framework.TestCaseAttribute("Anica", "Wilcoce", "041 Rusk Parkway", "Baozi", "51727-0631", "Xinpeicun", "20", "Hudong", null)]
         [NUnit.Framework.TestCaseAttribute("August", "Accomb", "8 Grasskamp Trail", "Kuroiso", "0093-7206", "+81 (504) 678-7207", "Kearsley", "Cucutilla", null)]
         [NUnit.Framework.TestCaseAttribute("Grace", "Chiccho", "115 Arizona Parkway", "Langtang", "36800-647", "+234 (683) 231-9702", "20", "64245642", null)]
@@ -562,35 +559,36 @@ this.ScenarioSetup(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user fills fields for billing address with incorrect data, the shipping addre" +
                     "ss is equal billing address", @__tags);
-#line 155
+#line 154
 this.ScenarioSetup(scenarioInfo);
-#line 156
+#line 155
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 157
+#line 156
     testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 158
+#line 157
     testRunner.And(string.Format("The user fills fields for billing address with incorrect data  as {0} {1} {2} {3}" +
                         "\t{4} {5} {6} {7}", usernameB, lastnameB, streetB, cityB, zipCodeB, phoneB, numberCountryB, regionB), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 158
+ testRunner.And("The user clicks the checkbox Ship to this address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 159
- testRunner.And("The user clicks the checkbox \"Ship to this address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("The user clicks the button Place your order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 160
-    testRunner.When("The user clicks the button \"Place your order\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.Then("The page doesn`t redirected to the successful page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 161
-    testRunner.Then("Page doesn`t redirected to successful page and billing address` fields, which hav" +
-                    "en`t passed, get a red border.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("The billing address` fields, which haven`t passed, get a red border.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user should blocked to click any fields and checkbox in the block \"Shipping a" +
-            "ddress\"")]
+        [NUnit.Framework.DescriptionAttribute("The user should blocked to click any fields and checkbox in the block Shipping ad" +
+            "dress")]
         [NUnit.Framework.CategoryAttribute("negative")]
         [NUnit.Framework.CategoryAttribute("blockedControllers")]
         public virtual void TheUserShouldBlockedToClickAnyFieldsAndCheckboxInTheBlockShippingAddress()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user should blocked to click any fields and checkbox in the block \"Shipping a" +
-                    "ddress\"", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user should blocked to click any fields and checkbox in the block Shipping ad" +
+                    "dress", new string[] {
                         "negative",
                         "blockedControllers"});
 #line 173
@@ -600,9 +598,34 @@ this.ScenarioSetup(scenarioInfo);
 #line 175
     testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 176
-    testRunner.When("The user clicks the checkbox \"Ship to this address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("The user clicks the checkbox Ship to this address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 177
-    testRunner.Then("The fields and checkbox in block \"Shipping address\" doesn`t available.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("The fields and checkbox in block Shipping address doesn`t available.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("The user should blocked to click any fields and checkbox in the block Billing add" +
+            "ress")]
+        [NUnit.Framework.CategoryAttribute("negative")]
+        [NUnit.Framework.CategoryAttribute("blockedControllers")]
+        public virtual void TheUserShouldBlockedToClickAnyFieldsAndCheckboxInTheBlockBillingAddress()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user should blocked to click any fields and checkbox in the block Billing add" +
+                    "ress", new string[] {
+                        "negative",
+                        "blockedControllers"});
+#line 180
+this.ScenarioSetup(scenarioInfo);
+#line 181
+    testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 182
+    testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 183
+    testRunner.When("The user clicks the checkbox Bill to this address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 184
+    testRunner.Then("The fields and checkbox in block Billing address doesn`t available.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

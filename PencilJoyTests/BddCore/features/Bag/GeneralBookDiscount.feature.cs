@@ -292,30 +292,6 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Compare price books on bag page and checkout page")]
-        [NUnit.Framework.CategoryAttribute("positive")]
-        [NUnit.Framework.CategoryAttribute("generaldiscount")]
-        public virtual void ComparePriceBooksOnBagPageAndCheckoutPage()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare price books on bag page and checkout page", new string[] {
-                        "positive",
-                        "generaldiscount"});
-#line 103
-this.ScenarioSetup(scenarioInfo);
-#line 104
- testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 105
-    testRunner.And("The user saves price book on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 106
-    testRunner.When("The user is on the checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 107
-    testRunner.Then("The user compares price books on the bag page and the checkout page, they should " +
-                    "be equal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
     }
 }
 #pragma warning restore

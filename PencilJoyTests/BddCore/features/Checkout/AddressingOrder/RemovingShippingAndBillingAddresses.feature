@@ -6,10 +6,10 @@
 @positive @removeValue @shipping
 Scenario Outline: The user removes value for the field "Last name" in the block "Shipping Address"
     Given The user is a customer
-    And The user is on checkout page
+    And The user is on the checkout page
     And The user fills fields for shipping address with data  as <UsernameS> <LastnameS> <StreetS> <CityS>	<ZipCodeS> <PhoneS> <NumberCountryS> <RegionS>
     When The user removes  values for the field "Last name" in the block "Shipping address"
-    Then The field "Last name" should be empty
+    Then The field "Last name" should be empty  in the block "Shipping address"
 Examples: 
 	| UsernameS | LastnameS |	StreetS				| CityS		|	ZipCodeS	| PhoneS				| NumberCountryS | RegionS		|
 	|	Natty	|	Davescu	|	549 Dawn Parkway	|	Talisay	|	0409-7938	|	+63 (655) 490-8096	|	22			 |	Libertad	|
@@ -17,11 +17,11 @@ Examples:
 @positive @removeValue @shipping
 Scenario Outline: The user removes value for the field "City" in the block "Billing Address"
     Given The user is a customer
-    And The user is on checkout page
-	And The user clicks the checkbox "Billing to this address" in the block "Shipping address"
+    And The user is on the checkout page
+	And The user clicks the checkbox Billing to this address in the block Shipping address
     And The user fills fields for billing address with data  as <UsernameB> <LastnameB> <StreetB> <CityB>	<ZipCodeB> <PhoneB> <NumberCountryB> <RegionB>
-    When The user removes the field "City" in the block "Billing address"
-    Then The field "City" should be empty
+    When The user removes  values for the field "City" in the block "Billing address"
+    Then The field "City" should be empty in the block "Billing address"
 Examples: 
 	| UsernameB		| LastnameB |	StreetB					| CityB			|	ZipCodeB	| PhoneB				| NumberCountryB| RegionB		|
 	|	Olenolin	|	Lighter	|	61 Evergreen Crossing	|	Paris 06	|	0268-0639	|	+33 (860) 710-6683	|	20			|	Huallanca	|

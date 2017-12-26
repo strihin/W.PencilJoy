@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -107,6 +109,11 @@ namespace PencilJoyTests.Pages
                return TablePrice.FindElements(By.XPath(".//*[text()='Edit']/../.."));
            }
        }
+
+       private IReadOnlyCollection<IWebElement> ActualGeneralDiscountCodes
+       {
+           get { return TablePrice.FindElements(By.XPath(".//*[text()='discount for']")); }
+       }
        private List<IWebElement> Prices
        {
            get
@@ -143,9 +150,9 @@ namespace PencilJoyTests.Pages
 
        private IWebElement DiscountIsAvailable
        {
-           get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.XPath(".//*[text()='%']"))); }
+           get { return DiscountRow.FindElement(By.XPath(".//*[text()='%']")); }
        }
-
+       
        private IWebElement DiscountRow
        {
             get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("discount-row"))); }
@@ -227,8 +234,14 @@ namespace PencilJoyTests.Pages
                AcceptRemovingBook(_webDriver);
            }
        }
+
+       public bool VerifyBooksAmount(int expectedAmountBooks)
+       {
+           return (expectedAmountBooks != Products.Count) ? true : false;
+       }
        public void GetBagPriceBagMath()
        {
+          // if(VerifyBooksAmount())
            GetActualPriceBook();
            _bagMath.ActualOrder.CurrencySymbol = _bagMath.GetCurrency(GrandTotalPrice.Text, _bagMath.VerifyPriceInTheFirstBook());
            _bagMath.ActualOrder.DiscountCode = _bagMath.GetDiscount(DisountPercent.Text);
@@ -242,6 +255,39 @@ namespace PencilJoyTests.Pages
            _bagMath.VerifyActionForListBook();
            _bagMath.CalculateTotalPriceInBag();
         
+       }
+
+       public bool VerifyGeneralDiscountCodes(int expectedNumberBook, int expectedPercentBook)
+       {
+           List<int> actualDiscountCodes = ConvertDiscountCodes();
+           bool isEmptyList = !actualDiscountCodes.Any();
+           if (expectedPercentBook == 0 && (isEmptyList))
+           {
+               return true;
+           }
+           else
+           {
+                for (int i = 0; i < actualDiscountCodes.Count; i++)
+               {
+                   if (expectedNumberBook - 2 == i)
+                   {
+                       if (actualDiscountCodes[i] == expectedPercentBook)
+                           return true;
+                   }
+               }
+               return false;
+           }
+       }
+       public List<int> ConvertDiscountCodes()
+       {
+           List<int> discountDecimalList = new List<int>();
+           List<IWebElement> discountStringsList = new List<IWebElement>(ActualGeneralDiscountCodes);
+
+           foreach (var discountString  in discountStringsList)
+           {
+               discountDecimalList.Add(Convert.ToInt32(discountStringsList[0].Text.Substring(0, discountStringsList[0].Text.IndexOf(' ')-1)));
+           }
+           return discountDecimalList;
        }
        public string EditCurrency()
        {

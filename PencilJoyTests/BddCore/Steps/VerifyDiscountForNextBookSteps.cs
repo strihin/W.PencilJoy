@@ -19,7 +19,7 @@ namespace PencilJoyTests.BddCore.Steps
         [When(@"The user has (.*) books in the bag")]
         public void WhenTheUserHasBooksInTheBag(int bookCount)
         {
-           
+           Assert.IsTrue(bagPage.VerifyBooksAmount(bookCount));
         }
         
         [When(@"The user is on the checkout page")]
@@ -29,21 +29,10 @@ namespace PencilJoyTests.BddCore.Steps
         }
         
         [Then(@"The user has correct discount percent for each book as (.*), (.*)")]
-        public void ThenTheUserHasCorrectDiscountPercentForEachBookAs(int p0, int p1)
+        public void ThenTheUserHasCorrectDiscountPercentForEachBookAs(int numberBook, int percentBook)
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(bagPage.VerifyGeneralDiscountCodes(numberBook, percentBook));
         }
-        
-        [Then(@"The user compares price books on the bag page and the checkout page, they should be equal")]
-        public void ThenTheUserComparesPriceBooksOnTheBagPageAndTheCheckoutPageTheyShouldBeEqual()
-        {
-            ScenarioContext.Current.Pending();
-        }
-        [Given(@"The user saves price book on the bag page")]
-        public void GivenTheUserSavesPriceBookOnTheBagPage()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
+     
     }
 }

@@ -18,6 +18,7 @@ namespace PencilJoyTests.Pages
         private CheckoutPaymentData checkoutPaymentData;
         private CheckoutMaths _checkoutMath;
 
+        public CheckoutPaymentPage() { }
         public CheckoutPaymentPage(WebDriverWait waitDriver, CheckoutPaymentData checkoutPaymentData, CheckoutMaths checkoutMath)
         {
             this._waitDriver = waitDriver;
@@ -131,6 +132,12 @@ namespace PencilJoyTests.Pages
             CardVerifacationValueTextBox.SendKeys(checkoutPaymentData.CardVerifacationValue);
             PlaceYourOrderButton.SendKeys(Keys.Enter);
 
+            return System.Reflection.MethodBase.GetCurrentMethod().Name;
+        }
+
+        public string ConfirmForm()
+        {
+            PlaceYourOrderButton.SendKeys(Keys.Enter);
             return System.Reflection.MethodBase.GetCurrentMethod().Name;
         }
 

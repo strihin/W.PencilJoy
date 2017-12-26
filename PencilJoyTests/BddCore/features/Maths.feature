@@ -107,3 +107,10 @@ Scenario: Checking price for order after removing a book
     And The user is on the bag page
     When The user clicks button Ok on the popup notification for removing
     Then The price for the order should be subtracted price for removing book.
+
+@positive @generaldiscount
+Scenario: Compare price books on bag page and checkout page
+	Given The user is a customer
+    And The user saves price book on the bag page
+    When The user is on the checkout page
+    Then The user compares price books on the bag page and the checkout page, they should be equal

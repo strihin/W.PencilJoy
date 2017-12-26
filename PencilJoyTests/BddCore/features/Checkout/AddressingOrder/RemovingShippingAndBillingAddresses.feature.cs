@@ -87,7 +87,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
-    testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("The user is on the checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
     testRunner.And(string.Format("The user fills fields for shipping address with data  as {0} {1} {2} {3}\t{4} {5} " +
                         "{6} {7}", usernameS, lastnameS, streetS, cityS, zipCodeS, phoneS, numberCountryS, regionS), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -95,7 +95,7 @@ this.ScenarioSetup(scenarioInfo);
     testRunner.When("The user removes  values for the field \"Last name\" in the block \"Shipping address" +
                     "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
-    testRunner.Then("The field \"Last name\" should be empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("The field \"Last name\" should be empty  in the block \"Shipping address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -128,17 +128,17 @@ this.ScenarioSetup(scenarioInfo);
 #line 19
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 20
-    testRunner.And("The user is on checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("The user is on the checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 21
- testRunner.And("The user clicks the checkbox \"Billing to this address\" in the block \"Shipping add" +
-                    "ress\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the checkbox Billing to this address in the block Shipping addres" +
+                    "s", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22
     testRunner.And(string.Format("The user fills fields for billing address with data  as {0} {1} {2} {3}\t{4} {5} {" +
                         "6} {7}", usernameB, lastnameB, streetB, cityB, zipCodeB, phoneB, numberCountryB, regionB), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 23
-    testRunner.When("The user removes the field \"City\" in the block \"Billing address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("The user removes  values for the field \"City\" in the block \"Billing address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 24
-    testRunner.Then("The field \"City\" should be empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("The field \"City\" should be empty in the block \"Billing address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

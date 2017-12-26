@@ -99,9 +99,3 @@ Examples:
 | 11         | 25      |
 | 12         | 25      |
 
-@positive @generaldiscount
-Scenario: Compare price books on bag page and checkout page
-	Given The user is a customer
-    And The user saves price book on the bag page
-    When The user is on the checkout page
-    Then The user compares price books on the bag page and the checkout page, they should be equal
