@@ -65,13 +65,13 @@ namespace PencilJoyTests.BddCore.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user opens the popup \"Remind me later\" on the preview page")]
+        [NUnit.Framework.DescriptionAttribute("The user opens The popup Remind me later on the preview page")]
         [NUnit.Framework.CategoryAttribute("previewPage")]
         [NUnit.Framework.CategoryAttribute("openingPopup")]
         [NUnit.Framework.CategoryAttribute("positive")]
         public virtual void TheUserOpensThePopupRemindMeLaterOnThePreviewPage()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user opens the popup \"Remind me later\" on the preview page", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user opens The popup Remind me later on the preview page", new string[] {
                         "previewPage",
                         "openingPopup",
                         "positive"});
@@ -82,21 +82,21 @@ this.ScenarioSetup(scenarioInfo);
 #line 9
  testRunner.And("The user is on the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
- testRunner.When("The user clicks the button \"Remind me later\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("The user clicks the button Remind me later", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.Then("The popup \"Remind me later\" should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The popup Remind me later should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user closes the popup \"Remind me later\" on the preview page")]
+        [NUnit.Framework.DescriptionAttribute("The user closes The popup Remind me later on the preview page")]
         [NUnit.Framework.CategoryAttribute("previewPage")]
         [NUnit.Framework.CategoryAttribute("closingPopupRemindMeLater")]
         [NUnit.Framework.CategoryAttribute("positive")]
         public virtual void TheUserClosesThePopupRemindMeLaterOnThePreviewPage()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user closes the popup \"Remind me later\" on the preview page", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user closes The popup Remind me later on the preview page", new string[] {
                         "previewPage",
                         "closingPopupRemindMeLater",
                         "positive"});
@@ -107,23 +107,23 @@ this.ScenarioSetup(scenarioInfo);
 #line 16
  testRunner.And("The user is on the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
- testRunner.And("The popup \"Remind me later\" should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The popup Remind me later should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
- testRunner.When("The user clicks the button \"X\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("The user clicks the button X", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 19
- testRunner.Then("The popup \"Remind me later\" should be disappear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The popup Remind me later should be disappear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user closes the popup \"Your reminder is set\" on the preview page")]
+        [NUnit.Framework.DescriptionAttribute("The user closes the popup Your reminder is set on the preview page")]
         [NUnit.Framework.CategoryAttribute("previewPage")]
         [NUnit.Framework.CategoryAttribute("closingPopupYourReminderIsSet")]
         [NUnit.Framework.CategoryAttribute("positive")]
         public virtual void TheUserClosesThePopupYourReminderIsSetOnThePreviewPage()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user closes the popup \"Your reminder is set\" on the preview page", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user closes the popup Your reminder is set on the preview page", new string[] {
                         "previewPage",
                         "closingPopupYourReminderIsSet",
                         "positive"});
@@ -134,11 +134,11 @@ this.ScenarioSetup(scenarioInfo);
 #line 24
  testRunner.And("The user is on the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 25
- testRunner.And("The popup \"Your reminder is set\" should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The popup Your reminder is set should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 26
- testRunner.When("The user clicks the button \"X\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("The user clicks the button X", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 27
- testRunner.Then("The popup \"Your reminder is set\" should be disappear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The popup Your reminder is set should be disappear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -171,9 +171,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 32
  testRunner.And("The user is on the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 33
- testRunner.And("The popup \"Remind me later\" should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The popup Remind me later should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 34
- testRunner.And(string.Format("The user fills the field \"Your email\" with correct data as {0}", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("The user fills the field Your email with correct data as {0}", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 35
  testRunner.And("The user clicks the checkbox \"55 days before December 25th\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 36
@@ -181,11 +181,11 @@ this.ScenarioSetup(scenarioInfo);
 #line 37
  testRunner.And("The user clicks the checkbox \"Subscribe to news and special deals\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 38
- testRunner.When("The user clicks the button \"Set reminder\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("The user clicks the button Set reminder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 39
- testRunner.Then("The popup \"Remind me later\" should be disappear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The popup Remind me later should be disappear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 40
- testRunner.And("The popup \"Your reminder is set\" should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The popup Your reminder is set should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -214,17 +214,17 @@ this.ScenarioSetup(scenarioInfo);
 #line 48
  testRunner.And("The user is on the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 49
- testRunner.And("The popup \"Remind me later\" should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The popup Remind me later should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 50
- testRunner.When(string.Format("The user fills the field \"Your email\" with correct data as {0}", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("The user fills the field Your email with correct data as {0}", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 51
  testRunner.And("The user clicks the checkbox \"55 days before December 25th\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 52
- testRunner.And("The user clicks the button \"Set reminder\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button Set reminder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 53
- testRunner.Then("The popup \"Remind me later\" should be disappear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The popup Remind me later should be disappear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 54
- testRunner.And("The popup \"Your reminder is set\" should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The popup Your reminder is set should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -253,29 +253,29 @@ this.ScenarioSetup(scenarioInfo);
 #line 62
  testRunner.And("The user is on the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 63
- testRunner.And("The popup \"Remind me later\" should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The popup Remind me later should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 64
- testRunner.When(string.Format("The user fills the field \"Your email\" with correct data as {0}", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("The user fills the field Your email with correct data as {0}", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 65
  testRunner.And("The user clicks the checkbox \"30 days before\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 66
- testRunner.And("The user fill date in the datepicker", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user fills date in the datepicker", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 67
- testRunner.And("The user clicks the button \"Set reminder\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button Set reminder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 68
- testRunner.Then("The popup \"Remind me later\" should be disappear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The popup Remind me later should be disappear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 69
- testRunner.And("The popup \"Your reminder is set\" should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The popup Your reminder is set should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user compares email in the popups")]
+        [NUnit.Framework.DescriptionAttribute("The user compares emails in the popups")]
         [NUnit.Framework.CategoryAttribute("verifyEmails")]
         [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.TestCaseAttribute("qaengineer6@yahoo.com", null)]
-        public virtual void TheUserComparesEmailInThePopups(string email, string[] exampleTags)
+        public virtual void TheUserComparesEmailsInThePopups(string email, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "verifyEmails",
@@ -284,7 +284,7 @@ this.ScenarioSetup(scenarioInfo);
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user compares email in the popups", @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user compares emails in the popups", @__tags);
 #line 75
 this.ScenarioSetup(scenarioInfo);
 #line 76
@@ -292,16 +292,15 @@ this.ScenarioSetup(scenarioInfo);
 #line 77
  testRunner.And("The user is on the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 78
- testRunner.And("The popup \"Remind me later\" should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The popup Remind me later should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 79
- testRunner.And(string.Format("The user fills the field \"Your email\" with correct data as {0}", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("The user fills the field Your email with correct data as {0}", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 80
  testRunner.And("The user clicks the checkbox \"55 days before December 25th\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 81
- testRunner.When("The user clicks the button \"Set reminder\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("The user clicks the button Set reminder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 82
- testRunner.Then("The string in the popup \"Your reminder is set\" should exist email as was filling " +
-                    "before", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("The string in the popup Your reminder is set should have value as {0}", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -324,15 +323,15 @@ this.ScenarioSetup(scenarioInfo);
 #line 90
  testRunner.And("The user is on the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 91
- testRunner.And("The popup \"Remind me later\" should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The popup Remind me later should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 92
  testRunner.When("The user clicks the checkbox \"55 days before December 25th\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 93
- testRunner.And("The user clicks the button \"Set reminder\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button Set reminder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 94
- testRunner.Then("The fiels \"Your email\" should get red border", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The fiels Your email should get red border", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 95
- testRunner.And("The popup \"Your reminder is set\" should not be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The popup Your reminder is set should not be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -361,17 +360,17 @@ this.ScenarioSetup(scenarioInfo);
 #line 100
  testRunner.And("The user is on the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 101
- testRunner.And("The popup \"Remind me later\" should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The popup Remind me later should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 102
- testRunner.And(string.Format("The user fills the field \"Your email\" with correct data as {0}", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("The user fills the field Your email with correct data as {0}", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 103
  testRunner.And("The user clicks the checkbox \"30 days before\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 104
- testRunner.When("The user clicks the button \"Set reminder\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("The user clicks the button Set reminder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 105
  testRunner.Then("The textbox for datepicker should get red border", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 106
- testRunner.And("The popup \"Your reminder is set\" should not be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The popup Your reminder is set should not be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -398,15 +397,15 @@ this.ScenarioSetup(scenarioInfo);
 #line 114
  testRunner.And("The user is on the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 115
- testRunner.And("The popup \"Remind me later\" should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The popup Remind me later should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 116
- testRunner.And(string.Format("The user fills the field \"Your email\" with correct data as {0}", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("The user fills the field Your email with correct data as {0}", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 117
- testRunner.When("The user clicks the button \"Set reminder\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("The user clicks the button Set reminder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 118
  testRunner.Then("The block with the red text \"Please select any option below\" should be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 119
- testRunner.And("The popup \"Your reminder is set\" should not be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The popup Your reminder is set should not be appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

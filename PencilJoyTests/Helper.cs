@@ -82,5 +82,12 @@ namespace PencilJoyTests
             return result;
         }
 
+        public static bool CompareCurrencies(string currencyExpected, string currencyActual)
+        {           
+            bool result = false;
+            return (currencyExpected == currencyActual);
+        }
+
+       
     }
 }

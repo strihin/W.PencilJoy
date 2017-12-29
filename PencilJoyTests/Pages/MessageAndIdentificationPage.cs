@@ -93,6 +93,14 @@ namespace PencilJoyTests.Pages
                 return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("checkout-returning")));
             }
         }
+        private IWebElement CurrencySelect
+        {
+            get
+            {
+                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("g-currency-switch")));
+            }
+        }
+        
         #endregion
 
         #region Methods
@@ -141,7 +149,7 @@ namespace PencilJoyTests.Pages
 
         public bool CheckingEmail()
         {
-            return (BlockedNotification.Displayed) ? true : false;
+            return (BlockedNotification.Displayed);
         }
 
         public string ClickTabReturningCustomer()
@@ -152,6 +160,18 @@ namespace PencilJoyTests.Pages
         public bool CheckActiveTab()
         {
             return (TabNewCustomer.GetAttribute("class").Contains("active")) ? true : false;
+        }
+
+        public void EditCurrency(string currencyName)
+        {
+            SelectElement currencyItem = new SelectElement(CurrencySelect);
+            currencyItem.SelectByText(currencyName);
+        }
+        public bool IsActiveCurrency(string expectedCurrency)
+        {
+            SelectElement currencyItem = new SelectElement(CurrencySelect);
+            var actualCurrency = currencyItem.SelectedOption.Text;
+            return Helper.CompareCurrencies(expectedCurrency, actualCurrency);
         }
         #endregion
     }

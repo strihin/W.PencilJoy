@@ -1,4 +1,7 @@
 ﻿using System;
+using NUnit.Framework;
+using OpenQA.Selenium;
+using PencilJoyTests.Pages;
 using TechTalk.SpecFlow;
 
 namespace PencilJoyTests.BddCore.Steps
@@ -6,82 +9,62 @@ namespace PencilJoyTests.BddCore.Steps
     [Binding]
     public class AddPaymentDataToCheckoutPageSteps
     {
-        [Given(@"The user correct fills the fields for ""(.*)"" as (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)")]
-        public void GivenTheUserCorrectFillsTheFieldsForAs(string p0, string p1, string p2, string p3, string p4, string p5, string p6, string p7, string p8, Table table)
+        private IWebDriver currentDriver;
+        internal CheckoutBillingAddressPage checkoutBillingAddress = new CheckoutBillingAddressPage();
+        internal CheckoutShippingAddressPage checkoutShippingAddress = new CheckoutShippingAddressPage();
+        internal CheckoutPaymentPage CheckoutPaymentPage = new CheckoutPaymentPage();
+
+        private const string currentPageTitle = Helper.StartPage + "/checkout";
+        private const string nextPageTitle = Helper.StartPage + "/success";
+      
+
+        [Given(@"The user chooses the tab Credit Card")]
+        public void GivenTheUserChoosesTheTabCreditCard()
         {
-            ScenarioContext.Current.Pending();
-        }
-        
-        [Given(@"The user correct fills the fields for ""(.*)"" as (.*) (.*) (.*) (.*)\t(.*) (.*) (.*) (.*)")]
-        public void GivenTheUserCorrectFillsTheFieldsForAs(string p0, string p1, string p2, string p3, string p4, string p5, string p6, string p7, string p8, Table table)
-        {
-            ScenarioContext.Current.Pending();
-        }
-        
-        [Given(@"The user fills the fields for ""(.*)"" tab with correct data  such as (.*) (.*)")]
-        public void GivenTheUserFillsTheFieldsForTabWithCorrectDataSuchAs(string p0, string p1, string p2)
-        {
-            ScenarioContext.Current.Pending();
-        }
-        
-        [Given(@"The user chooses the tab ""(.*)""")]
-        public void GivenTheUserChoosesTheTab(string p0)
-        {
-            ScenarioContext.Current.Pending();
+            CheckoutPaymentPage.SelectTabPaymentPaypal();
         }
         
         [When(@"The user left all fields as empty")]
-        public void WhenTheUserLeftAllFieldsAsEmpty()
+        public void WhenTheUserLeftAllFieldsAsEmpty() { }
+
+        [When(@"The user fills the fields for Credit Card tab with correct data besides the Expiration date as (.*) (.*) (.*) (.*)")]
+        [When(@"The user fills the fields for Credit Card tab with correct data and the card verification value with incorrect data as (.*) (.*) (.*) (.*)")]
+        public void WhenTheUserFillsTheFieldsForCreditCardTabWithCorrectDataAndTheCardVerificationValueWithIncorrectDataAs(string creditCard, string cardVerification, int Month, int Year)
         {
-            ScenarioContext.Current.Pending();
+            CheckoutPaymentPage.FillPaymentData(creditCard, cardVerification, Month, Year);
         }
-        
-        [When(@"The user fills the fields for Credit Card tab with correct data and the card verification value with incorrect data as (.*) (.*)")]
-        public void WhenTheUserFillsTheFieldsForCreditCardTabWithCorrectDataAndTheCardVerificationValueWithIncorrectDataAs(string p0, string p1)
-        {
-            ScenarioContext.Current.Pending();
-        }
-        
-        [When(@"The user fills the fields for Credit Card tab with correct data besides the ""(.*)"" as (.*) (.*)")]
-        public void WhenTheUserFillsTheFieldsForCreditCardTabWithCorrectDataBesidesTheAs(string p0, string p1, string p2)
-        {
-            ScenarioContext.Current.Pending();
-        }
-        
-        [When(@"The user fills the fields for ""(.*)"" tab with correct data besides the ""(.*)"" as (.*) (.*)")]
-        public void WhenTheUserFillsTheFieldsForTabWithCorrectDataBesidesTheAs(string p0, string p1, string p2, string p3)
-        {
-            ScenarioContext.Current.Pending();
-        }
-        
-        [When(@"The user fills the card number with incorrect data such as ""(.*)""")]
-        public void WhenTheUserFillsTheCardNumberWithIncorrectDataSuchAs(string p0)
-        {
-            ScenarioContext.Current.Pending();
-        }
-        
+      
         [Then(@"The page is redirected to the successful page")]
         public void ThenThePageIsRedirectedToTheSuccessfulPage()
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(currentDriver.Url, nextPageTitle);
         }
-        
+
+        [Then(@"The page doesn`t redirected to the successful page")]
         [Then(@"The page doessn`t redirected to the successful page")]
         public void ThenThePageDoessnTRedirectedToTheSuccessfulPage()
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreNotEqual(currentDriver.Url, nextPageTitle);
         }
         
-        [Then(@"It should be shown the message Could not find payment information\.")]
-        public void ThenItShouldBeShownTheMessageCouldNotFindPaymentInformation_()
+        [Then(@"It should be shown the message (.*)")]
+        public void ThenItShouldBeShownTheMessage(string errorMessage)
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(CheckoutPaymentPage.IsErrorDisplayed(errorMessage));
         }
-        
-        [Then(@"The page doesn`t redirected to the successful page")]
-        public void ThenThePageDoesnTRedirectedToTheSuccessfulPage()
+       
+        [Given(@"The user correct fills the fields for Billing Address as (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)")]
+        public void GivenTheUserCorrectFillsTheFieldsForBillingAddressAs(string Username, string Lastname, string Street, string City, string ZipCode, string Phone, int NumberCountry, string Region)
         {
-            ScenarioContext.Current.Pending();
+            checkoutBillingAddress.LoginIntoBillingAddress(Username, Lastname, Street, City, ZipCode, Phone, NumberCountry, Region);
+        }
+
+        [Given(@"The user correct fills the fields for Shipping Address as (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)")]
+        [Given(@"The user correct fills the fields for Shipping Address as (.*) (.*) (.*) (.*)\t(.*) (.*) (.*) (.*)")]
+        public void GivenTheUserCorrectFillsTheFieldsForShippingAddressAs(string Username, string Lastname, string Street, string City, string ZipCode, string Phone, int NumberCountry, string Region)
+        {
+            checkoutShippingAddress.LoginIntoShippingAddress(Username, Lastname, Street, City, ZipCode, Phone, NumberCountry, Region);
         }
     }
+
 }

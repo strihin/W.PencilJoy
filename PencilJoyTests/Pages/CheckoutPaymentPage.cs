@@ -104,37 +104,58 @@ namespace PencilJoyTests.Pages
                             By.XPath(".//div[@class='cor-summary']/div[2]/span")));
             }
         }
+        private IWebElement PaymentError
+        {
+            get
+            {
+                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                            By.ClassName("payment-errors")));
+            }
+        }
         #endregion
 
         #region Methods
-        public string PaymentMethodPaypal()
+
+        public string SelectTabPaymentPaypal()
         {
             PaypalTab.SendKeys(Keys.Enter);
+            return System.Reflection.MethodBase.GetCurrentMethod().Name;
+        }
+        public string ConfirmPaypal()
+        {
             PaypalButton.SendKeys(Keys.Enter);
             return System.Reflection.MethodBase.GetCurrentMethod().Name;
         }
-
-        public string PaymentAddress()
+        public bool IsElementShown()
         {
+            return PaypalButton.Displayed;
+        }
+        public string FillPaymentData(string creditCard, string cardVerification, int Month, int Year)
+        {
+            List<string> cardList = new List<string>();
+         
+            // convert credit card (string) to  4 sectors (list)
+            for (int i = 0; i < CreditCardInput.Count; i+=4)
+            {
+                cardList.Add(creditCard.Substring(i,i+4));
+            }
+           // fill creditcard from list
             for (int i = 0; i < CreditCardInput.Count; i++)
             {
-                CreditCardInput[i].SendKeys(checkoutPaymentData.CreditCardInput);
+                CreditCardInput[i].SendKeys(cardList[i]);
             }
             ExpirationMonthDropdown.Click();
             SelectElement selectMonth = new SelectElement(ExpirationMonthDropdown);
-            selectMonth.SelectByIndex(checkoutPaymentData.SelectMonth-1);
+            selectMonth.SelectByIndex(checkoutPaymentData.SelectMonth - 1);
 
             ExpirationYearDropdown.Click();
             SelectElement selectYear = new SelectElement(ExpirationYearDropdown);
-            selectYear.SelectByIndex(checkoutPaymentData.SelectYear-1);
-          //  ExpirationYearDropitem.Click();
-
+            selectYear.SelectByIndex(checkoutPaymentData.SelectYear - 1);
+            //  ExpirationYearDropitem.Click();
             CardVerifacationValueTextBox.SendKeys(checkoutPaymentData.CardVerifacationValue);
-            PlaceYourOrderButton.SendKeys(Keys.Enter);
 
             return System.Reflection.MethodBase.GetCurrentMethod().Name;
         }
-
         public string ConfirmForm()
         {
             PlaceYourOrderButton.SendKeys(Keys.Enter);
@@ -171,6 +192,11 @@ namespace PencilJoyTests.Pages
             _checkoutMath.VerifyDiscountCode();
             _checkoutMath.VerifyCurrency();
             _checkoutMath.VerifyGrandPrice();
+        }
+
+        public bool IsErrorDisplayed(string textError)
+        {
+            return PaymentError.Displayed && PaymentError.Text == textError;
         }
         #endregion
     }

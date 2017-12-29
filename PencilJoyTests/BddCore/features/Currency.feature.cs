@@ -94,13 +94,13 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
     testRunner.Given("The user is a customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
-    testRunner.And("The user is on preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("The user is on the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
     testRunner.When(string.Format("The user clicks the dropdown with currency and chooses currency item as {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
-    testRunner.Then(string.Format("The currency is changed in the button \"Order for\" as {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then(string.Format("The currency is changed in the button Order for as {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 12
- testRunner.And("The price for a book in the button \"Order for...\" is edited.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The price for a book in the button Order for is edited.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -139,7 +139,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 29
     testRunner.When(string.Format("The user clicks the dropdown with currency and chooses currency item as {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 30
- testRunner.And("The user clicks \"Next\" for redirecting to the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks th button Next for redirecting to the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 31
     testRunner.Then(string.Format("The currency in the field \"Subtotal\" on the bag page is {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 32
@@ -234,7 +234,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 72
  testRunner.And(string.Format("The currency in the field \"Grand Total\" on the bag page should be equal {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 73
- testRunner.And(string.Format("The active currency in the dropdown with currencies ib the footer should be equal" +
+ testRunner.And(string.Format("The active currency in the dropdown with currencies in the footer should be equal" +
                         " {0}", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

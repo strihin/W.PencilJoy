@@ -32,5 +32,6 @@ namespace PencilJoyTests.Data
             CustomerPassword = customerPassword;
             Message = message;
         }
+
     }
 }

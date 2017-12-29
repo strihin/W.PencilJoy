@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System.Collections.Generic;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using PencilJoyTests.Maths;
 
@@ -11,6 +12,8 @@ namespace PencilJoyTests.Pages
         private PreviewMaths previewMath { get; set; }
 
         private string randomCurrency { get; set; }
+
+        public PreviewPage() { }
         public PreviewPage(WebDriverWait waitDriver, PreviewMaths previewMath)
         {
            _waitDriver = waitDriver;
@@ -52,6 +55,22 @@ namespace PencilJoyTests.Pages
         }
       
         #region Popup Objects
+        private IWebElement PopupRemindMeLater
+        {
+            get
+            {
+                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                    By.ClassName("remind-wrapper")));
+            }
+        }
+        private IWebElement PopupRemindSet
+        {
+            get
+            {
+                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                    By.ClassName("close-remind-form")));
+            }
+        }
         private IWebElement EmailInputPopup
         {
             get
@@ -84,7 +103,7 @@ namespace PencilJoyTests.Pages
                     By.CssSelector("div.subscribe-box  label")));
             }
         }
-        private IWebElement DatePickerPopup
+        private IWebElement DatePickerField
         {
             get
             {
@@ -92,6 +111,16 @@ namespace PencilJoyTests.Pages
                     By.Id("datepicker")));
             }
         }
+
+        private IWebElement DatePickerPopup
+        {
+            get
+            {
+                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                    By.Id("datepicker-days")));
+            }
+        }
+
         private IWebElement SubmitPopup
         {
             get
@@ -105,7 +134,24 @@ namespace PencilJoyTests.Pages
             get
             {
                 return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
-                    By.Id("close-remind-form")));
+                    By.Id("rw-content-success")));
+            }
+        }
+        private IWebElement ErrorMessage
+        {
+            get
+            {
+                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                    By.ClassName("rem-error")));
+            }
+        }
+
+        private IWebElement EmailReminder
+        {
+            get
+            {
+                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                    By.Id("teleport")));
             }
         }
         #endregion
@@ -136,13 +182,6 @@ namespace PencilJoyTests.Pages
             EditBookButton.SendKeys(Keys.Enter);
             return System.Reflection.MethodBase.GetCurrentMethod().Name;
         }
-
-        public string RemindMeLater()
-        {
-            RemindMeLaterButton.SendKeys(Keys.Enter);
-            return System.Reflection.MethodBase.GetCurrentMethod().Name;
-        }
-
       public string EditCurrency()
         {
             randomCurrency = previewMath.RandomCurrency();
@@ -164,27 +203,89 @@ namespace PencilJoyTests.Pages
             previewMath.VerifyCurrencyInButton(OrderButton.Text);
             return System.Reflection.MethodBase.GetCurrentMethod().Name;
         }
+        public string RemindMeLater()
+      {
+          RemindMeLaterButton.SendKeys(Keys.Enter);
+          return System.Reflection.MethodBase.GetCurrentMethod().Name;
+      }
      
         #region Popup Methods
 
-        public string RemindMeBefore55Days(string email)
+        public string FillEmailToPopup(string email)
         {
             EmailInputPopup.SendKeys(email);
-             MaxDaysBeforeCheckboxPopup.Click();
-            SubscribeNewsCheckboxPopup.Click();
+            return System.Reflection.MethodBase.GetCurrentMethod().Name;
+        }
+
+        public string SelectCheckbox(string cbText)
+        {
+            switch (cbText)
+            {
+                case "55 days before December 25th":
+                    MaxDaysBeforeCheckboxPopup.Click();
+                    break;
+                case "30 days before":
+                    MinDaysBeforeCheckboxPopup.Click();
+                    break;
+                case "Subscribe to news and special deals":
+                    SubscribeNewsCheckboxPopup.Click();
+                    break;
+            }
+            return System.Reflection.MethodBase.GetCurrentMethod().Name;
+        }
+      
+        public string CofirmFormInPopupRemindMeLater()
+        {
             SubmitPopup.Click();
+            return System.Reflection.MethodBase.GetCurrentMethod().Name;
+        }
+
+        public string ClosePopupRemindMeLater()
+        {
             ClosePopup.Click();
             return System.Reflection.MethodBase.GetCurrentMethod().Name;
         }
-        public string RemindMeBefore30Days(string email, string date)
+
+        public bool IsPopupRemindSetDisplayed()
         {
-            EmailInputPopup.SendKeys(email);
-            MinDaysBeforeCheckboxPopup.SendKeys(Keys.Enter);
-            DatePickerPopup.SendKeys(date);
-            SubscribeNewsCheckboxPopup.SendKeys(Keys.Enter);
-            SubmitPopup.SendKeys(Keys.Enter);
-            ClosePopup.SendKeys(Keys.Enter);
-            return System.Reflection.MethodBase.GetCurrentMethod().Name;
+            return PopupRemindSet.Displayed;
+        }
+
+        public bool IsEmailValid()
+        {
+            return Helper.SearchErrorField(EmailInputPopup);
+        }
+
+        public bool IsDataPickerDisplayed()
+        {
+
+            return DatePickerPopup.Displayed;
+        }
+
+        public bool IsPopupRemindMeLaterAppear()
+        {
+            return PopupRemindMeLater.Displayed;
+        }
+        public bool IsSuccessPopupAppear()
+        {
+            return ClosePopup.Displayed;
+        }
+
+        public bool IsMessageError(string textMessage)
+        {
+            return ErrorMessage.Text== textMessage;
+        }
+
+        public bool IsEmailCorrect(string email)
+        {
+            return EmailReminder.Text == email;
+        }
+
+        public void FillDatePicker()
+        {
+            string date = "01/30/2018";
+            DatePickerField.SendKeys(date);
+
         }
         #endregion
         #endregion
