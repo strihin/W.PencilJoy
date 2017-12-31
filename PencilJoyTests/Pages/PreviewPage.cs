@@ -208,6 +208,11 @@ namespace PencilJoyTests.Pages
           RemindMeLaterButton.SendKeys(Keys.Enter);
           return System.Reflection.MethodBase.GetCurrentMethod().Name;
       }
+
+        public bool IsButtonContainSymbolCurrency(string currency)
+        {
+            return OrderButton.Text.Contains(currency);
+        }
      
         #region Popup Methods
 
@@ -287,7 +292,8 @@ namespace PencilJoyTests.Pages
             DatePickerField.SendKeys(date);
 
         }
+
         #endregion
-        #endregion
+#endregion
     }
 }

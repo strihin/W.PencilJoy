@@ -71,10 +71,10 @@ namespace PencilJoyTests.Pages
         #endregion
 
        #region Methods
-       public void EditCurrency(int indexForCurrency)
+       public void EditCurrency(string currencyName)
         {
             SelectElement currencyItem = new SelectElement(CurrencySelect);
-            currencyItem.SelectByIndex(indexForCurrency);
+            currencyItem.SelectByText(currencyName);
         }
 
        public virtual string LoginNameAndDate(string username, int numberMonth, int numberDay)
@@ -119,10 +119,7 @@ namespace PencilJoyTests.Pages
             return System.Reflection.MethodBase.GetCurrentMethod().Name;
         }
         
-     /// <summary>
-     /// 
-     /// </summary>
-     /// <returns></returns>
+
         public  string ConfirmForm()
         {
             PreviewYourBookButton.SendKeys(Keys.Enter);

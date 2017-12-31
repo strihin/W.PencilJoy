@@ -6,10 +6,10 @@
 @positive @previewPage
 Scenario Outline: The user edits currency for checking currency and price in the button on the preview page
     Given The user is a customer
-    And The user is on preview page     
+    And The user is on the preview page     
     When The user clicks the dropdown with currency and chooses currency item as <Currency>
-    Then The currency is changed in the button "Order for" as <Currency>
-	And The price for a book in the button "Order for..." is edited.
+    Then The currency is changed in the button Order for as <Currency>
+	And The price for a book in the button Order for is edited.
 Examples: 
 | Currency |
 | USD      |
@@ -27,7 +27,7 @@ Scenario Outline: The user edits currency on the message page for checking curre
     Given The user is a customer
     And The user is on the message page     
     When The user clicks the dropdown with currency and chooses currency item as <Currency>
-	And The user clicks "Next" for redirecting to the bag page
+	And The user clicks th button Next for redirecting to the bag page
     Then The currency in the field "Subtotal" on the bag page is <Currency>
 	And The currency in the field "Grand Total" on the bag page is <Currency>
 	And The active currency in the dropdown with currencies on the bag page should be equal <Currency>
@@ -70,7 +70,7 @@ Scenario Outline: The user edits currency using dropdown on the bag page
     When The user clicks the dropdown with currencies and chooses currency item as <Currency>
     Then The currency in the field "Subtotal" on the bag page should be equal <Currency>
 	And The currency in the field "Grand Total" on the bag page should be equal <Currency>
-	And The active currency in the dropdown with currencies ib the footer should be equal <Currency>
+	And The active currency in the dropdown with currencies in the footer should be equal <Currency>
 	Examples: 
 | Currency |
 | USD      |

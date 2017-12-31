@@ -57,6 +57,10 @@ namespace PencilJoyTests
         {
             return webBlock.FindElement(By.XPath(".//*[text()='" + textSearch + "']/.."));
         }
+        public static IWebElement SearchInputDoubleBlock(IWebElement webBlock, string textSearch)
+        {
+            return webBlock.FindElement(By.XPath("/..//*[text()='" + textSearch + "']/"));
+        }
         public static IWebElement SearchInnerInput(IWebElement webBlock)
         {
             return webBlock.FindElement(By.TagName("input"));

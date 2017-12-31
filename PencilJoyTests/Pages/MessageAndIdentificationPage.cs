@@ -167,8 +167,9 @@ namespace PencilJoyTests.Pages
             SelectElement currencyItem = new SelectElement(CurrencySelect);
             currencyItem.SelectByText(currencyName);
         }
-        public bool IsActiveCurrency(string expectedCurrency)
+        public bool IsActiveCurrency(string fieldName, string expectedCurrency)
         {
+           // IWebElement element 
             SelectElement currencyItem = new SelectElement(CurrencySelect);
             var actualCurrency = currencyItem.SelectedOption.Text;
             return Helper.CompareCurrencies(expectedCurrency, actualCurrency);

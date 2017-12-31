@@ -13,7 +13,7 @@ using RazorEngine.Compilation.ImpromptuInterface;
 
 namespace PencilJoyTests.Pages
 {
-   class BagPage
+   class BagPage : FooterPage
     {
         private WebDriverWait _waitDriver;
         private BagMaths _bagMath { get; set; }
@@ -237,7 +237,7 @@ namespace PencilJoyTests.Pages
 
        public bool VerifyBooksAmount(int expectedAmountBooks)
        {
-           return (expectedAmountBooks != Products.Count) ? true : false;
+           return (expectedAmountBooks != Products.Count);
        }
        public void GetBagPriceBagMath()
        {
@@ -309,6 +309,11 @@ namespace PencilJoyTests.Pages
            }
            return System.Reflection.MethodBase.GetCurrentMethod().Name;
        }
+
+       public void IsActiveCurrency()
+       {
+           CurrencySelector.
+       }
        #region GetPrice
        public void GetActualPriceBook()
        {
@@ -323,12 +328,12 @@ namespace PencilJoyTests.Pages
         #endregion
        public bool CheckBasketAsEmpty()
        {
-           return (Products.Count != 0) ? true : false;
+           return (Products.Count != 0);
        }
 
        public bool CheckTheButtonIsVisible()
        {
-           return TitleEmptyBag.Displayed ? true : false;
+           return TitleEmptyBag.Displayed;
        }
 
        public void ContinueShopping()
@@ -356,8 +361,7 @@ namespace PencilJoyTests.Pages
 
        public bool IsBasketEmpty()
        {
-           return (LinkBasket.Text=="Bag ")?
-               true : false;
+           return (LinkBasket.Text == "Bag ");
        }
 
        public bool IsCodeValid(int expectedPercent)
@@ -375,6 +379,8 @@ namespace PencilJoyTests.Pages
        {
            return Helper.SearchErrorField(DiscountRow);
        }
+       
+
         #endregion
     }
 }

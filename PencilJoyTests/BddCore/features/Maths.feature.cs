@@ -84,12 +84,12 @@ this.ScenarioSetup(scenarioInfo);
 #line 9
  testRunner.And("The user is on the preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
- testRunner.And("The user gets price and currency for a book from the button \"Order for ..\" on the" +
-                    " preview page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user gets price and currency for a book from the button  Order on the preview" +
+                    " page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.And("The user clicks the button \"Order for ..\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button  Order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
- testRunner.And("The user clicks the button \"Next\" on the message page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button Next on the message page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
  testRunner.When("The user gets price and currency  for the first book on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 14
@@ -121,7 +121,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 20
  testRunner.And("The user gets price and currency for the first book on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 21
- testRunner.And("The user clicks the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button N+ext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22
  testRunner.When("The user gets  price and currency for the first book on the checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 23
@@ -153,7 +153,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 29
  testRunner.And("The user gets price and currency for the totalprice on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 30
- testRunner.And("The user clicks the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 31
  testRunner.When("The user gets  price and currency for the totalprice on the checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 32
@@ -187,7 +187,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 39
  testRunner.And("The user gets price and currency for the totalprice on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 40
- testRunner.And("The user clicks the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 41
  testRunner.When("The user gets  price and currency for the totalprice on the checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 42
@@ -228,7 +228,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 49
  testRunner.And(string.Format("The user gets discount percent and name for order on the bag page as {0}  {0}", discountPercent), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 50
- testRunner.And("The user clicks the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 51
  testRunner.When(string.Format("The user gets discount percent and name for order on the checkout page as {0}  {0" +
                         "}", discountPercent), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -282,7 +282,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 69
  testRunner.And("The user adds few books in the bag", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 70
- testRunner.And("The user clicks the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 71
  testRunner.When("The user gets price for booklist on the checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 72
@@ -317,7 +317,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 79
  testRunner.And("The user gets currency from totalprice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 80
- testRunner.And("The user clicks the button \"Next\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 81
  testRunner.When("The user gets currency for totalprice on the checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 82
