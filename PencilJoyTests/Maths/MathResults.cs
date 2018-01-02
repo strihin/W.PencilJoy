@@ -20,6 +20,7 @@ namespace PencilJoyTests
         static internal bool verifyPriceFirstBook;
         internal static bool checkSubtotalPrice;
         internal static bool checkGrandPrice;
+        internal static bool verifyCurrencyFirstBook;
         #endregion
 
         #region Checkout

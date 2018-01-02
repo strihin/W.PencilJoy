@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using PencilJoyTests.Data;
 
 namespace PencilJoyTests.Maths
@@ -25,7 +26,6 @@ namespace PencilJoyTests.Maths
     
             this.ActualOrder = new Order();
             this.ExpectedOrder = new Order();
-        
         }
         #endregion
         public double VerifyPriceInTheFirstBook()
@@ -60,8 +60,5 @@ namespace PencilJoyTests.Maths
                 ? true : false;
         }
        #endregion
-      
-
-
     }
 }

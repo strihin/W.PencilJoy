@@ -31,11 +31,15 @@ namespace PencilJoyTests.Maths
         public double VerifyPriceInTheFirstBook()
         {
             MathResults.verifyPriceFirstBook = (ExpectedOrder.PriceBook[0] ==
-                        FullAdminData.CurrencyList[IndexCurrency].currencyValue)
-                ? true : false;
+                                                FullAdminData.CurrencyList[IndexCurrency].currencyValue);
             return MathResults.verifyPriceFirstBook ? FullAdminData.CurrencyList[IndexCurrency].currencyValue : 0;
         }
-
+        public string VerifyCurrencyInTheFirstBook()
+        {
+            var test = (ExpectedOrder.CurrencySymbol ==
+                                                FullAdminData.CurrencyList[IndexCurrency].currencySymbol);
+            return MathResults.verifyCurrencyFirstBook ? FullAdminData.CurrencyList[IndexCurrency].currencySymbol : null;
+        }
         public void CalculateTotalPriceInBag()
         {
             //  VerifyPriceInTheFirstBook();
@@ -46,12 +50,12 @@ namespace PencilJoyTests.Maths
             }
             if (ExpectedOrder.DiscountCode != -1)
             {
-                ActualOrder.SubtotalPrice -= System.Math.Round(ExpectedOrder.DiscountCode / 100 * ActualOrder.SubtotalPrice, 2);
+                ActualOrder.SubtotalPrice -= Math.Round(ExpectedOrder.DiscountCode / 100 * ActualOrder.SubtotalPrice, 2);
             }
             ActualOrder.GrandPrice = ActualOrder.SubtotalPrice;
 
-            MathResults.checkSubtotalPrice = MathResults.ComparePrices(System.Math.Round(ActualOrder.SubtotalPrice, 2), System.Math.Round(ExpectedOrder.SubtotalPrice, 2));
-            MathResults.checkGrandPrice = MathResults.ComparePrices(System.Math.Round(ActualOrder.GrandPrice, 2), System.Math.Round(ExpectedOrder.GrandPrice, 2));
+            MathResults.checkSubtotalPrice = MathResults.ComparePrices(Math.Round(ActualOrder.SubtotalPrice, 2), Math.Round(ExpectedOrder.SubtotalPrice, 2));
+            MathResults.checkGrandPrice = MathResults.ComparePrices(Math.Round(ActualOrder.GrandPrice, 2), Math.Round(ExpectedOrder.GrandPrice, 2));
         }
           public void VerifyActionForListBook()
           {
@@ -63,7 +67,7 @@ namespace PencilJoyTests.Maths
                   for (int i = 1; i < ExpectedOrder.PriceBook.Count; i++)
                   {
                       //calculate price for next book with discount
-                      ActualOrder.PriceBook.Add(System.Math.Round(ActualOrder.PriceBook[0] - ActualOrder.PriceBook[0] * discountPercent, 2));
+                      ActualOrder.PriceBook.Add(Math.Round(ActualOrder.PriceBook[0] - ActualOrder.PriceBook[0] * discountPercent, 2));
                       if (discountPercent != 0.25)
                           discountPercent += 0.05;
                   }

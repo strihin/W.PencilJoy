@@ -100,7 +100,11 @@ namespace PencilJoyTests.Pages
                 return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("g-currency-switch")));
             }
         }
-        
+
+        private IWebElement TitleAuthorization
+        {
+            get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("double"))); }
+        }
         #endregion
 
         #region Methods
@@ -173,6 +177,10 @@ namespace PencilJoyTests.Pages
             SelectElement currencyItem = new SelectElement(CurrencySelect);
             var actualCurrency = currencyItem.SelectedOption.Text;
             return Helper.CompareCurrencies(expectedCurrency, actualCurrency);
+        }
+        public bool IsAuthorizationBlockVisibled()
+        {
+            return TitleAuthorization.Displayed;
         }
         #endregion
     }

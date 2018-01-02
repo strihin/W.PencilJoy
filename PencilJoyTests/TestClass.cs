@@ -70,7 +70,7 @@ namespace PencilJoyTests
                 _test.Log(Status.Pass, objCreateBookPage.LoginNameAndDate());
                 _test.Log(Status.Pass, objCreateBookPage.ConfirmForm());
                 _test.Log(Status.Pass, objPreviewPage.EditCurrency());
-                _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
+                _test.Log(Status.Pass, objPreviewPage.ConfirmGeneralForm());
 
                 _test.Log(Status.Pass, objMessagePage.EditMessage());
                 _test.Log(Status.Pass, objMessagePage.LoginNewCustomer());
@@ -79,7 +79,7 @@ namespace PencilJoyTests
                 _test.Log(Status.Pass, objBagPage.ShopMoreBooks());
                 _test.Log(Status.Pass, objCreateBookPage.LoginNameAndDate());
                 _test.Log(Status.Pass, objCreateBookPage.ConfirmForm());
-                _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
+                _test.Log(Status.Pass, objPreviewPage.ConfirmGeneralForm());
                 _test.Log(Status.Pass, objMessagePage.ComfirmForm());
 
                 objBagPage.CheckDiscount();
@@ -87,7 +87,7 @@ namespace PencilJoyTests
                 _test.Log(Status.Pass, objBagPage.ShopMoreBooks());
                 _test.Log(Status.Pass, objCreateBookPage.LoginNameAndDate());
                 _test.Log(Status.Pass, objCreateBookPage.ConfirmForm());
-                _test.Log(Status.Pass, objPreviewPage.GetPreviewPageTitle());
+                _test.Log(Status.Pass, objPreviewPage.ConfirmGeneralForm());
                 _test.Log(Status.Pass, objMessagePage.ComfirmForm());
             
                 _test.Log(Status.Pass, objBagPage.RemoveBook(_webDriver));

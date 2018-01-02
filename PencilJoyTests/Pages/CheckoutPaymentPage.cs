@@ -104,6 +104,14 @@ namespace PencilJoyTests.Pages
                             By.XPath(".//div[@class='cor-summary']/div[2]/span")));
             }
         }
+        private IWebElement DiscountCodeField
+        {
+            get
+            {
+                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                            By.XPath("//*[@id='customer']/tbody/tr[2]")));
+            }
+        }
         private IWebElement PaymentError
         {
             get
@@ -193,10 +201,21 @@ namespace PencilJoyTests.Pages
             _checkoutMath.VerifyCurrency();
             _checkoutMath.VerifyGrandPrice();
         }
-
         public bool IsErrorDisplayed(string textError)
         {
             return PaymentError.Displayed && PaymentError.Text == textError;
+        }
+
+        public void vfjklfk(string excpectedCodeName, string expectedCodeVal)
+        {
+            string actualCodeName = DiscountCodeField.FindElement(By.XPath("/td[1]")).Text;
+            string actualCodeVal = DiscountCodeField.FindElement(By.XPath("/td[2]")).Text;
+            actualCodeVal = actualCodeVal.Substring(1, actualCodeVal.Length - 2);
+            codeName = GetBookDescriptionFromButton(codeName);
+        }
+        public string GetBookDescriptionFromButton(string code)
+        {
+            return code.Trim().Split(' ').Last();
         }
         #endregion
     }

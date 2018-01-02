@@ -18,7 +18,7 @@ Scenario: The user compares price and currency for a book on the bag page and on
 	Given The user is a customer
 	And The user is on the bag page
 	And The user gets price and currency for the first book on the bag page
-	And The user clicks the button N+ext
+	And The user clicks the button Next
 	When The user gets  price and currency for the first book on the checkout page
 	Then The price and currency for a book on the bag page and  on the checkout page should be equal 
 
@@ -45,14 +45,14 @@ Scenario: The user compares totalprice and currency for order with discount code
 Scenario Outline: The user compares discount percent and name for order on the bag page and on the checkout page
 	Given The user is a customer
 	And The user is on the bag page
-	And The user enters correct discount code
-	And The user gets discount percent and name for order on the bag page as <DiscountPercent>  <DiscountPercent>
+	And The user enters correct discount code as <DiscountCode>
+	And The user gets discount percent and name for order on the bag page as <DiscountPercent>
 	And The user clicks the button Next
-	When The user gets discount percent and name for order on the checkout page as <DiscountPercent>  <DiscountPercent>
+	When The user gets discount percent and name for order on the checkout page as <DiscountCode>  <DiscountPercent>
 	Then The discount percent and name for order should be equal on the bag page and on the checkout page 
 Examples: 
 | DiscountCode  | DiscountPercent	|
-| kendra35		| 35				|
+| special35		| 35				|
 | vip25			| 25				|
 
 @verifyPriceBookList @bagPage

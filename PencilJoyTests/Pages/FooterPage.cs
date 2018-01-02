@@ -29,7 +29,7 @@ namespace PencilJoyTests.Pages
             SelectElement currencyItem = new SelectElement(CurrencySelect);
             currencyItem.SelectByText(currencyName);
         }
-        public bool IsActiveCurrency(string fieldName, string expectedCurrency)
+        public bool IsActiveCurrency(string expectedCurrency)
         {
             SelectElement currencyItem = new SelectElement(CurrencySelect);
             var actualCurrency = currencyItem.SelectedOption.Text;
@@ -40,10 +40,12 @@ namespace PencilJoyTests.Pages
         {
             var symbolList = FullAdminData.GetCurrencySymbolList();
             var PriceField = Helper.SearchInputDoubleBlock(Helper.SearchFieldByName(_waitDriver, fieldName),expectedCurrency);
+            bool flag = false;
             foreach (var currency in symbolList)
             {
-                currency.
+                flag = (expectedCurrency.Contains(currency));
             }
+            return flag;
         }
 
         #endregion

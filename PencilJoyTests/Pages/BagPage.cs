@@ -131,7 +131,7 @@ namespace PencilJoyTests.Pages
        }
        private IWebElement GrandTotalPrice
        {
-           get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.XPath(".//*[text()='Subtotal']/../following-sibling::td[1]"))); }
+           get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.XPath(".//*[text()='GRAND total']/../following-sibling::td[1]"))); }
        }
 
        private IWebElement TitleEmptyBag
@@ -157,7 +157,7 @@ namespace PencilJoyTests.Pages
        {
             get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("discount-row"))); }
        }
-
+      
         #endregion
 
         #region Methods
@@ -289,30 +289,36 @@ namespace PencilJoyTests.Pages
            }
            return discountDecimalList;
        }
-       public string EditCurrency()
-       {
-           bool staleElement = true;
-           SelectElement currencyItem = new SelectElement(CurrencySelector);
+       
+       //public string EditCurrency()
+       //{
+       //    bool staleElement = true;
+       //    SelectElement currencyItem = new SelectElement(CurrencySelector);
          
-           while (staleElement)
-           {
-               try
-               {
-                   CurrencySelector.Click();
-                   currencyItem.SelectByValue(randomCurrency); ;
-                   staleElement = false;
-               }
-               catch (StaleElementReferenceException e)
-               {
-                   staleElement = true;
-               }
-           }
-           return System.Reflection.MethodBase.GetCurrentMethod().Name;
-       }
+       //    while (staleElement)
+       //    {
+       //        try
+       //        {
+       //            CurrencySelector.Click();
+       //            currencyItem.SelectByValue(randomCurrency); ;
+       //            staleElement = false;
+       //        }
+       //        catch (StaleElementReferenceException e)
+       //        {
+       //            staleElement = true;
+       //        }
+       //    }
+       //    return System.Reflection.MethodBase.GetCurrentMethod().Name;
+       //}
 
-       public void IsActiveCurrency()
+       public void EditCurrency(string currencyName)
        {
-           CurrencySelector.
+           SelectElement currencyItem = new SelectElement(CurrencySelector);
+           currencyItem.SelectByText(currencyName);
+       }
+       public bool IsActiveCurrency(string currency)
+       {
+           return CurrencySelector.Text == currency;
        }
        #region GetPrice
        public void GetActualPriceBook()
@@ -324,6 +330,17 @@ namespace PencilJoyTests.Pages
                priceArr.Add(Convert.ToDouble(_bagMath.RemoveOldPrice(price.Text)));
            }
            _bagMath.ExpectedOrder.PriceBook = priceArr;
+
+       }
+       public double GetFirstPriceBook()
+       {
+           List<double> priceArr = new List<double>();
+
+           foreach (var price in Prices)
+           {
+               priceArr.Add(Convert.ToDouble(_bagMath.RemoveOldPrice(price.Text)));
+           }
+           return priceArr[0];
        }
         #endregion
        public bool CheckBasketAsEmpty()
@@ -379,8 +396,8 @@ namespace PencilJoyTests.Pages
        {
            return Helper.SearchErrorField(DiscountRow);
        }
-       
 
+      
         #endregion
     }
 }

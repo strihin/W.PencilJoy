@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using PencilJoyTests.Data;
 using PencilJoyTests.Maths;
 
 namespace PencilJoyTests.Pages
@@ -158,7 +162,7 @@ namespace PencilJoyTests.Pages
         #endregion
 
         #region Methods
-        public string GetPreviewPageTitle()
+        public string ConfirmGeneralForm()
         {
            bool staleElem = true;
             while (staleElem)
@@ -213,7 +217,37 @@ namespace PencilJoyTests.Pages
         {
             return OrderButton.Text.Contains(currency);
         }
-     
+
+        public string GetBookDescriptionFromButton()
+        {
+            return OrderButton.Text.Trim().Split(' ').Last();
+        }
+        public double GetPriceForBook()
+        {
+            return Convert.ToDouble(Regex.Split(GetBookDescriptionFromButton(), @"[^0-9\.]+"));
+        }
+
+        public string GetCurrencyForBook()
+        {
+            GetBookDescriptionFromButton();
+
+            string actualCurrency = "";
+            foreach (var currency in FullAdminData.CurrencyList)
+            {
+                if ( GetBookDescriptionFromButton().Contains(currency.currencySymbol))
+                {
+                    actualCurrency = currency.currencySymbol;
+                }
+            }
+            return actualCurrency;
+        }
+        public bool CheckValuesInTheButton()
+        {
+            string buttonText = OrderButton.Text.Trim().Split(' ').Last();
+            double actualPrice = GetPriceForBook();
+            string actualCurrency = GetCurrencyForBook();
+            return FullAdminData.IsValidPrice(actualPrice, actualCurrency);
+        }
         #region Popup Methods
 
         public string FillEmailToPopup(string email)

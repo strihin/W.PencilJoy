@@ -152,10 +152,13 @@
     <Compile Include="BddCore\Steps\ActionsWithBooksInTheShoppingBagSteps.cs" />
     <Compile Include="BddCore\Steps\AddAddressesToCheckoutPageSteps.cs" />
     <Compile Include="BddCore\Steps\ChangeValueForFieldsInAddressesBlocksOnTheCheckoutPageSteps.cs" />
+    <Compile Include="BddCore\Steps\ChoosePayPalPaymentOnTheCheckoutPageSteps.cs" />
     <Compile Include="BddCore\Steps\ClickableFieldsOnTheCheckoutPageSteps.cs" />
+    <Compile Include="BddCore\Steps\CurrencySteps.cs" />
     <Compile Include="BddCore\Steps\EditingAboutChildSDataForABookSteps.cs" />
     <Compile Include="BddCore\Steps\FieldValidationOnTheCheckoutStep.cs" />
     <Compile Include="BddCore\Steps\FillingChildDataSteps.cs" />
+    <Compile Include="BddCore\Steps\MathsSteps.cs" />
     <Compile Include="BddCore\Steps\PaymentDataToCheckoutPageStep.cs" />
     <Compile Include="BddCore\Steps\ReminderSteps.cs" />
     <Compile Include="BddCore\Steps\RemoveValueFromFieldsOnTheCheckoutStep.cs" />
@@ -180,6 +183,7 @@
     <Compile Include="Pages\CheckoutPaymentPage.cs" />
     <Compile Include="Pages\CheckoutShippingAddressPage.cs" />
     <Compile Include="Pages\EditBookPage.cs" />
+    <Compile Include="Pages\FooterPage.cs" />
     <Compile Include="Pages\SuccessfulOrderPage.cs" />
     <Compile Include="ReportCore\ExtentManager.cs" />
     <Compile Include="ReportCore\ExtentScreenshoter.cs" />

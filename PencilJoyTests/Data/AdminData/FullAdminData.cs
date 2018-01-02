@@ -38,5 +38,26 @@ namespace PencilJoyTests.Data
             DiscountCodeList = DeSerializeCurrency<DiscountCode>(DiscountCodeList, "DiscountCode.json");
             CurrencyList = DeSerializeCurrency<Currency>(CurrencyList, "Currencies.json");
         }
+        public static List<string> GetCurrencySymbolList()
+        {
+            List<string> symbolList = new List<string>();
+            foreach (var currencyItem in CurrencyList)
+            {
+                symbolList.Add(currencyItem.currencySymbol);
+            }
+            return symbolList;
+        }
+
+        public static bool IsValidPrice(double actualPrice, string actualCurrency)
+        {
+            foreach (var currencyItem in CurrencyList)
+            {
+                if (actualPrice == currencyItem.currencyValue && actualCurrency == currencyItem.currencySymbol)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

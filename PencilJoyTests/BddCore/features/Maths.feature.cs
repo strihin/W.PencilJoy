@@ -121,7 +121,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 20
  testRunner.And("The user gets price and currency for the first book on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 21
- testRunner.And("The user clicks the button N+ext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The user clicks the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22
  testRunner.When("The user gets  price and currency for the first book on the checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 23
@@ -203,7 +203,7 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.CategoryAttribute("compareDiscountPercent")]
         [NUnit.Framework.CategoryAttribute("bagPage")]
         [NUnit.Framework.CategoryAttribute("checkoutPage")]
-        [NUnit.Framework.TestCaseAttribute("kendra35", "35", null)]
+        [NUnit.Framework.TestCaseAttribute("special35", "35", null)]
         [NUnit.Framework.TestCaseAttribute("vip25", "25", null)]
         public virtual void TheUserComparesDiscountPercentAndNameForOrderOnTheBagPageAndOnTheCheckoutPage(string discountCode, string discountPercent, string[] exampleTags)
         {
@@ -224,14 +224,14 @@ this.ScenarioSetup(scenarioInfo);
 #line 47
  testRunner.And("The user is on the bag page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 48
- testRunner.And("The user enters correct discount code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("The user enters correct discount code as {0}", discountCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 49
- testRunner.And(string.Format("The user gets discount percent and name for order on the bag page as {0}  {0}", discountPercent), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("The user gets discount percent and name for order on the bag page as {0}", discountPercent), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 50
  testRunner.And("The user clicks the button Next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 51
- testRunner.When(string.Format("The user gets discount percent and name for order on the checkout page as {0}  {0" +
-                        "}", discountPercent), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("The user gets discount percent and name for order on the checkout page as {0}  {1" +
+                        "}", discountCode, discountPercent), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 52
  testRunner.Then("The discount percent and name for order should be equal on the bag page and on th" +
                     "e checkout page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
