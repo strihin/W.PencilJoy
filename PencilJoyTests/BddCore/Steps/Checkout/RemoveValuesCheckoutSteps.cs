@@ -1,12 +1,11 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using PencilJoyTests.Pages;
 using TechTalk.SpecFlow;
 
 namespace PencilJoyTests.BddCore.Steps
 {
     [Binding]
-    public class RemoveValueFromAddressesFieldsSteps
+    public class RemoveValuesCheckoutSteps
     {
         private CheckoutShippingAddressPage checkoutShippingAddress = new CheckoutShippingAddressPage();
 

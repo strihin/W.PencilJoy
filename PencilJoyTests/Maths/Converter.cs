@@ -78,9 +78,9 @@ namespace PencilJoyTests
             return Convert.ToDouble(digitsOnly.Replace(priceWithCurrency, ""));
         }
 
-        public double ConvertTotalPrice(string priceWithCurrency, double priceTheFirstBook)
+        public double ConvertTotalPrice(string priceWithCurrency, string priceTheFirstBook)
         {
-            ActualCurrency = GetCurrency(priceWithCurrency, priceTheFirstBook);
+            ActualCurrency = GetCurrency(priceWithCurrency, Convert.ToDouble(priceTheFirstBook));
             priceWithCurrency = RemoveCurrencyFromPrice(priceWithCurrency);
             return RemoveOldPrice(priceWithCurrency);
         }

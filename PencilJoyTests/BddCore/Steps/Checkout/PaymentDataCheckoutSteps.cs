@@ -7,7 +7,7 @@ using TechTalk.SpecFlow;
 namespace PencilJoyTests.BddCore.Steps
 {
     [Binding]
-    public class AddPaymentDataToCheckoutPageSteps
+    public class PaymentDataCheckoutSteps
     {
         private IWebDriver currentDriver;
         internal CheckoutBillingAddressPage checkoutBillingAddress = new CheckoutBillingAddressPage();

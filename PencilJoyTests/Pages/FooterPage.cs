@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using PencilJoyTests.Data;
+using PencilJoyTests.Maths;
 
 namespace PencilJoyTests.Pages
 {
@@ -33,7 +34,7 @@ namespace PencilJoyTests.Pages
         {
             SelectElement currencyItem = new SelectElement(CurrencySelect);
             var actualCurrency = currencyItem.SelectedOption.Text;
-            return Helper.CompareCurrencies(expectedCurrency, actualCurrency);
+            return Price.CompareCurrencies(expectedCurrency, actualCurrency);
         }
 
         public bool IsCorrectCurrency(string fieldName, string expectedCurrency)

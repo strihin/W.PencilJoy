@@ -18,7 +18,7 @@ Examples:
 Scenario Outline: The user fills fields about child's data without fields for birthday
 	Given The user is a customer
 	And The user is on the create book page
-	When The user fills correct data to field name as <Username>  besides fields for birthday as month and day
+	When The user fills correct data to field name as '<Username>' besides fields for birthday as month and day
 	And The user fills correct data to field Gender as <numberSex> , <NumberCharacter>
 	Then The user is redirected to the preview page
 Examples: 
@@ -32,6 +32,7 @@ Scenario Outline: The user fills fields about child's data with incorrect data
 	When The user fills incorrect data to field Name and correct data for another fields as <Username> , <NumberMonth> , <NumberDay> <numberSex> , <NumberCharacter>
 	Then The user  isn`t redirected to the preview page
 	And The field for "First name" with incorrect data get a red border.
+Examples:
 | Username	| NumberMonth	| NumberDay		| numberSex		| NumberCharacter	|
 |	191215	|	8			|	3			|	0			|	2				|
 |	Мария	|	8			|	20			|	1			|	1				|
@@ -47,6 +48,7 @@ Scenario Outline: The user fills fields about child's data without the field Fir
 	And The user fills correct data to field Gender as <numberSex> , <NumberCharacter>
 	Then The user  isn`t redirected to the preview page
 	And The field "First name" gets a red border.
+Examples: 
 | Username	| NumberMonth	| NumberDay		| numberSex		| NumberCharacter	|
 |			|	1			|	28			|	0			|	4				|
 @negative
@@ -56,6 +58,7 @@ Scenario Outline: The user fills fields about child's data without the field Gen
 	When The user fills correct data to fields without choosing the button "Gender" : <Username> , <NumberMonth> , <NumberDay>
 	Then The user  isn`t redirected to the preview page
 	And The button "Gender" gets a red border.
+Examples: 
 | Username	| NumberMonth	| NumberDay		| numberSex		| NumberCharacter	|
 |	Quintin	|	2			|	29			|				|					|
 
@@ -66,6 +69,7 @@ Scenario Outline: The user fills fields about child's data without the option Ch
 	When The user fills correct data to fields without choosing the option Character option: <Username> , <NumberMonth> , <NumberDay> <numberSex>
 	Then The user  isn`t redirected to the preview page
 	And The button "Gender" gets a red border.
+Examples: 
 | Username	| NumberMonth	| NumberDay		| numberSex		| NumberCharacter	|
 |	Kane	|	12			|	29			|	1			|					|
 

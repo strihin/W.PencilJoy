@@ -7,7 +7,7 @@ using TechTalk.SpecFlow;
 namespace PencilJoyTests.BddCore.Steps
 {
     [Binding]
-    public class ChoosePayPalPaymentOnTheCheckoutPageSteps
+    public class PayPalCheckoutSteps
     {
         private IWebDriver currentDriver;
         internal CheckoutBillingAddressPage checkoutBillingAddress = new CheckoutBillingAddressPage();

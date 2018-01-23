@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using PencilJoyTests.Data;
 using PencilJoyTests.Pages;
@@ -12,13 +7,42 @@ using TechTalk.SpecFlow;
 namespace PencilJoyTests.BddCore.steps
 {
     [Binding]
-    public sealed class FillingChildDataSteps
+    public sealed class FillChildDataSteps
     {
         private IWebDriver currentDriver = null;
         CreateBookPage createBookPage = new CreateBookPage();
         private CreateBookData createBookData;
+        private PreviewPage previewPage = new PreviewPage();
         private const string nextPageTitle = Helper.StartPage + "/preview";
 
+        public void GoNextStep(string username, int numberMonth, int numberDay, int numberSex, int numberCharacter)
+        {
+            currentDriver.Navigate().GoToUrl(Helper.StartPage);
+            WhenTheUserFillsCorrectDataToFieldsAs(username, numberMonth, numberDay, numberSex, numberCharacter);
+            previewPage.ConfirmGeneralForm();
+        }
+        public void GoNextStep()
+        {
+            currentDriver.Navigate().GoToUrl(Helper.StartPage);
+            WhenTheUserFillsCorrectDataToFieldsAs(createBookData.Username, createBookData.NumberMonth, createBookData.NumberDay, createBookData.NumberSex, createBookData.NumberCharacter);
+            previewPage.ConfirmGeneralForm();
+        }
+        public void GoToEditBookPage()
+        {
+            GoNextStep();
+            previewPage.EditBook();
+        }
+        public void GoToAuthorizationPage()
+        {
+            GoNextStep();
+            previewPage.ConfirmGeneralForm();
+        }
+        public void GoToReminder()
+        {
+            GoNextStep();
+            previewPage.RemindMeLater();
+        }
+       
         [Given(@"The user is a customer")]
         public void GivenTheUserIsACustomer()
         {
@@ -28,6 +52,7 @@ namespace PencilJoyTests.BddCore.steps
         [Given(@"The user is on the create book page")]
         public void GivenTheUserIsOnTheCreateBookPage()
         {
+            
             Assert.AreEqual(currentDriver.Url, Helper.StartPage);
         }
 
@@ -84,7 +109,7 @@ namespace PencilJoyTests.BddCore.steps
         }
 
         [When(@"The user fills correct data to fields name and date as (.*) , (.*) , (.*)")]
-        public void WhenTheUserFillsCorrectDataToFieldsNameAndDateAsQuill(string username, int numberMonth, int numberDay)
+        public void WhenTheUserFillsCorrectDataToFieldsNameAndDateAs(string username, int numberMonth, int numberDay)
         {
             createBookPage.LoginNameAndDate(username, numberMonth, numberDay);
         }
@@ -112,6 +137,18 @@ namespace PencilJoyTests.BddCore.steps
         public void ThenTheButtonGetsARedBorder_(string fieldName)
         {
             createBookPage.VerifyErrorField(fieldName);
+        }
+
+        [When(@"The user fills correct data to field name as '(.*)' besides fields for birthday as month and day")]
+        public void WhenTheUserFillsCorrectDataToFieldNameAsBesidesFieldsForBirthdayAsMonthAndDay(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"The user fills correct data to fields without choosing the option Character option: (.*) , (.*) , (.*) (.*)")]
+        public void WhenTheUserFillsCorrectDataToFieldsWithoutChoosingTheOptionCharacterOption(string p0, string p1, string p2, string p3)
+        {
+            ScenarioContext.Current.Pending();
         }
     }
 }

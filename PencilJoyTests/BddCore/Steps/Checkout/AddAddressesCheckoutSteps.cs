@@ -1,9 +1,5 @@
-﻿using System;
-using System.Security.Cryptography;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
 using PencilJoyTests.Data;
 using PencilJoyTests.Pages;
 using TechTalk.SpecFlow;
@@ -12,12 +8,13 @@ using TechTalk.SpecFlow.Assist;
 namespace PencilJoyTests.BddCore.Steps
 {
     [Binding]
-    public class AddAddressesToCheckoutPageSteps
+    public class AddAddressesCheckoutSteps
     {
         private  IWebDriver currentDriver;
         internal CheckoutBillingAddressPage checkoutBillingAddress = new CheckoutBillingAddressPage();
         internal CheckoutShippingAddressPage checkoutShippingAddress = new CheckoutShippingAddressPage();
         internal CheckoutPaymentPage CheckoutPaymentPage = new CheckoutPaymentPage();
+        internal ActionsWithBooksShoppingBagSteps BagSteps = new ActionsWithBooksShoppingBagSteps();
 
         private const string currentPageTitle = Helper.StartPage + "/checkout";
         private const string nextPageTitle = Helper.StartPage + "/success";
@@ -26,6 +23,7 @@ namespace PencilJoyTests.BddCore.Steps
         [Given(@"The user is on checkout page")]
         public void GivenTheUserIsOnCheckoutPage()
         {
+            BagSteps.GoToCheckoutPage();
             Assert.AreEqual(currentDriver.Url, currentPageTitle); 
         }
 

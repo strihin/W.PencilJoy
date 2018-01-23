@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using PencilJoyTests.Pages;
 using TechTalk.SpecFlow;
@@ -7,7 +6,7 @@ using TechTalk.SpecFlow;
 namespace PencilJoyTests.BddCore.Steps
 {
     [Binding]
-    public class OrderAddressingValidationSteps
+    public class FieldValidationCheckoutSteps
     {
         private IWebDriver currentDriver;
         internal CheckoutBillingAddressPage checkoutBillingAddress = new CheckoutBillingAddressPage();

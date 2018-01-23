@@ -1,15 +1,11 @@
-﻿using System;
-using NUnit.Framework;
-using OpenQA.Selenium;
-using PencilJoyTests.Data;
+﻿using OpenQA.Selenium;
 using PencilJoyTests.Pages;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
 
 namespace PencilJoyTests.BddCore.Steps
 {
     [Binding]
-    public class ChangeValueForFieldsInAddressesBlocksOnTheCheckoutPageSteps
+    public class ChangeValuesCheckoutSteps
     {
         private IWebDriver currentDriver;
         internal CheckoutBillingAddressPage checkoutBillingAddress = new CheckoutBillingAddressPage();

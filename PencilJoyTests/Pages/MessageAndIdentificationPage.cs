@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using PencilJoyTests.Data;
+using PencilJoyTests.Maths;
 
 namespace PencilJoyTests.Pages
 {
@@ -163,7 +164,7 @@ namespace PencilJoyTests.Pages
         }
         public bool CheckActiveTab()
         {
-            return (TabNewCustomer.GetAttribute("class").Contains("active")) ? true : false;
+            return (TabNewCustomer.GetAttribute("class").Contains("active"));
         }
 
         public void EditCurrency(string currencyName)
@@ -176,7 +177,7 @@ namespace PencilJoyTests.Pages
            // IWebElement element 
             SelectElement currencyItem = new SelectElement(CurrencySelect);
             var actualCurrency = currencyItem.SelectedOption.Text;
-            return Helper.CompareCurrencies(expectedCurrency, actualCurrency);
+            return Price.CompareCurrencies(expectedCurrency, actualCurrency);
         }
         public bool IsAuthorizationBlockVisibled()
         {

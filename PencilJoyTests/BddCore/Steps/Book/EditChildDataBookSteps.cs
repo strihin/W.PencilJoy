@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using PencilJoyTests.BddCore.steps;
 using PencilJoyTests.Data;
 using PencilJoyTests.Pages;
 using TechTalk.SpecFlow;
@@ -13,7 +14,7 @@ namespace PencilJoyTests.BddCore.Steps
         private IWebDriver currentDriver = null;
         private CreateBookData createBookData;
         private EditBookPage editPage = new EditBookPage();
-        
+        private FillChildDataSteps childDataSteps = new FillChildDataSteps();
     
         private const string previewPageTitle = Helper.StartPage + "preview";
         private const string bagPageTitle = Helper.StartPage + "bag";
@@ -23,18 +24,23 @@ namespace PencilJoyTests.BddCore.Steps
         [Given(@"The user is on the preview page")]
         public void GivenTheUserIsOnThePreviewPage()
         {
+            childDataSteps.GoNextStep();
             Assert.AreEqual(currentDriver.Url, previewPageTitle);
         }
         
         [Given(@"The user is on the bag page")]
         public void GivenTheUserIsOnTheBagPage()
         {
+            childDataSteps.GoNextStep();
+            childDataSteps.GoToAuthorizationPage();
             Assert.AreEqual(currentDriver.Url, bagPageTitle);
         }
         
         [Given(@"The user is on the edit book page")]
         public void GivenTheUserIsOnTheEditBookPage()
         {
+            childDataSteps.GoNextStep();
+            childDataSteps.GoToEditBookPage();
             Assert.AreEqual(currentDriver.Url, editPageTitle);
         }
         

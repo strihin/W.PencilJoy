@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
-using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using PencilJoyTests.Data;
 using PencilJoyTests.Maths;
-using RazorEngine.Compilation.ImpromptuInterface;
 
 namespace PencilJoyTests.Pages
 {
@@ -21,7 +18,8 @@ namespace PencilJoyTests.Pages
         private string randomCurrency { get; set; }
         private int numberEditBook { get; set; }
         private int numberRemoveBook { get; set; }
-        private string discountCode { get; set; }
+        internal string DiscountName { get; set; }
+        internal int DiscountCode { get; set; }
         private int bookAmountBeforeRemoving { get; set; }
         
      //   public BagPage() { }
@@ -165,17 +163,19 @@ namespace PencilJoyTests.Pages
         {
             GetBagPriceBagMath();
             NextButton.SendKeys(Keys.Enter);
-            return System.Reflection.MethodBase.GetCurrentMethod().Name;
+            return MethodBase.GetCurrentMethod().Name;
         }
        public string ShopMoreBooks()
        {
            ShopMoreBooksButton.SendKeys(Keys.Enter);
-           return System.Reflection.MethodBase.GetCurrentMethod().Name;
+           return MethodBase.GetCurrentMethod().Name;
        }
 
        public void EnterDiscountCode(string DiscountCode)
        {
            DiscountCodeInput.SendKeys(DiscountCode);
+           DiscountName = DiscountCode;
+
        }
 
        public void ConfirmDiscountCode()
@@ -192,9 +192,9 @@ namespace PencilJoyTests.Pages
        {
            if (DisountPercent.Enabled)
            {
-               _bagMath.ActualOrder.DiscountCode = _bagMath.GetDigit(DisountPercent.Text);
-               _bagMath.ExpectedOrder.DiscountCode = FullAdminData.DiscountCodeList.Find(item => item.CodeName == _bagPageData.DiscountCode).CodeValue;
-               if (_bagMath.ActualOrder.DiscountCode == _bagMath.ExpectedOrder.DiscountCode)
+               Helper.ActualOrder.DiscountCode = _bagMath.GetDigit(DisountPercent.Text);
+               Helper.ExpectedOrder.DiscountCode = FullAdminData.DiscountCodeList.Find(item => item.CodeName == _bagPageData.DiscountCode).CodeValue;
+               if (Helper.ActualOrder.DiscountCode == Helper.ExpectedOrder.DiscountCode)
                {
                    return true;
                }
@@ -203,7 +203,7 @@ namespace PencilJoyTests.Pages
            else
            {
                DiscountCodeInput.Clear();
-               _bagMath.ExpectedOrder.DiscountCode = -1;
+               Helper.ExpectedOrder.DiscountCode = -1;
                return false;
            }
        }
@@ -211,22 +211,22 @@ namespace PencilJoyTests.Pages
        {
            numberEditBook = number; // Faker.RandomNumber.Next(1,Products.Count);
            EditBookLink.Click();
-           return System.Reflection.MethodBase.GetCurrentMethod().Name;
+           return MethodBase.GetCurrentMethod().Name;
        }
        public string RemoveBook(int numberBook)
        {
            bookAmountBeforeRemoving = Products.Count;
            numberRemoveBook = numberBook; //Faker.RandomNumber.Next(1, Products.Count);
            RemoveBookLink.Click();
-           return System.Reflection.MethodBase.GetCurrentMethod().Name;
+           return MethodBase.GetCurrentMethod().Name;
        }
        public string AcceptRemovingBook(IWebDriver _webDriver)
        {
            _webDriver.SwitchTo().Alert().Accept();
-           return System.Reflection.MethodBase.GetCurrentMethod().Name;
+           return MethodBase.GetCurrentMethod().Name;
        }
 
-       public string RemoveAllBooks(IWebDriver _webDriver)
+       public void RemoveAllBooks(IWebDriver _webDriver)
        {
            for(int i = 0; i < Products.Count; i++)
            {
@@ -243,18 +243,17 @@ namespace PencilJoyTests.Pages
        {
           // if(VerifyBooksAmount())
            GetActualPriceBook();
-           _bagMath.ActualOrder.CurrencySymbol = _bagMath.GetCurrency(GrandTotalPrice.Text, _bagMath.VerifyPriceInTheFirstBook());
-           _bagMath.ActualOrder.DiscountCode = _bagMath.GetDiscount(DisountPercent.Text);
+           Helper.ActualOrder.CurrencySymbol = _bagMath.GetCurrency(GrandTotalPrice.Text, _bagMath.ComparePriceInTheFirstBook());
+           Helper.ActualOrder.DiscountCode = _bagMath.GetDiscount(DisountPercent.Text);
 
            _bagMath.VerifyActionForListBook();
            
            // +checking correctly currency
-           _bagMath.ExpectedOrder.SubtotalPrice = _bagMath.ConvertTotalPrice(SubTotalPrice.Text, _bagMath.VerifyPriceInTheFirstBook());
-           _bagMath.ExpectedOrder.GrandPrice = _bagMath.ConvertTotalPrice(GrandTotalPrice.Text, _bagMath.VerifyPriceInTheFirstBook());
-           _bagMath.ExpectedOrder.CurrencySymbol = Converter.ActualCurrency;
+           Helper.ExpectedOrder.SubtotalPrice = _bagMath.ConvertTotalPrice(SubTotalPrice.Text, _bagMath.VerifyCurrencyInTheFirstBook());
+           Helper.ExpectedOrder.GrandPrice = _bagMath.ConvertTotalPrice(GrandTotalPrice.Text, _bagMath.VerifyCurrencyInTheFirstBook());
+           Helper.ExpectedOrder.CurrencySymbol = Converter.ActualCurrency;
            _bagMath.VerifyActionForListBook();
            _bagMath.CalculateTotalPriceInBag();
-        
        }
 
        public bool VerifyGeneralDiscountCodes(int expectedNumberBook, int expectedPercentBook)
@@ -311,6 +310,12 @@ namespace PencilJoyTests.Pages
        //    return System.Reflection.MethodBase.GetCurrentMethod().Name;
        //}
 
+       public string GetActiveCurrency()
+       {
+           SelectElement currencyItem = new SelectElement(CurrencySelector);
+           return currencyItem.SelectedOption.Text;
+       }
+
        public void EditCurrency(string currencyName)
        {
            SelectElement currencyItem = new SelectElement(CurrencySelector);
@@ -329,7 +334,7 @@ namespace PencilJoyTests.Pages
            {
                priceArr.Add(Convert.ToDouble(_bagMath.RemoveOldPrice(price.Text)));
            }
-           _bagMath.ExpectedOrder.PriceBook = priceArr;
+           Helper.ExpectedOrder.PriceBook = priceArr;
 
        }
        public double GetFirstPriceBook()
@@ -387,8 +392,8 @@ namespace PencilJoyTests.Pages
            if (DiscountIsAvailable.Enabled)
            {
                actualPercent = Convert.ToInt32(Regex.Match(DiscountIsAvailable.Text, @"\d+").Value);
+               DiscountCode = actualPercent;
            }
-
            return (actualPercent == expectedPercent);
        }
 
@@ -396,8 +401,11 @@ namespace PencilJoyTests.Pages
        {
            return Helper.SearchErrorField(DiscountRow);
        }
-
-      
+       
+       public string GetBookDescriptionFromButton()
+       {
+           return DiscountRow.Text.Trim().Split(' ').Last();
+       }
         #endregion
     }
 }

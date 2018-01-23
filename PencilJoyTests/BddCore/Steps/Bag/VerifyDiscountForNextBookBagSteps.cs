@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using PencilJoyTests.Pages;
 using TechTalk.SpecFlow;
@@ -7,10 +6,12 @@ using TechTalk.SpecFlow;
 namespace PencilJoyTests.BddCore.Steps
 {
     [Binding]
-    public class VerifyDiscountForNextBookSteps
+    public class VerifyDiscountForNextBookBagSteps
     {
         private IWebDriver currentDriver = null;
         private BagPage bagPage = new BagPage();
+        internal ActionsWithBooksShoppingBagSteps bagSteps = new ActionsWithBooksShoppingBagSteps();
+        internal AuthorizationSteps authorizationSteps = new AuthorizationSteps();
 
         private const string currentPageTitle = Helper.StartPage + "/bag";
         private const string checkoutPageTitle = Helper.StartPage + "/checkout";
@@ -19,12 +20,14 @@ namespace PencilJoyTests.BddCore.Steps
         [When(@"The user has (.*) books in the bag")]
         public void WhenTheUserHasBooksInTheBag(int bookCount)
         {
+           authorizationSteps.GoToBagPageAsRegistratedUser();
            Assert.IsTrue(bagPage.VerifyBooksAmount(bookCount));
         }
         
         [When(@"The user is on the checkout page")]
         public void WhenTheUserIsOnTheCheckoutPage()
         {
+            bagSteps.GoToCheckoutPage();
             Assert.AreEqual(currentDriver.Url, checkoutPageTitle);
         }
         

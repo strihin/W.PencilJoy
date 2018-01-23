@@ -1,80 +1,84 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using PencilJoyTests.Data;
 
 namespace PencilJoyTests.Maths
 {
-    class BagMaths:Converter
+    class BagMaths : Converter
     {
         #region Objects
-        internal Order ExpectedOrder { get; set; }
-        internal Order ActualOrder { get;set; }
-        #endregion
         
+        /*
+        internal Order ExpectedOrder { get; set; }
+        internal Order ActualOrder { get; set; }
+        #endregion
+
         #region ctor
         public BagMaths()
         {
             this.ActualOrder = new Order();
             this.ExpectedOrder = new Order();
         }
+         */
         #endregion
-
-       #region Methods
+        
+        #region Methods
 
         public void FullCheckingData()
         {
-            
+
         }
-        public double VerifyPriceInTheFirstBook()
+        public bool ComparePriceInTheFirstBook(double expectedPrice)
         {
-            MathResults.verifyPriceFirstBook = (ExpectedOrder.PriceBook[0] ==
-                                                FullAdminData.CurrencyList[IndexCurrency].currencyValue);
-            return MathResults.verifyPriceFirstBook ? FullAdminData.CurrencyList[IndexCurrency].currencyValue : 0;
+            //Helper.verifyPriceFirstBook = (Helper.ExpectedOrder.PriceBook[0] ==
+            //                                    FullAdminData.CurrencyList[IndexCurrency].currencyValue);
+           // expectedPrice == Helper.verifyPriceFirstBook 
+            return (expectedPrice == Helper.ExpectedOrder.PriceBook[0]);
         }
         public string VerifyCurrencyInTheFirstBook()
         {
-            var test = (ExpectedOrder.CurrencySymbol ==
+            var test = (Helper.ExpectedOrder.CurrencySymbol ==
                                                 FullAdminData.CurrencyList[IndexCurrency].currencySymbol);
-            return MathResults.verifyCurrencyFirstBook ? FullAdminData.CurrencyList[IndexCurrency].currencySymbol : null;
+            return Helper.verifyCurrencyFirstBook ? FullAdminData.CurrencyList[IndexCurrency].currencySymbol : null;
         }
         public void CalculateTotalPriceInBag()
         {
             //  VerifyPriceInTheFirstBook();
 
-            foreach (var priceBook in ExpectedOrder.PriceBook)
+            foreach (var priceBook in Helper.ExpectedOrder.PriceBook)
             {
-                ActualOrder.SubtotalPrice += priceBook;
+                Helper.ActualOrder.SubtotalPrice += priceBook;
             }
-            if (ExpectedOrder.DiscountCode != -1)
+            if (Helper.ExpectedOrder.DiscountCode != -1)
             {
-                ActualOrder.SubtotalPrice -= Math.Round(ExpectedOrder.DiscountCode / 100 * ActualOrder.SubtotalPrice, 2);
+                Helper.ActualOrder.SubtotalPrice -= Math.Round(Helper.ExpectedOrder.DiscountCode / 100 * Helper.ActualOrder.SubtotalPrice, 2);
             }
-            ActualOrder.GrandPrice = ActualOrder.SubtotalPrice;
+            Helper.ActualOrder.GrandPrice = Helper.ActualOrder.SubtotalPrice;
 
-            MathResults.checkSubtotalPrice = MathResults.ComparePrices(Math.Round(ActualOrder.SubtotalPrice, 2), Math.Round(ExpectedOrder.SubtotalPrice, 2));
-            MathResults.checkGrandPrice = MathResults.ComparePrices(Math.Round(ActualOrder.GrandPrice, 2), Math.Round(ExpectedOrder.GrandPrice, 2));
+            Helper.checkSubtotalPrice = Helper.ComparePrices(Math.Round(Helper.ActualOrder.SubtotalPrice, 2), Math.Round(Helper.ExpectedOrder.SubtotalPrice, 2));
+            Helper.checkGrandPrice = Helper.ComparePrices(Math.Round(Helper.ActualOrder.GrandPrice, 2), Math.Round(Helper.ExpectedOrder.GrandPrice, 2));
         }
-          public void VerifyActionForListBook()
-          {
-              double discountPercent = 0.1;
-              ActualOrder.PriceBook = new List<double>(ExpectedOrder.PriceBook.Count);
-              ActualOrder.PriceBook.Add(ExpectedOrder.PriceBook[0]);
-              if (ExpectedOrder.PriceBook.Count > 1)
-              {
-                  for (int i = 1; i < ExpectedOrder.PriceBook.Count; i++)
-                  {
-                      //calculate price for next book with discount
-                      ActualOrder.PriceBook.Add(Math.Round(ActualOrder.PriceBook[0] - ActualOrder.PriceBook[0] * discountPercent, 2));
-                      if (discountPercent != 0.25)
-                          discountPercent += 0.05;
-                  }
-              }
-              MathResults.CompareListBook(ActualOrder.PriceBook, ExpectedOrder.PriceBook);
+
+        public void VerifyActionForListBook()
+        {
+            double discountPercent = 0.1;
+            Helper.ActualOrder.PriceBook = new List<double>(Helper.ExpectedOrder.PriceBook.Count);
+            Helper.ActualOrder.PriceBook.Add(Helper.ExpectedOrder.PriceBook[0]);
+
+            if (Helper.ExpectedOrder.PriceBook.Count > 1)
+            {
+                for (int i = 1; i < Helper.ExpectedOrder.PriceBook.Count; i++)
+                {
+                    //calculate price for next book with discount
+                    Helper.ActualOrder.PriceBook.Add(Math.Round(Helper.ActualOrder.PriceBook[0] - Helper.ActualOrder.PriceBook[0] * discountPercent, 2));
+                    if (discountPercent != 0.25)
+                        discountPercent += 0.05;
+                }
+            }
             //  MathResults.comparePriceBookInBag = ExpectedOrder.PriceBook.SequenceEqual(ActualOrder.PriceBook);
-          }
+        }
+
+        
         #endregion
     }
 }

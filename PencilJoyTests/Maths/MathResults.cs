@@ -17,10 +17,10 @@ namespace PencilJoyTests
         static internal bool verifyCurencyInGrandPriceInBag;
         static internal bool verifyCurencyInSubtotalPriceInBag;
         static internal bool comparePriceBookInBag;
-        static internal bool verifyPriceFirstBook;
-        internal static bool checkSubtotalPrice;
-        internal static bool checkGrandPrice;
-        internal static bool verifyCurrencyFirstBook;
+        //static internal bool verifyPriceFirstBook;
+        //internal static bool checkSubtotalPrice;
+        //internal static bool checkGrandPrice;
+        //internal static bool verifyCurrencyFirstBook;
         #endregion
 
         #region Checkout
@@ -31,14 +31,14 @@ namespace PencilJoyTests
         #endregion
 
         #region Methods
-        static public void CompareListBook(List<double> actualPriceBook, List<double> expectedPriceBook)
-        {
-            comparePriceBookInBag = expectedPriceBook.SequenceEqual(actualPriceBook);
-        }
-        static public bool ComparePrices(double actualPrice, double expectedPrice)
-        {
-            return (expectedPrice.Equals(actualPrice)) ? true : false;
-        }
+        //public bool CompareListBook(List<double> actualPriceBook, List<double> expectedPriceBook)
+        //{
+        //    return expectedPriceBook.SequenceEqual(actualPriceBook);
+        //}
+        // public bool ComparePrices(double actualPrice, double expectedPrice)
+        //{
+        //    return (expectedPrice.Equals(actualPrice));
+        //}
         #endregion
 
     }

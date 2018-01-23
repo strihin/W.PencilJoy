@@ -3,7 +3,7 @@ using AventStack.ExtentReports;
 //using RelevantCodes.ExtentReports;
 namespace PencilJoyTests.ReportCore
 {
-    class ExtentManager
+    static class ExtentManager
     {
         private static ExtentReports extent;
         private static ExtentTest test;

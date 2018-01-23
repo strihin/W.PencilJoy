@@ -94,7 +94,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 11
     testRunner.When("The user edits the field \"Last name\" in the block Shipping Address \"Cortes\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
- testRunner.Then("The field Last name should be edited", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The field \"Last name\" should be edited", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -131,7 +131,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 23
     testRunner.When("The user edits the field \"City\" in the block Billing Address as \"Kirove\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 24
- testRunner.Then("The field City should be edited", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The field \"City\" should be edited", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -83,8 +83,8 @@ Examples:
 | holiday20		| 20				|
 | SARAB			| 5					|
 
-@negative @expiredstartcode
-Scenario: Expired  start date for discount code  
+@negative @expiredstart`code
+Scenario Outline: Expired  start date for discount code  
     Given The user is a customer
     And The user is on the bag page
     When The user fills field for discount code with expired start date as <DiscountCode>
@@ -98,7 +98,7 @@ Examples:
 | dawn20		|
 
 @negative @expiredendcode
-Scenario: Expired  end date for discount code  
+Scenario Outline: Expired  end date for discount code  
     Given The user is a customer
     And The user is on the bag page
     When The user fills field for discount code with expired end date as <DiscountCode>

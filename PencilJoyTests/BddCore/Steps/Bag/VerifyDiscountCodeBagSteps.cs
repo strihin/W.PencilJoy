@@ -7,7 +7,7 @@ using TechTalk.SpecFlow;
 namespace PencilJoyTests.BddCore.Steps
 {
     [Binding]
-    public class VerifyDiscountCodeForOrderSteps
+    public class VerifyDiscountCodeBagSteps
     {
         private IWebDriver currentDriver = null;
         private BagPage bagPage = new BagPage();
@@ -21,7 +21,8 @@ namespace PencilJoyTests.BddCore.Steps
         {
             bagPage.EnterDiscountCode(DiscountCode);
         }
-         [When(@"The user clicks the button Check")]
+
+        [When(@"The user clicks the button Check")]
         [Given(@"The user clicks the button Check")]
         public void GivenTheUserClicksTheButtonCheck()
         {

@@ -22,6 +22,7 @@ namespace PencilJoyTests.BddCore.Steps
         private PreviewMaths previewMaths = new PreviewMaths();
         private BagMaths bagMaths = new BagMaths();
         private CheckoutMaths checkoutMaths = new CheckoutMaths();
+        private MathResults mathResults = new MathResults();
         
 
         [Given(@"The user clicks the button  Order")]
@@ -76,73 +77,86 @@ namespace PencilJoyTests.BddCore.Steps
         }
         
         [Given(@"The user gets currency from totalprice")]
-        public void GivenTheUserGetsCurrencyFromTotalprice()
+        public double GivenTheUserGetsCurrencyFromTotalprice()
         {
-            var totalPrice = bagMaths.ActualOrder.SubtotalPrice;
+            var totalPrice = Helper.ActualOrder.SubtotalPrice;
+            return totalPrice;
         }
 
         [When(@"The user gets price for the first book")]
         [Given(@"The user saves price book on the bag page")]
-        public void GivenTheUserSavesPriceBookOnTheBagPage()
+        public List<double> GivenTheUserSavesPriceBookOnTheBagPage()
         {
-            List<double> listBook = bagMaths.ActualOrder.PriceBook;
+            List<double> listBook = Helper.ActualOrder.PriceBook;
+            List<double> listBookN = Helper.ActualOrder.PriceBook;
+            return listBook;
         }
         [Given(@"The user gets price and currency for a book from the button  Order on the preview page")]
-        public void GivenTheUserGetsPriceAndCurrencyForABookFromTheButtonOrderOnThePreviewPage()
+        public Price GivenTheUserGetsPriceAndCurrencyForABookFromTheButtonOrderOnThePreviewPage()
         {
+            
             double previewBookPrice = previewPage.GetPriceForBook(); 
             string previewBookCurrency = previewPage.GetCurrencyForBook();
+            return new Price(previewBookPrice, previewBookCurrency);
         }
         [Given(@"The user gets price and currency for the first book on the bag page")]
-        public void GivenTheUserGetsPriceAndCurrencyForTheFirstBookOnTheBagPage()
+        public Price GivenTheUserGetsPriceAndCurrencyForTheFirstBookOnTheBagPage()
         {
             double previewBookPrice = bagPage.GetFirstPriceBook();
             string previewBookCurrency = previewPage.GetCurrencyForBook();
+            return new Price(previewBookPrice, previewBookCurrency);
         }
         [Given(@"The user gets price and currency for the totalprice on the bag page")]
-        public void GivenTheUserGetsPriceAndCurrencyForTheTotalpriceOnTheBagPage()
+        public Price GivenTheUserGetsPriceAndCurrencyForTheTotalpriceOnTheBagPage()
         {
 
             double bagTotalPrice = bagPage.GetFirstPriceBook();
             string bagTotalCurrency = previewPage.GetCurrencyForBook();
+            return new Price(bagTotalPrice, bagTotalCurrency);
         }
 
         [When(@"The user gets discount percent and name for order on the checkout page as (.*)  (.*)")]
-        public void WhenTheUserGetsDiscountPercentAndNameForOrderOnTheCheckoutPageAs(int p0, int p1)
+        public void WhenTheUserGetsDiscountPercentAndNameForOrderOnTheCheckoutPageAs(string expectedCodeName, string expectedCodeVal)
         {
-
+            ChPaymentPage.AreEqualPrices(expectedCodeName, expectedCodeVal);
         }
 
         [When(@"The user gets price for the first book")]
         [When(@"The user gets price and currency  for the first book on the bag page")]
         public double WhenTheUserGetsPriceAndCurrencyForTheFirstBookOnTheBagPage()
         {
-            return bagMaths.VerifyPriceInTheFirstBook();
+            return Convert.ToDouble(bagMaths.VerifyCurrencyInTheFirstBook());
         }
         
         [When(@"The user gets  price and currency for the first book on the checkout page")]
-        public void WhenTheUserGetsPriceAndCurrencyForTheFirstBookOnTheCheckoutPage()
+        public Price WhenTheUserGetsPriceAndCurrencyForTheFirstBookOnTheCheckoutPage()
         {
             double priceFirstBook = WhenTheUserGetsPriceAndCurrencyForTheFirstBookOnTheBagPage();
             string currencyFirstBook = bagMaths.VerifyCurrencyInTheFirstBook();
+
+            return new Price(priceFirstBook, currencyFirstBook);
         }
         
         [When(@"The user gets  price and currency for the totalprice on the checkout page")]
-        public void WhenTheUserGetsPriceAndCurrencyForTheTotalpriceOnTheCheckoutPage()
+        public double WhenTheUserGetsPriceAndCurrencyForTheTotalpriceOnTheCheckoutPage()
         {
-            var totalPrice = checkoutMaths.CheckoutGrandPrice;
+          //  var totalPrice = checkoutMaths.CheckoutGrandPrice;
+            double totalPrice = Helper.ActualOrder.GrandPrice;
+            return totalPrice;
         }
         
         [When(@"The user gets price for booklist on the checkout page")]
-        public void WhenTheUserGetsPriceForBooklistOnTheCheckoutPage()
+        public List<double> WhenTheUserGetsPriceForBooklistOnTheCheckoutPage()
         {
-            List<double> CheckoutPriceBookList = checkoutMaths.ActualOrder.PriceBook;
+            List<double> CheckoutPriceBookList = Helper.ActualOrder.PriceBook;
+            return CheckoutPriceBookList;
         }
         
         [When(@"The user gets currency for totalprice on the checkout page")]
-        public void WhenTheUserGetsCurrencyForTotalpriceOnTheCheckoutPage()
+        public double WhenTheUserGetsCurrencyForTotalpriceOnTheCheckoutPage()
         {
-            double totalPrice = checkoutMaths.ActualOrder.GrandPrice;
+            double totalPrice = Helper.ActualOrder.GrandPrice;
+            return totalPrice;
         }
         
         [When(@"The user changes currency for order as ""(.*)""")]
@@ -157,66 +171,65 @@ namespace PencilJoyTests.BddCore.Steps
             bagPage.AcceptRemovingBook(currentDriver);
         }
         
-        [Then(@"The price and currency for a book on the preview page and on the bag page should be equal")]
-        public void ThenThePriceAndCurrencyForABookOnThePreviewPageAndOnTheBagPageShouldBeEqual()
-        {
-            ScenarioContext.Current.Pending();
-        }
-        
         [Then(@"The price and currency for a book on the bag page and  on the checkout page should be equal")]
         public void ThenThePriceAndCurrencyForABookOnTheBagPageAndOnTheCheckoutPageShouldBeEqual()
         {
-            ScenarioContext.Current.Pending();
+            Price bagPrice = new Price(WhenTheUserGetsPriceAndCurrencyForTheFirstBookOnTheBagPage(), bagMaths.VerifyCurrencyInTheFirstBook());
+            Price checkoutPrice = WhenTheUserGetsPriceAndCurrencyForTheFirstBookOnTheCheckoutPage();
+
+            Assert.IsTrue(bagPrice.ComparePrices(bagPrice, checkoutPrice));
         }
-        
+
+        [Then(@"The price and currency for a book on the preview page and on the bag page should be equal")]
+        public void ThenThePriceAndCurrencyForABookOnThePreviewPageAndOnTheBagPageShouldBeEqual()
+        {
+            Price previewPrice = GivenTheUserGetsPriceAndCurrencyForABookFromTheButtonOrderOnThePreviewPage();
+            Price bagPrice = new Price(bagPage.GetFirstPriceBook(), bagPage.GetActiveCurrency());
+            Assert.IsTrue(previewPrice.ComparePrices(previewPrice, bagPrice));
+
+        }
+
         [Then(@"The price and currency for the totalprice on the bag page and on the checkout page should be equal")]
         public void ThenThePriceAndCurrencyForTheTotalpriceOnTheBagPageAndOnTheCheckoutPageShouldBeEqual()
         {
-            ScenarioContext.Current.Pending();
+            double checkoutTotalprice = WhenTheUserGetsPriceAndCurrencyForTheTotalpriceOnTheCheckoutPage();
+            string checkoutCurrency = "";
         }
         
         [Then(@"The discount percent and name for order should be equal on the bag page and on the checkout page")]
         public void ThenTheDiscountPercentAndNameForOrderShouldBeEqualOnTheBagPageAndOnTheCheckoutPage()
         {
-            ScenarioContext.Current.Pending();
+            DiscountCode discountCodeBag = new DiscountCode(bagPage.DiscountCode, bagPage.DiscountName);
+            DiscountCode discountCodeCheckout = ChPaymentPage.GetDiscountCode();
+
+            Assert.IsTrue((discountCodeCheckout.CompareDiscountCodes(discountCodeCheckout, discountCodeBag)));
         }
         
         [Then(@"The price for every book should be equal counted values")]
-        public void ThenThePriceForEveryBookShouldBeEqualCountedValues()
-        {
-            ScenarioContext.Current.Pending();
-        }
-        
+        [Then(@"The user compares price books on the bag page and the checkout page, they should be equal")]
         [Then(@"The price for booklist should be equal on the bag page and on the checkout page")]
         public void ThenThePriceForBooklistShouldBeEqualOnTheBagPageAndOnTheCheckoutPage()
         {
-            ScenarioContext.Current.Pending();
+            checkoutMaths.ComparePriceBookLists();
         }
         
         [Then(@"The currency for totalprice should be equal on the bag page and on the checkout page")]
         public void ThenTheCurrencyForTotalpriceShouldBeEqualOnTheBagPageAndOnTheCheckoutPage()
         {
-            ScenarioContext.Current.Pending();
+            checkoutMaths.CompareUnitPrice();
         }
         
         [Then(@"The price for the first book with  should be equal as (.*)")]
-        public void ThenThePriceForTheFirstBookWithShouldBeEqualAs(Decimal p0)
+        public void ThenThePriceForTheFirstBookWithShouldBeEqualAs(double price)
         {
-            ScenarioContext.Current.Pending();
+            bagMaths.ComparePriceInTheFirstBook(price);
         }
         
         [Then(@"The price for the order should be subtracted price for removing book\.")]
         public void ThenThePriceForTheOrderShouldBeSubtractedPriceForRemovingBook_()
         {
-            ScenarioContext.Current.Pending();
+            bagMaths.CalculateTotalPriceInBag();
+            Assert.IsTrue(Helper.checkSubtotalPrice);
         }
-        
-        [Then(@"The user compares price books on the bag page and the checkout page, they should be equal")]
-        public void ThenTheUserComparesPriceBooksOnTheBagPageAndTheCheckoutPageTheyShouldBeEqual()
-        {
-            ScenarioContext.Current.Pending();
-        }
-       
-        
     }
 }

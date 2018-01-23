@@ -7,14 +7,17 @@ namespace PencilJoyTests.Maths
     class CheckoutMaths: Converter
     {
         #region Objects
+        /*
          internal Order ExpectedOrder { get; set; }
          internal Order ActualOrder { get; set; }
-         
+         */
          internal List<string> CheckoutPriceBook { get; set; }
          internal string CheckoutDiscountCode { get; set; }
          internal string CheckoutGrandPrice { get; set; }
          internal string CheckoutCurrency { get; set; }
          private BagMaths bagMathData { get; set; }
+
+         internal MathResults mathResults = new MathResults();
 
         #endregion
         #region Ctors
@@ -23,14 +26,15 @@ namespace PencilJoyTests.Maths
         public CheckoutMaths(BagMaths bagMathData)
         {
             this.bagMathData = bagMathData;
-    
+    /*
             this.ActualOrder = new Order();
             this.ExpectedOrder = new Order();
+     */
         }
         #endregion
         public double VerifyPriceInTheFirstBook()
         {
-            MathResults.verifyPriceFirstBook = (ExpectedOrder.PriceBook[0] ==
+            MathResults.verifyPriceFirstBook = (Helper.ExpectedOrder.PriceBook[0] ==
                         FullAdminData.CurrencyList[IndexCurrency].currencyValue)
                 ? true : false;
             return MathResults.verifyPriceFirstBook ? FullAdminData.CurrencyList[IndexCurrency].currencyValue : 0;
@@ -39,26 +43,36 @@ namespace PencilJoyTests.Maths
         #region Methods
         public void VerifyPriceBook()
         {
-            MathResults.verifyPriceBookInCheckout = bagMathData.ActualOrder.PriceBook.SequenceEqual(ExpectedOrder.PriceBook)
+            MathResults.verifyPriceBookInCheckout = Helper.ActualOrder.PriceBook.SequenceEqual(Helper.ExpectedOrder.PriceBook)
                 ? "OK" : "Not OK";
         }
       
         public void VerifyDiscountCode()
         {
-            MathResults.verifyDiscountCodeInCheckout = (ExpectedOrder.DiscountCode== bagMathData.ActualOrder.DiscountCode)
+            MathResults.verifyDiscountCodeInCheckout = (Helper.ExpectedOrder.DiscountCode == Helper.ActualOrder.DiscountCode)
                  ? "OK" : "Not OK";
         }
       
         public void VerifyCurrency()
         {
-            MathResults.verifyDiscountCodeInCheckout = (ExpectedOrder.CurrencySymbol== bagMathData.ActualOrder.CurrencySymbol)
+            MathResults.verifyDiscountCodeInCheckout = (Helper.ExpectedOrder.CurrencySymbol == Helper.ActualOrder.CurrencySymbol)
                 ? "OK" : "Not OK";
         }
         public void VerifyGrandPrice()
         {
-            MathResults.verifyCurencyInGrandPriceInBag = (ExpectedOrder.GrandPrice == System.Math.Round(bagMathData.ActualOrder.GrandPrice,2))
+            MathResults.verifyCurencyInGrandPriceInBag = (Helper.ExpectedOrder.GrandPrice == System.Math.Round(Helper.ActualOrder.GrandPrice, 2))
                 ? true : false;
         }
+        public bool ComparePriceBookLists()
+        {
+            return Helper.CompareListBook(Helper.ActualOrder.PriceBook, Helper.ExpectedOrder.PriceBook);
+        }
+
+        public bool CompareUnitPrice()
+        {
+            return Helper.ComparePrices(Helper.ActualOrder.GrandPrice, Helper.ExpectedOrder.GrandPrice);
+        }
+
        #endregion
     }
 }

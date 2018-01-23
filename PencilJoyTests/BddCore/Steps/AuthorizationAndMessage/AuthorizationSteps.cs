@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using PencilJoyTests.BddCore.steps;
 using PencilJoyTests.Data;
 using PencilJoyTests.Pages;
 using TechTalk.SpecFlow;
@@ -8,31 +9,55 @@ using TechTalk.SpecFlow;
 namespace PencilJoyTests
 {
     [Binding]
-    public class FillingCustomerSDataForAuthorizationSteps
+    public class AuthorizationSteps
     {
+        private FillChildDataSteps childDataSteps = new FillChildDataSteps();
         private IWebDriver currentDriver = null;
+        
         private MessageAndIdentificationPage messageAndIdentificationPage = new MessageAndIdentificationPage();
-       
+        
         private const string currentPageTitle = Helper.StartPage + "/message";
         private const string nextPageTitle = Helper.StartPage + "/bag";
-        
+
+        public void GoToBagPageAsRegistratedUser()
+        {
+            messageAndIdentificationPage.ClickTabReturningCustomer();
+            messageAndIdentificationPage.LoginReturningCustomer();
+
+        }
+        public void GoToBagPageAsNewUser()
+        {
+            childDataSteps.GoToAuthorizationPage();
+        }
+
         [Given(@"The user is a new user")]
-        public void GivenTheUserIsANewUser() { }
-        
+        public void GivenTheUserIsANewUser()
+        {
+            GoToBagPageAsNewUser();
+        }
+
+        [Given(@"The user is a registrated user")]
+        public void GivenTheUserIsARegistratedUser()
+        {
+            GivenTheUserClicksTheTabReturningCustomer();
+            messageAndIdentificationPage.LoginNewCustomer();
+        }
         [Given(@"The user is on the message page")]
         public void GivenTheUserIsOnTheMessagePage()
         {
+            childDataSteps.GoNextStep();
+            childDataSteps.GoToAuthorizationPage();
             Assert.AreEqual(currentDriver.Url, currentPageTitle);
         }
         
         [Given(@"The active tab is the New customer")]
         public void GivenTheActiveTabIsTheNewCustomer()
         {
+            
             Assert.IsTrue(messageAndIdentificationPage.CheckActiveTab());
         }
-        
-        [Given(@"The user is a registrated user")]
-        public void GivenTheUserIsARegistratedUser() { }
+
+      
         
         [Given(@"The user clicks the tab Returning customer")]
         public void GivenTheUserClicksTheTabReturningCustomer()
@@ -103,6 +128,6 @@ namespace PencilJoyTests
         {
             Assert.AreEqual(currentDriver.Url, currentPageTitle);
         }
-      
+
     }
 }

@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using NUnit.Framework;
 using PencilJoyTests.Pages;
 using TechTalk.SpecFlow;
 
 namespace PencilJoyTests.BddCore.Steps
 {
     [Binding]
-    public class ClickableFieldsOnTheCheckoutPageSteps
+    public class ClickableFieldsCheckoutSteps
     {
         private CheckoutShippingAddressPage checkoutShippingAddress = new CheckoutShippingAddressPage();
 

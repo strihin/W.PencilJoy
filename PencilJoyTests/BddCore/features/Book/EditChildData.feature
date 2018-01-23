@@ -18,6 +18,7 @@ Scenario Outline: The user edits child's data with correct data
 	And The user edits fields with correct data to field Gender as <numberSex> , <NumberCharacter>
 	And The user clicks the button Update Changes
 	Then The user is redirected to preview page with changing data.
+Examples:
 | Username | NumberMonth | NumberDay | numberSex | NumberCharacter |
 | Quill    | 11          | 19        | 0         | 5               |
 
@@ -37,6 +38,7 @@ Scenario Outline:  The user edits child's data with incorrect data
 	And The user edits fields with incorrect data to field Gender as <numberSex> , <NumberCharacter>
 	And The user clicks the button Update Changes
 	Then The user isn`t redirected to preview page with changing data.
+Examples: 
 | Username | NumberMonth	| NumberDay		| numberSex		| NumberCharacter	|
 |	191215	|	8			|	3			|	0			|	2				|
 |	Мария	|	8			|	20			|	1			|	1				|

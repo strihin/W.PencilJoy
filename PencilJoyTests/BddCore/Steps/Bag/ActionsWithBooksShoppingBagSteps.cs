@@ -7,9 +7,9 @@ using TechTalk.SpecFlow;
 namespace PencilJoyTests.BddCore.Steps
 {
     [Binding]
-    public class ActionsWithBooksInTheShoppingBagSteps
+    public class ActionsWithBooksShoppingBagSteps
     {
-
+        private AuthorizationSteps authorizationSteps = new AuthorizationSteps();
         private IWebDriver currentDriver = null;
         private BagPage bagPage = new BagPage();
 
@@ -17,11 +17,22 @@ namespace PencilJoyTests.BddCore.Steps
         private const string editPageTitle = Helper.StartPage + "/edit";
         private const string checkoutPageTitle = Helper.StartPage + "/checkout";
 
+        public void GoToCheckoutPage()
+        {
+            GivenTheUserIsANewCustomer();
+        }
         [Given(@"The user is a new customer")]
-        public void GivenTheUserIsANewCustomer() { }
-        
+        public void GivenTheUserIsANewCustomer()
+        {
+            authorizationSteps.GoToBagPageAsNewUser();
+            bagPage.ContinueShopping();
+        }
+
         [Given(@"The user is a returning customer")]
-        public void GivenTheUserIsAReturningCustomer() { }
+        public void GivenTheUserIsAReturningCustomer()
+        {
+            authorizationSteps.GoToBagPageAsRegistratedUser();
+        }
         
         [Given(@"The basket contains any items")]
         public void GivenTheBasketContainsAnyItems()

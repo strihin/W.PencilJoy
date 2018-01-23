@@ -29,7 +29,7 @@ Scenario Outline: The user fills data for new authorization with existing data i
 	Given The user is a new user
 	And The user is on the message page
 	And The active tab is the New customer
-	When The user fills data for fields, which exists in DB  as <FullName> , <Email>
+	When The user fills data for fields, which exists in DB as '<FullName>', '<Email>'
 	And The user clicks the button Next
 	Then The user isn`t redirected to the bag page
 Examples: 
@@ -134,6 +134,7 @@ Scenario Outline: The user fills data for registrated account before with invali
 	When The user fills data for fields, which exists in DB  with incorrect email  as  <Email>, <Password>
 	And The user clicks the button Next
 	Then The user isn`t redirected to the bag page
+Examples:
 | Email                   | Password |
 | qaengineer678@yahoo.com | 1q1q1q   |
 | qaengineer7@yahoocom    | 1q1q1q   |

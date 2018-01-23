@@ -1,17 +1,16 @@
-﻿using System;
-using OpenQA.Selenium;
-using PencilJoyTests.Data;
+﻿using OpenQA.Selenium;
+using PencilJoyTests.BddCore.steps;
 using PencilJoyTests.Pages;
 using TechTalk.SpecFlow;
 
 namespace PencilJoyTests.BddCore.Steps
 {
     [Binding]
-    public class ActionsForMessageFieldOfABookSteps
+    public class MessageSteps
     {
         private IWebDriver currentDriver = null;
+        private FillChildDataSteps childDataSteps = new FillChildDataSteps();
         MessageAndIdentificationPage messagePage = new MessageAndIdentificationPage();
-      
         private const string nextPageTitle = Helper.StartPage + "/bag";
 
         [Given(@"The user fills authorization fields with correct data")]

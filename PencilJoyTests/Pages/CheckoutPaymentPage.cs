@@ -112,6 +112,7 @@ namespace PencilJoyTests.Pages
                             By.XPath("//*[@id='customer']/tbody/tr[2]")));
             }
         }
+
         private IWebElement PaymentError
         {
             get
@@ -179,21 +180,21 @@ namespace PencilJoyTests.Pages
             if (discountPercent.Contains('%'))
             {
                 PriceBookList.RemoveAt(PriceBookList.Count - 1);
-                _checkoutMath.ExpectedOrder.DiscountCode = _checkoutMath.GetDigit(discountPercent);
+                Helper.ExpectedOrder.DiscountCode = _checkoutMath.GetDigit(discountPercent);
                 discountAvailable++;
             }
             for (int i = 0; i < PriceBookList.Count - discountAvailable; i++)
             {
                 priceArr.Add(Convert.ToDouble(_checkoutMath.RemoveOldPrice(PriceBookList[i].Text)));
             }
-            _checkoutMath.ExpectedOrder.PriceBook = priceArr;
+            Helper.ExpectedOrder.PriceBook = priceArr;
         }
         public void GetMathPriceForCheckoutMath()
         {
             GetActualPriceBook();
 
-            _checkoutMath.ExpectedOrder.CurrencySymbol = _checkoutMath.GetCurrency(TotalPrice.Text, _checkoutMath.VerifyPriceInTheFirstBook());
-            _checkoutMath.ExpectedOrder.GrandPrice  = TotalPrice.Text.Contains("\r\n") ? _checkoutMath.ConvertTotalPrice(TotalPrice.Text.Replace("\r\n", " "),
+            Helper.ExpectedOrder.CurrencySymbol = _checkoutMath.GetCurrency(TotalPrice.Text, _checkoutMath.VerifyPriceInTheFirstBook());
+            Helper.ExpectedOrder.GrandPrice = TotalPrice.Text.Contains("\r\n") ? _checkoutMath.ConvertTotalPrice(TotalPrice.Text.Replace("\r\n", " "),
             _checkoutMath.VerifyPriceInTheFirstBook()) : _checkoutMath.ConvertTotalPrice(TotalPrice.Text, _checkoutMath.VerifyPriceInTheFirstBook());
 
             _checkoutMath.VerifyPriceBook();
@@ -206,16 +207,29 @@ namespace PencilJoyTests.Pages
             return PaymentError.Displayed && PaymentError.Text == textError;
         }
 
-        public void vfjklfk(string excpectedCodeName, string expectedCodeVal)
+        public bool AreEqualPrices(string excpectedCodeName, string expectedCodeVal)
         {
             string actualCodeName = DiscountCodeField.FindElement(By.XPath("/td[1]")).Text;
             string actualCodeVal = DiscountCodeField.FindElement(By.XPath("/td[2]")).Text;
             actualCodeVal = actualCodeVal.Substring(1, actualCodeVal.Length - 2);
-            codeName = GetBookDescriptionFromButton(codeName);
+            actualCodeName = GetBookDescriptionFromButton(actualCodeName);
+
+            return ((actualCodeVal == expectedCodeVal) && (actualCodeName == excpectedCodeName));
         }
         public string GetBookDescriptionFromButton(string code)
         {
             return code.Trim().Split(' ').Last();
+        }
+
+        public DiscountCode GetDiscountCode()
+        {
+            string actualCodeName = DiscountCodeField.FindElement(By.XPath("/td[1]")).Text;
+            string actualCodeString = DiscountCodeField.FindElement(By.XPath("/td[2]")).Text;
+            int actualCodeValue = Convert.ToInt32(Regex.IsMatch(actualCodeString, "^[0-9]*$"));
+
+            actualCodeName = actualCodeName.Substring(1, actualCodeName.Length - 2);
+
+            return new DiscountCode(actualCodeValue, actualCodeName);
         }
         #endregion
     }

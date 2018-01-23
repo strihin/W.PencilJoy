@@ -62,108 +62,108 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BddCore\features\Book\EditChildData.feature.cs">
+    <Compile Include="BddCore\Features\Book\EditChildData.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EditChildData.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\Checkout\AddressingOrder\ClickableShippingAndBillingAdresses.feature.cs">
+    <Compile Include="BddCore\Features\Checkout\AddressingOrder\ClickableShippingAndBillingAdresses.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ClickableShippingAndBillingAdresses.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\Checkout\AddressingOrder\ChangingShippingAndBillingAddresses.feature.cs">
+    <Compile Include="BddCore\Features\Checkout\AddressingOrder\ChangingShippingAndBillingAddresses.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ChangingShippingAndBillingAddresses.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\Checkout\AddressingOrder\FillingShippingAndBillingAddresses.feature.cs">
+    <Compile Include="BddCore\Features\Checkout\AddressingOrder\FillingShippingAndBillingAddresses.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FillingShippingAndBillingAddresses.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\Checkout\AddressingOrder\RemovingShippingAndBillingAddresses.feature.cs">
+    <Compile Include="BddCore\Features\Checkout\AddressingOrder\RemovingShippingAndBillingAddresses.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RemovingShippingAndBillingAddresses.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\Checkout\Payment\ChoosePayPalPayment.feature.cs">
+    <Compile Include="BddCore\Features\Checkout\Payment\ChoosePayPalPayment.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ChoosePayPalPayment.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\Checkout\Payment\FillingCreditcard.feature.cs">
+    <Compile Include="BddCore\Features\Checkout\Payment\FillingCreditcard.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FillingCreditcard.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\Reminder.feature.cs">
+    <Compile Include="BddCore\Features\Reminder.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reminder.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\Checkout\AddressingOrder\ValidationAddresses.feature.cs">
+    <Compile Include="BddCore\Features\Checkout\AddressingOrder\ValidationAddresses.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ValidationAddresses.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\Bag\ActionsWithBooks.feature.cs">
+    <Compile Include="BddCore\Features\Bag\ActionsWithBooks.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ActionsWithBooks.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\AuthorizationAndMessage\Authorization.feature.cs">
+    <Compile Include="BddCore\Features\AuthorizationAndMessage\Authorization.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Authorization.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\Book\FillingChildData.feature.cs">
+    <Compile Include="BddCore\Features\Book\FillingChildData.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FillingChildData.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\Currency.feature.cs">
+    <Compile Include="BddCore\Features\Currency.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Currency.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\Bag\DiscountCode.feature.cs">
+    <Compile Include="BddCore\Features\Bag\DiscountCode.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DiscountCode.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\Bag\GeneralBookDiscount.feature.cs">
+    <Compile Include="BddCore\Features\Bag\GeneralBookDiscount.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GeneralBookDiscount.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\Maths.feature.cs">
+    <Compile Include="BddCore\Features\Maths.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Maths.feature</DependentUpon>
     </Compile>
-    <Compile Include="BddCore\features\AuthorizationAndMessage\MessageData.feature.cs">
+    <Compile Include="BddCore\Features\AuthorizationAndMessage\MessageData.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MessageData.feature</DependentUpon>
     </Compile>
     <Compile Include="BddCore\Hooks.cs" />
-    <Compile Include="BddCore\Steps\ActionsForMessageField.cs" />
-    <Compile Include="BddCore\Steps\ActionsWithBooksInTheShoppingBagSteps.cs" />
-    <Compile Include="BddCore\Steps\AddAddressesToCheckoutPageSteps.cs" />
-    <Compile Include="BddCore\Steps\ChangeValueForFieldsInAddressesBlocksOnTheCheckoutPageSteps.cs" />
-    <Compile Include="BddCore\Steps\ChoosePayPalPaymentOnTheCheckoutPageSteps.cs" />
-    <Compile Include="BddCore\Steps\ClickableFieldsOnTheCheckoutPageSteps.cs" />
+    <Compile Include="BddCore\Steps\AuthorizationAndMessage\MessageSteps.cs" />
+    <Compile Include="BddCore\Steps\Bag\ActionsWithBooksShoppingBagSteps.cs" />
+    <Compile Include="BddCore\Steps\Checkout\AddAddressesCheckoutSteps.cs" />
+    <Compile Include="BddCore\Steps\Checkout\ChangeValuesCheckoutSteps.cs" />
+    <Compile Include="BddCore\Steps\Checkout\PayPalCheckoutSteps.cs" />
+    <Compile Include="BddCore\Steps\Checkout\ClickableFieldsCheckoutSteps.cs" />
     <Compile Include="BddCore\Steps\CurrencySteps.cs" />
-    <Compile Include="BddCore\Steps\EditingAboutChildSDataForABookSteps.cs" />
-    <Compile Include="BddCore\Steps\FieldValidationOnTheCheckoutStep.cs" />
-    <Compile Include="BddCore\Steps\FillingChildDataSteps.cs" />
+    <Compile Include="BddCore\Steps\Book\EditChildDataBookSteps.cs" />
+    <Compile Include="BddCore\Steps\Checkout\FieldValidationCheckoutSteps.cs" />
+    <Compile Include="BddCore\Steps\Book\FillChildDataSteps.cs" />
     <Compile Include="BddCore\Steps\MathsSteps.cs" />
-    <Compile Include="BddCore\Steps\PaymentDataToCheckoutPageStep.cs" />
+    <Compile Include="BddCore\Steps\Checkout\PaymentDataCheckoutSteps.cs" />
     <Compile Include="BddCore\Steps\ReminderSteps.cs" />
-    <Compile Include="BddCore\Steps\RemoveValueFromFieldsOnTheCheckoutStep.cs" />
-    <Compile Include="BddCore\Steps\VerifyDiscountCodeForOrderSteps.cs" />
-    <Compile Include="BddCore\Steps\VerifyDiscountForNextBookSteps.cs" />
+    <Compile Include="BddCore\Steps\Checkout\RemoveValuesCheckoutSteps.cs" />
+    <Compile Include="BddCore\Steps\Bag\VerifyDiscountCodeBagSteps.cs" />
+    <Compile Include="BddCore\Steps\Bag\VerifyDiscountForNextBookBagSteps.cs" />
     <Compile Include="C:\Users\Strigin\Desktop\pics airplanes\FillingCustomerSDataForAuthorizationSteps.cs">
       <Link>FillingCustomerSDataForAuthorizationSteps.cs</Link>
     </Compile>
@@ -171,14 +171,16 @@
     <Compile Include="Data\AdminData\DiscountCode.cs" />
     <Compile Include="Data\AdminData\FullAdminData.cs" />
     <Compile Include="Data\BagPageData.cs" />
-    <Compile Include="BddCore\Steps\FillingCustomerDataForAuthorizationSteps.cs" />
+    <Compile Include="BddCore\Steps\AuthorizationAndMessage\AuthorizationSteps.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="Maths\DiscountCode.cs" />
     <Compile Include="Maths\MathResults.cs" />
     <Compile Include="Maths\BagMaths.cs" />
     <Compile Include="Maths\CheckoutMaths.cs" />
     <Compile Include="Maths\Order.cs" />
     <Compile Include="Maths\PreviewMaths.cs" />
     <Compile Include="Maths\Converter.cs" />
+    <Compile Include="Maths\Price.cs" />
     <Compile Include="Pages\CheckoutBillingAddressPage.cs" />
     <Compile Include="Pages\CheckoutPaymentPage.cs" />
     <Compile Include="Pages\CheckoutShippingAddressPage.cs" />
@@ -202,71 +204,71 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="BddCore\features\Book\EditChildData.feature">
+    <None Include="BddCore\Features\Book\EditChildData.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>EditChildData.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\Checkout\AddressingOrder\ClickableShippingAndBillingAdresses.feature">
+    <None Include="BddCore\Features\Checkout\AddressingOrder\ClickableShippingAndBillingAdresses.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ClickableShippingAndBillingAdresses.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\Checkout\AddressingOrder\ChangingShippingAndBillingAddresses.feature">
+    <None Include="BddCore\Features\Checkout\AddressingOrder\ChangingShippingAndBillingAddresses.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ChangingShippingAndBillingAddresses.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\Checkout\AddressingOrder\FillingShippingAndBillingAddresses.feature">
+    <None Include="BddCore\Features\Checkout\AddressingOrder\FillingShippingAndBillingAddresses.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FillingShippingAndBillingAddresses.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\Checkout\AddressingOrder\RemovingShippingAndBillingAddresses.feature">
+    <None Include="BddCore\Features\Checkout\AddressingOrder\RemovingShippingAndBillingAddresses.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>RemovingShippingAndBillingAddresses.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\Checkout\Payment\ChoosePayPalPayment.feature">
+    <None Include="BddCore\Features\Checkout\Payment\ChoosePayPalPayment.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ChoosePayPalPayment.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\Checkout\Payment\FillingCreditcard.feature">
+    <None Include="BddCore\Features\Checkout\Payment\FillingCreditcard.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FillingCreditcard.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\Reminder.feature">
+    <None Include="BddCore\Features\Reminder.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Reminder.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\Checkout\AddressingOrder\ValidationAddresses.feature">
+    <None Include="BddCore\Features\Checkout\AddressingOrder\ValidationAddresses.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ValidationAddresses.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\Bag\ActionsWithBooks.feature">
+    <None Include="BddCore\Features\Bag\ActionsWithBooks.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ActionsWithBooks.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\AuthorizationAndMessage\Authorization.feature">
+    <None Include="BddCore\Features\AuthorizationAndMessage\Authorization.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Authorization.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\Book\FillingChildData.feature">
+    <None Include="BddCore\Features\Book\FillingChildData.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FillingChildData.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\Currency.feature">
+    <None Include="BddCore\Features\Currency.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Currency.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\Bag\DiscountCode.feature">
+    <None Include="BddCore\Features\Bag\DiscountCode.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>DiscountCode.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\Bag\GeneralBookDiscount.feature">
+    <None Include="BddCore\Features\Bag\GeneralBookDiscount.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GeneralBookDiscount.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\Maths.feature">
+    <None Include="BddCore\Features\Maths.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Maths.feature.cs</LastGenOutput>
     </None>
-    <None Include="BddCore\features\AuthorizationAndMessage\MessageData.feature">
+    <None Include="BddCore\Features\AuthorizationAndMessage\MessageData.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MessageData.feature.cs</LastGenOutput>
     </None>
@@ -286,9 +288,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reports\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
