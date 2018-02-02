@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AventStack.ExtentReports.Utils;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using PencilJoyTests.Data;
@@ -163,9 +162,10 @@ namespace PencilJoyTests.Pages
         public bool AreEmptyFields()
         {
             var elementList = getElements();
+         
             foreach (var elemItem in elementList)
             {
-                if (elemItem.Text.IsNullOrEmpty())
+                if (String.IsNullOrEmpty(elemItem.Text)) 
                     return true;
             }
             return false;

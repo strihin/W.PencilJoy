@@ -17,7 +17,7 @@ namespace PencilJoyTests
         static internal bool verifyCurencyInGrandPriceInBag;
         static internal bool verifyCurencyInSubtotalPriceInBag;
         static internal bool comparePriceBookInBag;
-        //static internal bool verifyPriceFirstBook;
+        static internal bool verifyPriceFirstBook;
         //internal static bool checkSubtotalPrice;
         //internal static bool checkGrandPrice;
         //internal static bool verifyCurrencyFirstBook;

@@ -241,9 +241,8 @@ namespace PencilJoyTests.Pages
        }
        public void GetBagPriceBagMath()
        {
-          // if(VerifyBooksAmount())
            GetActualPriceBook();
-           Helper.ActualOrder.CurrencySymbol = _bagMath.GetCurrency(GrandTotalPrice.Text, _bagMath.ComparePriceInTheFirstBook());
+           Helper.ActualOrder.CurrencySymbol = _bagMath.GetCurrency(GrandTotalPrice.Text, _bagMath.GetFirstBookPrice());
            Helper.ActualOrder.DiscountCode = _bagMath.GetDiscount(DisountPercent.Text);
 
            _bagMath.VerifyActionForListBook();
@@ -377,6 +376,7 @@ namespace PencilJoyTests.Pages
            }   
            catch (NoAlertPresentException Ex)
            {
+               Console.WriteLine(Ex.Message+Ex.Data);
                return false;
            }  
        }

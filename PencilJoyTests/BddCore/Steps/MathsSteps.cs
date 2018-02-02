@@ -222,7 +222,7 @@ namespace PencilJoyTests.BddCore.Steps
         [Then(@"The price for the first book with  should be equal as (.*)")]
         public void ThenThePriceForTheFirstBookWithShouldBeEqualAs(double price)
         {
-            bagMaths.ComparePriceInTheFirstBook(price);
+            Assert.IsTrue(bagMaths.ComparePriceInTheFirstBook(price));
         }
         
         [Then(@"The price for the order should be subtracted price for removing book\.")]

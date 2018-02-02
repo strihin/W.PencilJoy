@@ -30,10 +30,15 @@ namespace PencilJoyTests.Maths
         }
         public bool ComparePriceInTheFirstBook(double expectedPrice)
         {
-            //Helper.verifyPriceFirstBook = (Helper.ExpectedOrder.PriceBook[0] ==
-            //                                    FullAdminData.CurrencyList[IndexCurrency].currencyValue);
-           // expectedPrice == Helper.verifyPriceFirstBook 
+            Helper.verifyPriceFirstBook = (Helper.ExpectedOrder.PriceBook[0] ==
+                                                FullAdminData.CurrencyList[IndexCurrency].currencyValue);
+          
             return (expectedPrice == Helper.ExpectedOrder.PriceBook[0]);
+        }
+
+        public double GetFirstBookPrice()
+        {
+            return Helper.ExpectedOrder.PriceBook[0];
         }
         public string VerifyCurrencyInTheFirstBook()
         {

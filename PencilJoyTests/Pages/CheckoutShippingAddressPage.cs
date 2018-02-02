@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using AventStack.ExtentReports.Utils;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using PencilJoyTests.Data;
+using System;
 
 
 namespace PencilJoyTests.Pages
@@ -178,9 +178,11 @@ namespace PencilJoyTests.Pages
         public bool AreEmptyFields()
         {
             var elementList = getElements();
+           
             foreach (var elemItem in elementList)
             {
-                if (elemItem.Text.IsNullOrEmpty())
+
+                if (String.IsNullOrEmpty(elemItem.Text))
                     return true;
             }
             return false;
@@ -227,7 +229,7 @@ namespace PencilJoyTests.Pages
 
         public bool IsFieldEmpty(IWebElement foundElement)
         {
-            return foundElement.Text.IsNullOrEmpty();
+            return String.IsNullOrEmpty(foundElement.Text);
         }
         public void RemoveField(IWebElement foundElemenent)
         {

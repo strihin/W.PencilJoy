@@ -195,7 +195,7 @@ namespace PencilJoyTests.Pages
 
             Helper.ExpectedOrder.CurrencySymbol = _checkoutMath.GetCurrency(TotalPrice.Text, _checkoutMath.VerifyPriceInTheFirstBook());
             Helper.ExpectedOrder.GrandPrice = TotalPrice.Text.Contains("\r\n") ? _checkoutMath.ConvertTotalPrice(TotalPrice.Text.Replace("\r\n", " "),
-            _checkoutMath.VerifyPriceInTheFirstBook()) : _checkoutMath.ConvertTotalPrice(TotalPrice.Text, _checkoutMath.VerifyPriceInTheFirstBook());
+            _checkoutMath.VerifyPriceInTheFirstBook().ToString()) : _checkoutMath.ConvertTotalPrice(TotalPrice.Text, _checkoutMath.VerifyPriceInTheFirstBook().ToString());
 
             _checkoutMath.VerifyPriceBook();
             _checkoutMath.VerifyDiscountCode();
