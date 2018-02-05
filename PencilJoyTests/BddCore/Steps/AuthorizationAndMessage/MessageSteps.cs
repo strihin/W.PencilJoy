@@ -8,7 +8,6 @@ namespace PencilJoyTests.BddCore.Steps
     [Binding]
     public class MessageSteps
     {
-        private IWebDriver currentDriver = null;
         private FillChildDataSteps childDataSteps = new FillChildDataSteps();
         MessageAndIdentificationPage messagePage = new MessageAndIdentificationPage();
         private const string nextPageTitle = Helper.StartPage + "/bag";

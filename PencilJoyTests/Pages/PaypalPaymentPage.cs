@@ -4,25 +4,21 @@ using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using PencilJoyTests.BddCore;
 using PencilJoyTests.Data;
 
 namespace PencilJoyTests.Pages
 {
     public class PaypalPaymentPage
     {
-        private WebDriverWait _waitDriver;
-        private IWebDriver webDriver;
+        
+        
         public PaypalPaymentPage() { }
-        public PaypalPaymentPage(WebDriverWait waitDriver, IWebDriver webDriver)
-        {
-            this.webDriver = webDriver;
-            _waitDriver = waitDriver;          
-        }
 
         #region Objects
         private IWebElement PreLoginButton
         {
-            get { return _waitDriver.Until(ExpectedConditions.ElementIsVisible(
+            get { return Hooks.WaitDriver.Until(ExpectedConditions.ElementIsVisible(
                 By.ClassName("baslLoginButtonContainer")));
             }
         }
@@ -30,7 +26,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementIsVisible(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementIsVisible(
                 By.Name("login_email")));
             }
         }
@@ -38,7 +34,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementIsVisible(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementIsVisible(
                     By.Name("login_password")));
             }
         }
@@ -46,7 +42,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementIsVisible(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementIsVisible(
                     By.Id("btnLogin")));
             }
         }
@@ -54,13 +50,13 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementIsVisible(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementIsVisible(
                     By.Id("preloaderSpinner")));
             }
         }
         private IWebElement ReviewUserInfoText
         {
-            get { return _waitDriver.Until(ExpectedConditions.ElementIsVisible(By.Id("reviewUserInfo"))); }
+            get { return Hooks.WaitDriver.Until(ExpectedConditions.ElementIsVisible(By.Id("reviewUserInfo"))); }
         }
         #endregion
 
@@ -71,12 +67,12 @@ namespace PencilJoyTests.Pages
             {
                 PreLoginButton.Click();
           
-                webDriver.SwitchTo().Frame(webDriver.FindElement(By.TagName("iframe")));
+                Hooks.WebDriver.SwitchTo().Frame(Hooks.WebDriver.FindElement(By.TagName("iframe")));
                 EmailInput.SendKeys(paypalPaymentData.EmailPaypal);
                 PasswordInput.SendKeys(paypalPaymentData.PasswordPaypal);
             
                 PostLoginButton.Click();
-                webDriver.SwitchTo().Window(webDriver.WindowHandles.Last());
+                Hooks.WebDriver.SwitchTo().Window(Hooks.WebDriver.WindowHandles.Last());
             }
             catch (Exception e)
             {

@@ -3,7 +3,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using PencilJoyTests.Data;
-//using RelevantCodes.ExtentReports;
 using TechTalk.SpecFlow;
 
 namespace PencilJoyTests.BddCore 
@@ -11,25 +10,24 @@ namespace PencilJoyTests.BddCore
     [Binding]
     public sealed class Hooks 
     {
-        private IWebDriver _webDriver;
-        private WebDriverWait _waitDriver;
-  
+        public static IWebDriver WebDriver;
+        public static WebDriverWait WaitDriver;
+
         [BeforeScenario]
         public void BeforeScenario()
         {
-            _webDriver = new ChromeDriver();
-            //  _webDriver = new FirefoxDriver();
-            //  _webDriver.Manage().Window.Maximize();
-            _waitDriver = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(11));
-            _webDriver.Navigate().GoToUrl("http://penciljoy.altsolution.ua/");
+            WebDriver = new ChromeDriver();
+            WebDriver.Navigate().GoToUrl(Helper.StartPage);
+
+            WaitDriver = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(11));
             FullAdminData.LoadJson();
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
-            _webDriver.Quit();
+            WebDriver.Quit();
+            WebDriver.Dispose();
         }
-       
     }
 }

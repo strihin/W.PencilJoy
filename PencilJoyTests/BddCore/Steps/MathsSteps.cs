@@ -11,7 +11,6 @@ namespace PencilJoyTests.BddCore.Steps
     [Binding]
     public class EqualPriceAndDiscountValueOnDifferentStepsOfOrderSteps
     {
-        private IWebDriver currentDriver;
         internal CreateBookPage bookPage = new CreateBookPage();
         internal PreviewPage previewPage = new PreviewPage();
         internal BagPage bagPage = new BagPage();
@@ -168,7 +167,7 @@ namespace PencilJoyTests.BddCore.Steps
         [When(@"The user clicks button Ok on the popup notification for removing")]
         public void WhenTheUserClicksButtonOkOnThePopupNotificationForRemoving()
         {
-            bagPage.AcceptRemovingBook(currentDriver);
+            bagPage.AcceptRemovingBook();
         }
         
         [Then(@"The price and currency for a book on the bag page and  on the checkout page should be equal")]

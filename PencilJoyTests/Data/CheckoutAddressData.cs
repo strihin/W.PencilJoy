@@ -24,14 +24,14 @@ namespace PencilJoyTests.Data
         }
         public CheckoutAddressData(string Username, string Lastname, string Street, string City, string ZipCode, string Phone, int NumberCountry, string Region)
         {
-            this.Username = Username;
-            this.Lastname = Lastname;
-            this.Street = Street;
-            this.City = City;
-            this.ZipCode = ZipCode;
-            this.Phone = Phone;
-            this.NumberCountry = NumberCountry;
-            this.Region = Region;
+            Username = Username;
+            Lastname = Lastname;
+            Street = Street;
+            City = City;
+            ZipCode = ZipCode;
+            Phone = Phone;
+            NumberCountry = NumberCountry;
+            Region = Region;
         }
 
        

@@ -5,34 +5,31 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using PencilJoyTests.BddCore;
 using PencilJoyTests.Data;
 
 namespace PencilJoyTests.Pages
 {
     internal class CheckoutBillingAddressPage
     {
-        internal readonly WebDriverWait _waitDriver;
+        
         internal CheckoutAddressData checkoutBillingAddressData;
         private string previousFieldValue;
 
         public CheckoutBillingAddressPage( )
         {
         }
-        public CheckoutBillingAddressPage(WebDriverWait waitDriver)
+        public CheckoutBillingAddressPage(CheckoutAddressData checkoutBillingAddressData)
         {
-            _waitDriver = waitDriver;
-        }
-        public CheckoutBillingAddressPage(WebDriverWait waitDriver, CheckoutAddressData checkoutBillingAddressData)
-        {
-            _waitDriver = waitDriver;
-            this.checkoutBillingAddressData = checkoutBillingAddressData;
+            
+            checkoutBillingAddressData = checkoutBillingAddressData;
         }
         #region Objects Shipping Address
         private IWebElement FirstNameTextBox
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("ba-firstname")));
             }
         }
@@ -40,7 +37,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("ba-lastname")));
             }
         }
@@ -48,7 +45,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("ba-address")));
             }
         }
@@ -56,7 +53,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("ba-city")));
             }
         }
@@ -64,7 +61,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("ba-spg-us")));
             }
         }
@@ -73,7 +70,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("ba-code")));
             }
         }
@@ -81,7 +78,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("ba-country")));
             }
         }
@@ -90,7 +87,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("ba-tel")));
             }
         }
@@ -98,7 +95,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("the-bame-ship")));
             }
         }
@@ -201,7 +198,7 @@ namespace PencilJoyTests.Pages
         }
         public void EditField(string fieldName, string fieldValue)
         {
-            IWebElement fieldElement = Helper.SearchInnerInput(Helper.SearchFieldByName(_waitDriver, fieldName));
+            IWebElement fieldElement = Helper.SearchInnerInput(Helper.SearchFieldByName(fieldName));
             previousFieldValue = fieldElement.Text;
             fieldElement.Clear();
             fieldElement.SendKeys(fieldValue);
@@ -209,7 +206,7 @@ namespace PencilJoyTests.Pages
 
         public bool CompareValuesInTheField(string fieldName)
         {
-            IWebElement fieldElement = Helper.SearchInnerInput(Helper.SearchFieldByName(_waitDriver, fieldName));
+            IWebElement fieldElement = Helper.SearchInnerInput(Helper.SearchFieldByName(fieldName));
             return (fieldElement.Text != previousFieldValue);
         }
         #endregion

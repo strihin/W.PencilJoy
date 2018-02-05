@@ -9,7 +9,7 @@ namespace PencilJoyTests.BddCore.Steps
     [Binding]
     public class PayPalCheckoutSteps
     {
-        private IWebDriver currentDriver;
+        
         internal CheckoutBillingAddressPage checkoutBillingAddress = new CheckoutBillingAddressPage();
         internal CheckoutShippingAddressPage checkoutShippingAddress = new CheckoutShippingAddressPage();
         internal CheckoutPaymentPage CheckoutPaymentPage = new CheckoutPaymentPage();
@@ -40,7 +40,7 @@ namespace PencilJoyTests.BddCore.Steps
         [Then(@"The page is redirected to PayPal service")]
         public void ThenThePageIsRedirectedToPayPalService()
         {
-            Assert.AreEqual(currentDriver.Url, nextPageTitle);
+            Assert.AreEqual(Hooks.WebDriver.Url, nextPageTitle);
         }
     }
 }

@@ -9,7 +9,6 @@ namespace PencilJoyTests.BddCore.steps
     [Binding]
     public sealed class FillChildDataSteps
     {
-        private IWebDriver currentDriver = null;
         CreateBookPage createBookPage = new CreateBookPage();
         private CreateBookData createBookData;
         private PreviewPage previewPage = new PreviewPage();
@@ -17,13 +16,17 @@ namespace PencilJoyTests.BddCore.steps
 
         public void GoNextStep(string username, int numberMonth, int numberDay, int numberSex, int numberCharacter)
         {
-            currentDriver.Navigate().GoToUrl(Helper.StartPage);
+            Hooks.WebDriver.Navigate().GoToUrl(Helper.StartPage);
             WhenTheUserFillsCorrectDataToFieldsAs(username, numberMonth, numberDay, numberSex, numberCharacter);
             previewPage.ConfirmGeneralForm();
         }
         public void GoNextStep()
         {
-            currentDriver.Navigate().GoToUrl(Helper.StartPage);
+            Hooks.WebDriver.Navigate().GoToUrl(Helper.StartPage);
+
+            // ToDo: read  createBookData from test data source
+            createBookData = new CreateBookData("asd", 12, 12, 1, 1);
+
             WhenTheUserFillsCorrectDataToFieldsAs(createBookData.Username, createBookData.NumberMonth, createBookData.NumberDay, createBookData.NumberSex, createBookData.NumberCharacter);
             previewPage.ConfirmGeneralForm();
         }
@@ -46,14 +49,14 @@ namespace PencilJoyTests.BddCore.steps
         [Given(@"The user is a customer")]
         public void GivenTheUserIsACustomer()
         {
-            Assert.AreEqual(currentDriver.Url, Helper.StartPage);
+            Assert.AreEqual(Hooks.WebDriver.Url, Helper.StartPage);
         }
 
         [Given(@"The user is on the create book page")]
         public void GivenTheUserIsOnTheCreateBookPage()
         {
             
-            Assert.AreEqual(currentDriver.Url, Helper.StartPage);
+            Assert.AreEqual(Hooks.WebDriver.Url, Helper.StartPage);
         }
 
         [When(@"The user fills correct data to fields as (.*) , (.*) , (.*) (.*) , (.*)")]
@@ -68,7 +71,7 @@ namespace PencilJoyTests.BddCore.steps
         [Then(@"The user is redirected to the preview page")]
         public void ThenTheUserIsRedirectedToThePreviewPage()
         {
-            Assert.AreEqual(currentDriver.Url, nextPageTitle); 
+            Assert.AreEqual(Hooks.WebDriver.Url, nextPageTitle); 
         }
 
         [Then(@"The field ""(.*)"" gets a red border\.")]
@@ -99,7 +102,7 @@ namespace PencilJoyTests.BddCore.steps
         [Then(@"The user  isn`t redirected to the preview page")]
         public void ThenTheUserIsnTRedirectedToThePreviewPage()
         {
-            Assert.AreNotEqual(currentDriver.Url, nextPageTitle);
+            Assert.AreNotEqual(Hooks.WebDriver.Url, nextPageTitle);
         }
 
         [Then(@"The field (.*) gets a red border\.")]

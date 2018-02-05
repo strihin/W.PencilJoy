@@ -9,7 +9,7 @@ namespace PencilJoyTests.BddCore.Steps
     [Binding]
     public class VerifyDiscountCodeBagSteps
     {
-        private IWebDriver currentDriver = null;
+        
         private BagPage bagPage = new BagPage();
 
         private const string currentPageTitle = Helper.StartPage + "/bag";
@@ -60,7 +60,7 @@ namespace PencilJoyTests.BddCore.Steps
         [Then(@"The user is redirected to the checkout page,")]
         public void ThenTheUserIsRedirectedToTheCheckoutPage()
         {
-            Assert.AreEqual(currentDriver.Url, checkoutPageTitle);
+            Assert.AreEqual(Hooks.WebDriver.Url, checkoutPageTitle);
         }
         
         [Then(@"The field for discount code should get value as (.*)")]
@@ -84,7 +84,7 @@ namespace PencilJoyTests.BddCore.Steps
         [Then(@"The user doesn`t redirected to the checkout page, field for discount code should get a red border\.")]
         public void ThenTheUserDoesnTRedirectedToTheCheckoutPageFieldForDiscountCodeShouldGetARedBorder_()
         {
-            Assert.AreNotEqual(currentDriver.Url, checkoutPageTitle);
+            Assert.AreNotEqual(Hooks.WebDriver.Url, checkoutPageTitle);
         }
         
         [Then(@"The user gets right discount percent for his order as (.*)")]

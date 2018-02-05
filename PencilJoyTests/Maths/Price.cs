@@ -13,8 +13,8 @@ namespace PencilJoyTests.Maths
 
         public Price(double Value, string Currency)
         {
-            this.Value = Value;
-            this.Currency = Currency;
+            Value = Value;
+            Currency = Currency;
         }
 
         public bool ComparePrices(Price firstPage, Price secondPage)

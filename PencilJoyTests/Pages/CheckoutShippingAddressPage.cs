@@ -5,13 +5,14 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using PencilJoyTests.Data;
 using System;
+using PencilJoyTests.BddCore;
 
 
 namespace PencilJoyTests.Pages
 {
     class CheckoutShippingAddressPage
     {  
-        private WebDriverWait _waitDriver;
+        
         private CheckoutAddressData checkoutShippingAddressData;
         private string previousFieldValue;
 
@@ -19,21 +20,17 @@ namespace PencilJoyTests.Pages
         {
             
         }
-        public CheckoutShippingAddressPage(WebDriverWait waitDriver)
+        public CheckoutShippingAddressPage(CheckoutAddressData checkoutAddressData)
         {
-            _waitDriver = waitDriver;
-        }
-        public CheckoutShippingAddressPage(WebDriverWait waitDriver, CheckoutAddressData checkoutAddressData)
-        {
-            _waitDriver = waitDriver;
-            this.checkoutShippingAddressData = checkoutAddressData;
+            
+            checkoutShippingAddressData = checkoutAddressData;
         }
         #region Objects Shipping Address
         private IWebElement  FirstNameTextBox
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("sa-firstname")));
             }
         }
@@ -41,7 +38,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("sa-lastname")));
             }
         }
@@ -49,7 +46,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("sa-address")));
             }
         }
@@ -57,7 +54,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("sa-city")));
               
             }
@@ -66,7 +63,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("sa-spg-us")));
             }
         }
@@ -74,7 +71,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("sa-code")));
             }
         }
@@ -82,7 +79,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("sa-country")));
             }
         }
@@ -90,7 +87,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("sa-spg-us")));
             }
         }
@@ -98,7 +95,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("sa-spg-any")));
             }
         }
@@ -106,7 +103,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("sa-tel")));
             }
         }
@@ -114,7 +111,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.CssSelector("#newcustomer > div:nth-child(1) > div.form-block > label")));
             }
         }
@@ -222,7 +219,7 @@ namespace PencilJoyTests.Pages
 
         public IWebElement findoutElement(string fieldName, string blockName)
         {
-            IWebElement outherBlockName = Helper.SearchFieldByName(_waitDriver, blockName);
+            IWebElement outherBlockName = Helper.SearchFieldByName(blockName);
             IWebElement innerBlockName = Helper.SearchInputBlock(outherBlockName, fieldName);
             return Helper.SearchInnerInput(innerBlockName);
         }
@@ -237,7 +234,7 @@ namespace PencilJoyTests.Pages
         }
         public void EditField(string fieldName, string fieldValue)
         {
-            IWebElement fieldElement = Helper.SearchInnerInput(Helper.SearchFieldByName(_waitDriver, fieldName));
+            IWebElement fieldElement = Helper.SearchInnerInput(Helper.SearchFieldByName(fieldName));
             previousFieldValue = fieldElement.Text;
             fieldElement.Clear();
             fieldElement.SendKeys(fieldValue);
@@ -245,24 +242,24 @@ namespace PencilJoyTests.Pages
 
         public bool CompareValuesInTheField(string fieldName)
         {
-            IWebElement fieldElement = Helper.SearchInnerInput(Helper.SearchFieldByName(_waitDriver, fieldName));
+            IWebElement fieldElement = Helper.SearchInnerInput(Helper.SearchFieldByName(fieldName));
             return (fieldElement.Text != previousFieldValue);
         }
 
         public bool AreElementsRequired(string blockName)
         {
-             return Helper.SearchErrorInputs(Helper.SearchFieldByName(_waitDriver, blockName));
+             return Helper.SearchErrorInputs(Helper.SearchFieldByName(blockName));
         }
 
         public bool IsElementRequired(string blockName, string fieldName)
         {
-            IWebElement blockElement = Helper.SearchFieldByName(_waitDriver, blockName);
+            IWebElement blockElement = Helper.SearchFieldByName(blockName);
             return Helper.SearchErrorInput(blockElement, fieldName);
         }
         public bool AreElementsDisabled(string blockName)
         {
             
-            List<IWebElement> webList = Helper.SearchElementsInnerBlock(Helper.SearchFieldByName(_waitDriver, blockName));
+            List<IWebElement> webList = Helper.SearchElementsInnerBlock(Helper.SearchFieldByName(blockName));
             int counter = webList.Count;
             foreach (var webelement in webList)
             {

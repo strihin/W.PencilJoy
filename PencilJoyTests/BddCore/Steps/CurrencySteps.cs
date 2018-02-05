@@ -9,7 +9,6 @@ namespace PencilJoyTests.BddCore.Steps
     [Binding]
     public class EditingCurrencyAndCheckPriceForABookSteps
     {
-        private IWebDriver currentDriver;
         internal PreviewPage previewPage = new PreviewPage();
         internal BagPage bagPage = new BagPage();
         internal MessageAndIdentificationPage messagePage = new MessageAndIdentificationPage();

@@ -13,8 +13,8 @@ namespace PencilJoyTests.Maths
 
         public DiscountCode(int discountPercent, string discountName)
         {
-            this.discountPercent = discountPercent;
-            this.discountName = discountName;
+            discountPercent = discountPercent;
+            discountName = discountName;
         }
 
         public bool CompareDiscountCodes(DiscountCode firstCode, DiscountCode secondCode)

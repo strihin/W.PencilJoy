@@ -10,7 +10,6 @@ namespace PencilJoyTests.BddCore.Steps
     [Binding]
     public class AddAddressesCheckoutSteps
     {
-        private  IWebDriver currentDriver;
         internal CheckoutBillingAddressPage checkoutBillingAddress = new CheckoutBillingAddressPage();
         internal CheckoutShippingAddressPage checkoutShippingAddress = new CheckoutShippingAddressPage();
         internal CheckoutPaymentPage CheckoutPaymentPage = new CheckoutPaymentPage();
@@ -24,7 +23,7 @@ namespace PencilJoyTests.BddCore.Steps
         public void GivenTheUserIsOnCheckoutPage()
         {
             BagSteps.GoToCheckoutPage();
-            Assert.AreEqual(currentDriver.Url, currentPageTitle); 
+            Assert.AreEqual(Hooks.WebDriver.Url, currentPageTitle); 
         }
 
         [When(@"The user fills fields for shipping address with correct data:")]
@@ -106,7 +105,7 @@ namespace PencilJoyTests.BddCore.Steps
         [Then(@"The page is redirected to successful page")]
         public void ThenThePageIsRedirectedToSuccessfulPage()
         {
-            Assert.AreEqual(currentDriver.Url, nextPageTitle);
+            Assert.AreEqual(Hooks.WebDriver.Url, nextPageTitle);
         }
         
       
@@ -125,7 +124,7 @@ namespace PencilJoyTests.BddCore.Steps
         [Then(@"The page doesn`t redirected to the successful page.")]
         public void ThenThePageDoesnTRedirectedToTheSuccessfulPage()
         {
-            Assert.AreNotEqual(currentDriver.Url, nextPageTitle);
+            Assert.AreNotEqual(Hooks.WebDriver.Url, nextPageTitle);
         }
 
         [Then(@"The shipping`s fields, which haven`t passed, get a red border\.")]

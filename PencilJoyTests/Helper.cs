@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using PencilJoyTests.BddCore;
 using PencilJoyTests.Maths;
 
 namespace PencilJoyTests
 {
     static class Helper
     {
-        internal const string StartPage = "https://books.penciljoy.com";
+        internal const string StartPage = "https://books.penciljoy.com/";
 
         public static Order ExpectedOrder { get; set; }
         public static Order ActualOrder { get; set; }
@@ -58,9 +59,9 @@ namespace PencilJoyTests
             return false;
         }
 
-        public static IWebElement SearchFieldByName(WebDriverWait driver, string textSearch)
+        public static IWebElement SearchFieldByName(string textSearch)
         {
-            return driver.Until(ExpectedConditions.ElementToBeClickable(By.XPath(".//*[text()='" + textSearch + "']/..")));
+            return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.XPath(".//*[text()='" + textSearch + "']/..")));
         }
 
         public static IWebElement SearchInputBlock(IWebElement webBlock, string textSearch)

@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using PencilJoyTests.BddCore;
 using PencilJoyTests.Data;
 using PencilJoyTests.Maths;
 
@@ -14,14 +15,14 @@ namespace PencilJoyTests.Pages
     class CheckoutPaymentPage
     {
 
-        private WebDriverWait _waitDriver;
+        
         private CheckoutPaymentData checkoutPaymentData;
         private CheckoutMaths _checkoutMath;
 
         public CheckoutPaymentPage() { }
-        public CheckoutPaymentPage(WebDriverWait waitDriver, CheckoutPaymentData checkoutPaymentData, CheckoutMaths checkoutMath)
+        public CheckoutPaymentPage(CheckoutPaymentData checkoutPaymentData, CheckoutMaths checkoutMath)
         {
-            this._waitDriver = waitDriver;
+            
             this.checkoutPaymentData = checkoutPaymentData;
             _checkoutMath = checkoutMath;
         }
@@ -30,7 +31,7 @@ namespace PencilJoyTests.Pages
         { 
             get
             {
-                IWebElement creditcard = _waitDriver.Until(ExpectedConditions.
+                IWebElement creditcard = Hooks.WaitDriver.Until(ExpectedConditions.
                     ElementToBeClickable(By.ClassName("credit-input")));
                 IReadOnlyCollection<IWebElement> tempCol =
                     creditcard.FindElements(By.XPath(".//input[@class='credit-cell']"));
@@ -43,7 +44,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("select-month")));
             }
         }
@@ -51,7 +52,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("select-year")));
             }
         }
@@ -59,7 +60,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("cvn")));
             }
         }
@@ -67,7 +68,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Name("cardSubmit")));
             }
         }
@@ -75,7 +76,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                      By.CssSelector("#payment-method > ul > li:nth-child(2) > a")));
             }
         }
@@ -83,14 +84,14 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("pay-bth")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("pay-bth")));
             }
         }
         private List<IWebElement> PriceBookList
         {
             get
             {
-                IWebElement tbody = _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//tbody")));
+                IWebElement tbody = Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//tbody")));
                 IReadOnlyCollection<IWebElement> tempList = tbody.FindElements(By.XPath("//tr/td[2]"));
                 List<IWebElement> priceBookList = new List<IWebElement>(tempList);
                 return priceBookList;
@@ -100,7 +101,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                             By.XPath(".//div[@class='cor-summary']/div[2]/span")));
             }
         }
@@ -108,7 +109,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                             By.XPath("//*[@id='customer']/tbody/tr[2]")));
             }
         }
@@ -117,7 +118,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                             By.ClassName("payment-errors")));
             }
         }

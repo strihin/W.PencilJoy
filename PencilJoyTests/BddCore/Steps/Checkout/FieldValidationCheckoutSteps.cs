@@ -8,7 +8,6 @@ namespace PencilJoyTests.BddCore.Steps
     [Binding]
     public class FieldValidationCheckoutSteps
     {
-        private IWebDriver currentDriver;
         internal CheckoutBillingAddressPage checkoutBillingAddress = new CheckoutBillingAddressPage();
         internal CheckoutShippingAddressPage checkoutShippingAddress = new CheckoutShippingAddressPage();
         internal CheckoutPaymentPage CheckoutPaymentPage = new CheckoutPaymentPage();

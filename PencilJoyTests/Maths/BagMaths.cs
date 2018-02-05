@@ -16,8 +16,8 @@ namespace PencilJoyTests.Maths
         #region ctor
         public BagMaths()
         {
-            this.ActualOrder = new Order();
-            this.ExpectedOrder = new Order();
+            ActualOrder = new Order();
+            ExpectedOrder = new Order();
         }
          */
         #endregion

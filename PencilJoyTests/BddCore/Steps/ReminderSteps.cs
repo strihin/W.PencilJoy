@@ -9,7 +9,6 @@ namespace PencilJoyTests.BddCore.Steps
     [Binding]
     public class VerifyReminderSteps
     {
-        private IWebDriver currentDriver;
         internal PreviewPage previewPage = new PreviewPage();
         
         [Given(@"The popup Remind me later should be appear")]

@@ -14,9 +14,9 @@ namespace PencilJoyTests.Data.AdminData
 
         public Currency(string currencyName, string currencySymbol, double currencyValue)
         {
-            this.currencyName = currencyName;
-            this.currencyValue = currencyValue;
-            this.currencySymbol = currencySymbol;
+            currencyName = currencyName;
+            currencyValue = currencyValue;
+            currencySymbol = currencySymbol;
         }
     }
 }

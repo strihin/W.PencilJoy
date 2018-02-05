@@ -9,7 +9,6 @@ namespace PencilJoyTests.BddCore.Steps
     [Binding]
     public class PaymentDataCheckoutSteps
     {
-        private IWebDriver currentDriver;
         internal CheckoutBillingAddressPage checkoutBillingAddress = new CheckoutBillingAddressPage();
         internal CheckoutShippingAddressPage checkoutShippingAddress = new CheckoutShippingAddressPage();
         internal CheckoutPaymentPage CheckoutPaymentPage = new CheckoutPaymentPage();
@@ -37,14 +36,14 @@ namespace PencilJoyTests.BddCore.Steps
         [Then(@"The page is redirected to the successful page")]
         public void ThenThePageIsRedirectedToTheSuccessfulPage()
         {
-            Assert.AreEqual(currentDriver.Url, nextPageTitle);
+            Assert.AreEqual(Hooks.WebDriver.Url, nextPageTitle);
         }
 
         [Then(@"The page doesn`t redirected to the successful page")]
         [Then(@"The page doessn`t redirected to the successful page")]
         public void ThenThePageDoessnTRedirectedToTheSuccessfulPage()
         {
-            Assert.AreNotEqual(currentDriver.Url, nextPageTitle);
+            Assert.AreNotEqual(Hooks.WebDriver.Url, nextPageTitle);
         }
         
         [Then(@"It should be shown the message (.*)")]

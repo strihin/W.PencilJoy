@@ -1,8 +1,6 @@
-﻿using System;
-using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using PencilJoyTests.BddCore;
 using PencilJoyTests.BddCore.steps;
-using PencilJoyTests.Data;
 using PencilJoyTests.Pages;
 using TechTalk.SpecFlow;
 
@@ -12,7 +10,6 @@ namespace PencilJoyTests
     public class AuthorizationSteps
     {
         private FillChildDataSteps childDataSteps = new FillChildDataSteps();
-        private IWebDriver currentDriver = null;
         
         private MessageAndIdentificationPage messageAndIdentificationPage = new MessageAndIdentificationPage();
         
@@ -47,7 +44,7 @@ namespace PencilJoyTests
         {
             childDataSteps.GoNextStep();
             childDataSteps.GoToAuthorizationPage();
-            Assert.AreEqual(currentDriver.Url, currentPageTitle);
+            Assert.AreEqual(Hooks.WebDriver.Url, currentPageTitle);
         }
         
         [Given(@"The active tab is the New customer")]
@@ -120,14 +117,13 @@ namespace PencilJoyTests
         [Then(@"The user is redirected to the bag page")]
         public void ThenTheUserIsRedirectedToTheBagPage()
         {
-            Assert.AreEqual(currentDriver.Url, nextPageTitle);
+            Assert.AreEqual(Hooks.WebDriver.Url, nextPageTitle);
         }
         
         [Then(@"The user isn`t redirected to the bag page")]
         public void ThenTheUserIsnTRedirectedToTheBagPage()
         {
-            Assert.AreEqual(currentDriver.Url, currentPageTitle);
+            Assert.AreEqual(Hooks.WebDriver.Url, currentPageTitle);
         }
-
     }
 }

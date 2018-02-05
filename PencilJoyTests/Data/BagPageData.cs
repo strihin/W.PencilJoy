@@ -16,8 +16,8 @@ namespace PencilJoyTests.Data
 
         public BagPageData(string DiscountCode, string Currency)
         {
-            this.DiscountCode = DiscountCode;
-            this.Currency = Currency;
+            DiscountCode = DiscountCode;
+            Currency = Currency;
         }
         #endregion
         #region Methods

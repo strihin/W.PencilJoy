@@ -10,7 +10,7 @@ namespace PencilJoyTests.BddCore.Steps
     public class ActionsWithBooksShoppingBagSteps
     {
         private AuthorizationSteps authorizationSteps = new AuthorizationSteps();
-        private IWebDriver currentDriver = null;
+        
         private BagPage bagPage = new BagPage();
 
         private const string currentPageTitle = Helper.StartPage + "/bag";
@@ -49,7 +49,7 @@ namespace PencilJoyTests.BddCore.Steps
         [Given(@"The user removes all books in the order")]
         public void TheUserRemovesAllBooksInTheOrder()
         {
-            bagPage.RemoveAllBooks(currentDriver);
+            bagPage.RemoveAllBooks();
         }
         
        [Given(@"The user gets empty cart with the button Continue shopping")]
@@ -94,7 +94,7 @@ namespace PencilJoyTests.BddCore.Steps
         [Then(@"The popup notification for removing is shown")]
         public void ThenThePopupNotificationForRemovingIsShown()
         {
-            Assert.IsTrue(bagPage.IsAlertExists(currentDriver));
+            Assert.IsTrue(bagPage.IsAlertExists());
         }
        
         [Then(@"The user gets empty cart with the button Continue shopping")]
@@ -112,13 +112,13 @@ namespace PencilJoyTests.BddCore.Steps
         [Then(@"The user is redirected to create book page")]
         public void ThenTheUserIsRedirectedToCreateBookPage()
         {
-            Assert.AreEqual(currentDriver.Url, Helper.StartPage); 
+            Assert.AreEqual(Hooks.WebDriver.Url, Helper.StartPage); 
         }
         
         [Then(@"The user is redirected on the edit book page")]
         public void ThenTheUserIsRedirectedOnTheEditBookPage()
         {
-            Assert.AreEqual(currentDriver.Url, editPageTitle); 
+            Assert.AreEqual(Hooks.WebDriver.Url, editPageTitle); 
         }
         [When(@"The user clicks to the button Next")]
         public void WhenTheUserClicksToTheButtonNext()
@@ -129,7 +129,7 @@ namespace PencilJoyTests.BddCore.Steps
         [Then(@"The user is redirected to the checkout page\.")]
         public void ThenTheUserIsRedirectedToTheCheckoutPage_()
         {
-            Assert.AreEqual(currentDriver.Url, checkoutPageTitle); 
+            Assert.AreEqual(Hooks.WebDriver.Url, checkoutPageTitle); 
         }
     }
 }

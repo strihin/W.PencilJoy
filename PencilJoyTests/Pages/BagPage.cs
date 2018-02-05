@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using PencilJoyTests.BddCore;
 using PencilJoyTests.Data;
 using PencilJoyTests.Maths;
 
@@ -12,7 +13,7 @@ namespace PencilJoyTests.Pages
 {
    class BagPage : FooterPage
     {
-        private WebDriverWait _waitDriver;
+        
         private BagMaths _bagMath { get; set; }
         private  BagPageData _bagPageData {get; set; }
         private string randomCurrency { get; set; }
@@ -23,9 +24,9 @@ namespace PencilJoyTests.Pages
         private int bookAmountBeforeRemoving { get; set; }
         
      //   public BagPage() { }
-        public BagPage(WebDriverWait waitDriver, BagMaths bagMath, BagPageData bagPageData)
+        public BagPage(BagMaths bagMath, BagPageData bagPageData)
         {
-            _waitDriver = waitDriver;
+            
             _bagMath = bagMath;
             _bagPageData = bagPageData;
         }
@@ -40,49 +41,49 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("tr:nth-child("+numberEditBook+") a.edit")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("tr:nth-child("+numberEditBook+") a.edit")));
             }
         }
         private IWebElement RemoveBookLink
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("tr:nth-child(" + numberRemoveBook + ") a.delete")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("tr:nth-child(" + numberRemoveBook + ") a.delete")));
             }
         }
         private IWebElement DiscountCodeInput
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("discount-code")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("discount-code")));
             }
         }
         private IWebElement DiscountCodeButton
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("js-discount-check")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("js-discount-check")));
             }
         }
         private IWebElement CurrencySelector
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("currency-switch")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("currency-switch")));
             }
         }
         private IWebElement NextButton
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("js-prevalidate-discount-code")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("js-prevalidate-discount-code")));
             }
         }
         private IWebElement ShopMoreBooksButton
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("green-btn")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("green-btn")));
             }
         }
 
@@ -90,14 +91,14 @@ namespace PencilJoyTests.Pages
        {
            get
            {
-               return _waitDriver.Until(ExpectedConditions.ElementToBeClickable
+               return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable
                    (By.CssSelector("table:nth-child(1) > tbody")));
            }
        }
 
        private IWebElement DisountPercent
        {
-           get { return  _waitDriver.Until(ExpectedConditions.ElementToBeClickable
+           get { return  Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable
                (By.XPath(".//tbody/tr/td[3]/b"))); }
        }
        private IReadOnlyCollection<IWebElement> Products
@@ -129,21 +130,21 @@ namespace PencilJoyTests.Pages
        }
        private IWebElement GrandTotalPrice
        {
-           get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.XPath(".//*[text()='GRAND total']/../following-sibling::td[1]"))); }
+           get { return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.XPath(".//*[text()='GRAND total']/../following-sibling::td[1]"))); }
        }
 
        private IWebElement TitleEmptyBag
        {
-           get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.TagName("h2"))); }
+           get { return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.TagName("h2"))); }
        }
        private IWebElement ButtonContinueShopping
        {
-           get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("emp-cart"))); }
+           get { return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("emp-cart"))); }
        }
 
        private IWebElement LinkBasket
        {
-           get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("active"))); }
+           get { return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("active"))); }
        }
 
        private IWebElement DiscountIsAvailable
@@ -153,7 +154,7 @@ namespace PencilJoyTests.Pages
        
        private IWebElement DiscountRow
        {
-            get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("discount-row"))); }
+            get { return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("discount-row"))); }
        }
       
         #endregion
@@ -220,18 +221,18 @@ namespace PencilJoyTests.Pages
            RemoveBookLink.Click();
            return MethodBase.GetCurrentMethod().Name;
        }
-       public string AcceptRemovingBook(IWebDriver _webDriver)
+       public string AcceptRemovingBook()
        {
-           _webDriver.SwitchTo().Alert().Accept();
+           Hooks.WebDriver.SwitchTo().Alert().Accept();
            return MethodBase.GetCurrentMethod().Name;
        }
 
-       public void RemoveAllBooks(IWebDriver _webDriver)
+       public void RemoveAllBooks()
        {
            for(int i = 0; i < Products.Count; i++)
            {
                RemoveBook(i + 1);
-               AcceptRemovingBook(_webDriver);
+               AcceptRemovingBook();
            }
        }
 
@@ -367,11 +368,11 @@ namespace PencilJoyTests.Pages
            return (bookAmountBeforeRemoving - Products.Count == 1);
        }
 
-       public bool IsAlertExists(IWebDriver _webDriver)
+       public bool IsAlertExists()
        {
            try
            {
-               _webDriver.SwitchTo().Alert();
+               Hooks.WebDriver.SwitchTo().Alert();
                return true;
            }   
            catch (NoAlertPresentException Ex)

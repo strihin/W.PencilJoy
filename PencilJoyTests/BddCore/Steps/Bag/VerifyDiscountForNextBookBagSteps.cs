@@ -8,7 +8,7 @@ namespace PencilJoyTests.BddCore.Steps
     [Binding]
     public class VerifyDiscountForNextBookBagSteps
     {
-        private IWebDriver currentDriver = null;
+        
         private BagPage bagPage = new BagPage();
         internal ActionsWithBooksShoppingBagSteps bagSteps = new ActionsWithBooksShoppingBagSteps();
         internal AuthorizationSteps authorizationSteps = new AuthorizationSteps();
@@ -28,7 +28,7 @@ namespace PencilJoyTests.BddCore.Steps
         public void WhenTheUserIsOnTheCheckoutPage()
         {
             bagSteps.GoToCheckoutPage();
-            Assert.AreEqual(currentDriver.Url, checkoutPageTitle);
+            Assert.AreEqual(Hooks.WebDriver.Url, checkoutPageTitle);
         }
         
         [Then(@"The user has correct discount percent for each book as (.*), (.*)")]

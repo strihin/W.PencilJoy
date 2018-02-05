@@ -2,19 +2,22 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using PencilJoyTests.BddCore;
 using PencilJoyTests.Data;
 
 namespace PencilJoyTests.Pages
 {
     class CreateBookPage
     {
-        private readonly WebDriverWait _waitDriver;
         private CreateBookData _createBookData;
 
-        public CreateBookPage() { }
-        public CreateBookPage(WebDriverWait waitDriver, CreateBookData createBookData)
+        public CreateBookPage()
         {
-            _waitDriver = waitDriver;
+            _createBookData = new CreateBookData();
+        }
+        public CreateBookPage(CreateBookData createBookData)
+        {
+            
             _createBookData = createBookData;
         }
 
@@ -23,49 +26,49 @@ namespace PencilJoyTests.Pages
         {
             get 
             { 
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("name")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("name")));
             }
         }
         private IWebElement BirthmonthDropdown
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("month")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("month")));
             }
         }
         private IWebElement BirthdayDropdown
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("date")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("date")));
             }
         }
         private IWebElement GenderPersonDropdown
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("#create-child > div.cc-block.gender > div.cc-btns > a:nth-child(" + _createBookData.NumberSex + ")")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("#create-child > div.cc-block.gender > div.cc-btns > a:nth-child(" + _createBookData.NumberSex + ")")));
             }
         }
         private IWebElement CharacterPersonDropItem
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector(_createBookData.SelectorForCharacterPerson + " > div.sc-list > ul > li:nth-child(" + _createBookData.NumberCharacter + ")")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector(_createBookData.SelectorForCharacterPerson + " > div.sc-list > ul > li:nth-child(" + _createBookData.NumberCharacter + ")")));
             }
         }
         private IWebElement PreviewYourBookButton
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("#create-child > div.cc-block.submit > input[type='submit']")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("#create-child > div.cc-block.submit > input[type='submit']")));
             }
         }
         private IWebElement CurrencySelect
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("g-currency-switch")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("g-currency-switch")));
             }
         }
         #endregion
@@ -127,7 +130,7 @@ namespace PencilJoyTests.Pages
         }
         public bool VerifyErrorField(string fieldName)
         {
-            IWebElement parentElement = Helper.SearchFieldByName(_waitDriver, fieldName);
+            IWebElement parentElement = Helper.SearchFieldByName(fieldName);
             return Helper.SearchErrorField(parentElement);
         }
         #endregion

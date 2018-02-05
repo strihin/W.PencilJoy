@@ -25,10 +25,10 @@ namespace PencilJoyTests.Maths
 
         public CheckoutMaths(BagMaths bagMathData)
         {
-            this.bagMathData = bagMathData;
+            bagMathData = bagMathData;
     /*
-            this.ActualOrder = new Order();
-            this.ExpectedOrder = new Order();
+            ActualOrder = new Order();
+            ExpectedOrder = new Order();
      */
         }
         #endregion

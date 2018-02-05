@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using PencilJoyTests.BddCore;
 using PencilJoyTests.Data;
 using PencilJoyTests.Maths;
 
@@ -11,16 +12,16 @@ namespace PencilJoyTests.Pages
 {
     class PreviewPage
     {
-        private readonly WebDriverWait _waitDriver;
+       
 
         private PreviewMaths previewMath { get; set; }
 
         private string randomCurrency { get; set; }
 
         public PreviewPage() { }
-        public PreviewPage(WebDriverWait waitDriver, PreviewMaths previewMath)
+        public PreviewPage(PreviewMaths previewMath)
         {
-           _waitDriver = waitDriver;
+           
            this.previewMath = previewMath;
         }
 
@@ -29,7 +30,7 @@ namespace PencilJoyTests.Pages
        {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.CssSelector("div.btns > div.btns-unit > a")));
             }
        }
@@ -37,7 +38,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.CssSelector("div.btns > a.js-show-popup-rml")));
             }
         }
@@ -45,7 +46,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.CssSelector("div.btns > a:nth-child(3)")));
             }
         }
@@ -53,7 +54,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("g-currency-switch")));
             }
         }
@@ -63,7 +64,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.ClassName("remind-wrapper")));
             }
         }
@@ -71,7 +72,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.ClassName("close-remind-form")));
             }
         }
@@ -79,7 +80,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("email")));
             }
         }
@@ -87,7 +88,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.CssSelector("#form-remind > div:nth-child(7) label")));
             }
         }
@@ -95,7 +96,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.CssSelector("#form-remind > div:nth-child(8) label")));
             }
         }
@@ -103,7 +104,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.CssSelector("div.subscribe-box  label")));
             }
         }
@@ -111,7 +112,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("datepicker")));
             }
         }
@@ -120,7 +121,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("datepicker-days")));
             }
         }
@@ -129,7 +130,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.CssSelector("#form-remind > input.btn-previe")));
             }
         }
@@ -137,7 +138,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("rw-content-success")));
             }
         }
@@ -145,7 +146,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.ClassName("rem-error")));
             }
         }
@@ -154,7 +155,7 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.Id("teleport")));
             }
         }

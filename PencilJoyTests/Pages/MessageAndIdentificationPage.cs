@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using PencilJoyTests.BddCore;
 using PencilJoyTests.Data;
 using PencilJoyTests.Maths;
 
@@ -8,13 +9,13 @@ namespace PencilJoyTests.Pages
 {
     class MessageAndIdentificationPage
     {
-        private WebDriverWait _waitDriver;
+        
         private MessageAndIdentificationData _messageAndIdentificationData;
 
         public MessageAndIdentificationPage() { }
-        public MessageAndIdentificationPage(WebDriverWait waitDriver, MessageAndIdentificationData messageAndIdentificationData)
+        public MessageAndIdentificationPage(MessageAndIdentificationData messageAndIdentificationData)
         {
-            _waitDriver = waitDriver;
+            
             _messageAndIdentificationData = messageAndIdentificationData;
         }      
 
@@ -23,88 +24,88 @@ namespace PencilJoyTests.Pages
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("message")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("message")));
             }
         }
         private IWebElement ReturningCustomerTab
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("checkout-returning")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("checkout-returning")));
             }
         }
         private IWebElement EmailReturningCustomerTextbox
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("auth_email")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("auth_email")));
             }
         }
         private IWebElement PasswordReturningCustomerTextbox
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("auth_password")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Name("auth_password")));
             }
         }
         private IWebElement NewCustomerTab
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("personal-msg-form")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("personal-msg-form")));
             }
         }
         private IWebElement NameCustomerTextbox
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("name")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("name")));
             }
         }
         private IWebElement EmailCustomerTextbox
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("email")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("email")));
             }
         }
         private IWebElement NextButton
         {
             get
             {   
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(
                     By.CssSelector("#personalmesssage > input.btn.blue-btn.shadow")));
             }
         }
         private IWebElement BlockedNotification
         {
-            get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.TagName("h6"))); }
+            get { return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.TagName("h6"))); }
         }
         private IWebElement TabNewCustomer
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("personal-msg-form")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("personal-msg-form")));
             }
         }
         private IWebElement TabReturningCustomer
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("checkout-returning")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("checkout-returning")));
             }
         }
         private IWebElement CurrencySelect
         {
             get
             {
-                return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("g-currency-switch")));
+                return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("g-currency-switch")));
             }
         }
 
         private IWebElement TitleAuthorization
         {
-            get { return _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("double"))); }
+            get { return Hooks.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(By.ClassName("double"))); }
         }
         #endregion
 

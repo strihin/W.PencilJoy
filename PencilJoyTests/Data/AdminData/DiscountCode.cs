@@ -13,8 +13,8 @@ namespace PencilJoyTests.Data.AdminData
 
         public DiscountCode(string CodeName, int CodeValue)
         {
-            this.CodeName = CodeName;
-            this.CodeValue = CodeValue;
+            CodeName = CodeName;
+            CodeValue = CodeValue;
         }
 
     }

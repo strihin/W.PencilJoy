@@ -11,7 +11,7 @@ namespace PencilJoyTests.BddCore.Steps
     [Binding]
     public class EditingAboutChildSDataForABookSteps
     {
-        private IWebDriver currentDriver = null;
+        
         private CreateBookData createBookData;
         private EditBookPage editPage = new EditBookPage();
         private FillChildDataSteps childDataSteps = new FillChildDataSteps();
@@ -25,7 +25,7 @@ namespace PencilJoyTests.BddCore.Steps
         public void GivenTheUserIsOnThePreviewPage()
         {
             childDataSteps.GoNextStep();
-            Assert.AreEqual(currentDriver.Url, previewPageTitle);
+            Assert.AreEqual(Hooks.WebDriver.Url, previewPageTitle);
         }
         
         [Given(@"The user is on the bag page")]
@@ -33,7 +33,7 @@ namespace PencilJoyTests.BddCore.Steps
         {
             childDataSteps.GoNextStep();
             childDataSteps.GoToAuthorizationPage();
-            Assert.AreEqual(currentDriver.Url, bagPageTitle);
+            Assert.AreEqual(Hooks.WebDriver.Url, bagPageTitle);
         }
         
         [Given(@"The user is on the edit book page")]
@@ -41,7 +41,7 @@ namespace PencilJoyTests.BddCore.Steps
         {
             childDataSteps.GoNextStep();
             childDataSteps.GoToEditBookPage();
-            Assert.AreEqual(currentDriver.Url, editPageTitle);
+            Assert.AreEqual(Hooks.WebDriver.Url, editPageTitle);
         }
         
         [When(@"The user edits fields with correct data to fields name and date as (.*) , (.*) , (.*)")]
@@ -80,25 +80,25 @@ namespace PencilJoyTests.BddCore.Steps
         [Then(@"The user is redirected to edit page\.")]
         public void ThenTheUserIsRedirectedToEditPage_()
         {
-            Assert.AreEqual(currentDriver.Url, editPageTitle);
+            Assert.AreEqual(Hooks.WebDriver.Url, editPageTitle);
         }
         
         [Then(@"The user is redirected to preview page with changing data\.")]
         public void ThenTheUserIsRedirectedToPreviewPageWithChangingData_(Table table)
         {
-            Assert.AreEqual(currentDriver.Url, previewPageTitle);
+            Assert.AreEqual(Hooks.WebDriver.Url, previewPageTitle);
         }
         
         [Then(@"The user is redirected to preview page without changing data\.")]
         public void ThenTheUserIsRedirectedToPreviewPageWithoutChangingData_()
         {
-            Assert.AreEqual(currentDriver.Url, previewPageTitle);
+            Assert.AreEqual(Hooks.WebDriver.Url, previewPageTitle);
         }
         
         [Then(@"The user isn`t redirected to preview page with changing data\.")]
         public void ThenTheUserIsnTRedirectedToPreviewPageWithChangingData_(Table table)
         {
-            Assert.AreEqual(currentDriver.Url, editPageTitle);
+            Assert.AreEqual(Hooks.WebDriver.Url, editPageTitle);
         }
 
         [When(@"The user clicks to the button Edit book")]
